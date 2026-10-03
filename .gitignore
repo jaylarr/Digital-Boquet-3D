@@ -1,0 +1,9 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+*.tsbuildinfo
+*-output.log
+browser-install.log
+browser-focused.log
+.DS_Store

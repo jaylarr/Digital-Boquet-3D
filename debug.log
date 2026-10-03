@@ -1,0 +1,4 @@
+[1003/223353.563:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:254] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+[1003/223418.044:ERROR:gpu\command_buffer\service\gl_utils.cc:427] [.WebGL-0xf2400423800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[1003/224214.125:ERROR:gpu\command_buffer\service\gl_utils.cc:427] [.WebGL-0xfc00408e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[1003/230438.990:ERROR:gpu\command_buffer\service\gl_utils.cc:427] [.WebGL-0x17cc00c27600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
