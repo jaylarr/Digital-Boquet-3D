@@ -8,15 +8,26 @@ import { buildBouquet, disposeModel, effectModel, filler, flower, mergeModel, ri
 
 describe('portable bouquets', () => {
   it('round trips every design value and Unicode gift text', () => {
-    const config = { ...clone(presets[4].config), size: 1.2, spread: .8, gift: { to: '小花 🌷', from: 'Arjay 🫶', message: 'Happy birthday! 🎉\n你好 — a little bloom for you. 👩🏽‍🌾' } };
+    const config = { ...clone(presets[4].config), size: 1.2, spread: .8, gift: { to: '小花 🌷', from: 'Arjay 🫶', title: 'Happy birthday, 小花 🌷', message: 'Happy birthday! 🎉\n你好 — a little bloom for you. 👩🏽‍🌾' } };
     expect(decode(encode(config))).toEqual(config);
     const url = new URL(shareUrl(config, 'https://example.com/petalpop/?old=yes#old'));
     expect(url.pathname).toBe('/petalpop/'); expect(url.search).toBe(''); expect(decode(url.hash.slice(3))).toEqual(config);
   });
   it('supports maximum text limits including emoji', () => {
-    const config = clone(starter); config.gift = { to: '🌷'.repeat(50), from: '你'.repeat(50), message: '🌹'.repeat(500) };
+    const config = clone(starter); config.gift = { to: '🌷'.repeat(50), from: '你'.repeat(50), title: '🌸'.repeat(100), message: '🌹'.repeat(500) };
     expect(decode(encode(config))).toEqual(config);
     config.gift.message += 'x'; expect(() => validate(config)).toThrow('too long');
+  });
+  it('loads existing links and drafts without a title while preserving their note as the body', () => {
+    const legacy = { ...clone(starter), gift: { to: '小花', from: 'Arjay', message: 'The original note.\nStill here! 🌷' } };
+    const expected = { ...legacy, gift: { ...legacy.gift, title: '' } };
+    expect(decode(LZString.compressToEncodedURIComponent(JSON.stringify(legacy)))).toEqual(expected);
+    expect(loadDraft({ getItem: () => JSON.stringify(legacy) })).toEqual(expected);
+  });
+  it('rejects overlong and non-string titles and retains literal text without treating it as markup', () => {
+    for (const title of ['🌸'.repeat(101), 42, null, {}]) expect(() => validate({ ...clone(starter), gift: { ...starter.gift, title } })).toThrow();
+    const config = clone(starter); config.gift.title = '<b>A little joy</b>';
+    expect(decode(encode(config)).gift.title).toBe(config.gift.title);
   });
   it.each(['', '!bad', 'abc', 'a'.repeat(6001)])('rejects broken payload %s', payload => expect(() => decode(payload)).toThrow());
   it('rejects unsupported versions without changing the source', () => {
@@ -76,7 +87,7 @@ describe('original 3D catalog and placement', () => {
   });
   it('preserves arrangements across reloads and text changes', () => {
     expect(layout(starter)).toEqual(layout(decode(encode(starter))));
-    expect(layout({ ...clone(starter), gift: { to: 'Different', from: '', message: 'Text only' } })).toEqual(layout(starter));
+    expect(layout({ ...clone(starter), gift: { to: 'Different', from: '', title: 'A new title', message: 'Text only' } })).toEqual(layout(starter));
     expect(layout({ ...clone(starter), seed: 555 })).not.toEqual(layout(starter));
   });
   it.each(catalog.flowers)('builds maximum $id bouquets within geometry and draw-call limits', item => {

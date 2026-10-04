@@ -1,0 +1,28 @@
+{
+  "environment": "Local production build, Chromium / SwiftShader, emulated mobile touch",
+  "steppedArrangement": true,
+  "steppedFillers": true,
+  "individualTransforms": true,
+  "stemsToggle": true,
+  "bagEnclosed": true,
+  "savedLinkRoundTrip": true,
+  "recipientDraftPreserved": true,
+  "remixExact": true,
+  "letterCompatible": true,
+  "pngDownloaded": true,
+  "arrangement": {
+    "profile": "stepped",
+    "edits": [
+      {
+        "key": "rose:1",
+        "height": 0.45,
+        "size": 1.4,
+        "x": 0.2,
+        "z": -0.25
+      }
+    ],
+    "showStems": true,
+    "fillerProfile": "stepped"
+  },
+  "errors": []
+}

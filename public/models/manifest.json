@@ -1,0 +1,186 @@
+{
+  "revision": 2,
+  "generated": "2026-10-04",
+  "units": "Decorative scene units; Y up; front +Z; ground Y=0",
+  "static": true,
+  "assets": [
+    {
+      "id": "teddy-bear",
+      "name": "Cuddle Teddy",
+      "note": "Cream plush, little bow & stitched paws",
+      "color": "#dcc6a4",
+      "file": "teddy-bear.glb",
+      "thumbnail": "teddy-bear.png",
+      "bytes": 1004340,
+      "size": [
+        0.8923777341842651,
+        1.520763874053955,
+        0.7900000214576721
+      ],
+      "floor": 0,
+      "calls": 10,
+      "triangles": 31600,
+      "reloaded": true
+    },
+    {
+      "id": "heart-balloon",
+      "name": "Heart Balloon",
+      "note": "Rose foil, sealed edge & curling string",
+      "color": "#db7998",
+      "file": "heart-balloon.glb",
+      "thumbnail": "heart-balloon.png",
+      "bytes": 979680,
+      "size": [
+        0.9698573350906372,
+        2.3297977447509766,
+        0.4451200067996979
+      ],
+      "floor": 0,
+      "calls": 7,
+      "triangles": 30876,
+      "reloaded": true
+    },
+    {
+      "id": "cute-puppy",
+      "name": "Golden Puppy",
+      "note": "Floppy ears & a very happy little face",
+      "color": "#dba769",
+      "file": "cute-puppy.glb",
+      "thumbnail": "cute-puppy.png",
+      "bytes": 1096208,
+      "size": [
+        0.8917293846607208,
+        1.3095614910125732,
+        0.7510558664798737
+      ],
+      "floor": 0,
+      "calls": 17,
+      "triangles": 34512,
+      "reloaded": true
+    },
+    {
+      "id": "cute-kitten",
+      "name": "Ginger Kitten",
+      "note": "Pink ears, tabby stripes & a curled tail",
+      "color": "#dca06b",
+      "file": "cute-kitten.glb",
+      "thumbnail": "cute-kitten.png",
+      "bytes": 1166904,
+      "size": [
+        0.7968719899654388,
+        1.4347479343414307,
+        0.6675089597702026
+      ],
+      "floor": 0,
+      "calls": 16,
+      "triangles": 32406,
+      "reloaded": true
+    },
+    {
+      "id": "standing-frame",
+      "name": "Memory Frame",
+      "note": "Oak, cream mat & a real rear easel",
+      "color": "#c69a6d",
+      "file": "standing-frame.glb",
+      "thumbnail": "standing-frame.png",
+      "bytes": 588228,
+      "size": [
+        1.1299999952316284,
+        1.4725970029830933,
+        0.7086024284362793
+      ],
+      "floor": 0,
+      "calls": 10,
+      "triangles": 12214,
+      "reloaded": true,
+      "photoSurface": "photo-surface",
+      "photoAspectRatio": 0.7999999999999999,
+      "frameOrientation": "portrait",
+      "photoFit": "contain"
+    },
+    {
+      "id": "sealed-envelope",
+      "name": "Sealed Letter",
+      "note": "A wax-sealed envelope with a personal note inside",
+      "color": "#ddb4bb",
+      "file": "sealed-envelope.glb",
+      "thumbnail": "sealed-envelope.png",
+      "bytes": 170508,
+      "size": [
+        1.5800000429153442,
+        1.0800000429153442,
+        0.21050000935792923
+      ],
+      "floor": 0,
+      "calls": 5,
+      "triangles": 3498,
+      "reloaded": true
+    },
+    {
+      "id": "landscape-frame",
+      "name": "Landscape Frame",
+      "note": "Wide oak frame for shared moments & scenery",
+      "color": "#aa7953",
+      "file": "landscape-frame.glb",
+      "thumbnail": "landscape-frame.png",
+      "bytes": 539536,
+      "size": [
+        1.4700000286102295,
+        1.135873556137085,
+        0.7074092254042625
+      ],
+      "floor": 0,
+      "calls": 9,
+      "triangles": 10334,
+      "reloaded": true,
+      "photoSurface": "photo-surface",
+      "photoAspectRatio": 1.25,
+      "frameOrientation": "landscape",
+      "photoFit": "contain"
+    },
+    {
+      "id": "golden-frame",
+      "name": "Golden Frame",
+      "note": "Polished gold, fine trim & decorative corners",
+      "color": "#d3ac62",
+      "file": "golden-frame.glb",
+      "thumbnail": "golden-frame.png",
+      "bytes": 728916,
+      "size": [
+        1.1299999952316284,
+        1.4728364944458008,
+        0.726526752114296
+      ],
+      "floor": 0,
+      "calls": 11,
+      "triangles": 16446,
+      "reloaded": true,
+      "photoSurface": "photo-surface",
+      "photoAspectRatio": 0.7999999999999999,
+      "frameOrientation": "portrait",
+      "photoFit": "contain"
+    },
+    {
+      "id": "snapshot-frame",
+      "name": "Snapshot Frame",
+      "note": "A playful instant-photo border in soft ivory",
+      "color": "#f4e9d8",
+      "file": "snapshot-frame.glb",
+      "thumbnail": "snapshot-frame.png",
+      "bytes": 440388,
+      "size": [
+        0.9319999814033508,
+        1.272568941116333,
+        0.688967302441597
+      ],
+      "floor": 0,
+      "calls": 8,
+      "triangles": 7982,
+      "reloaded": true,
+      "photoSurface": "photo-surface",
+      "photoAspectRatio": 0.7999999999999999,
+      "frameOrientation": "portrait",
+      "photoFit": "contain"
+    }
+  ]
+}

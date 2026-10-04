@@ -1,0 +1,11 @@
+{
+  "productionPreview": "http://127.0.0.1:5191",
+  "assetCount": 5,
+  "selection": true,
+  "thumbnails": true,
+  "glbFiles": true,
+  "customUpload": true,
+  "customGlbEmbeddedPhoto": true,
+  "bouquetEntryRenders": true,
+  "pageErrors": []
+}

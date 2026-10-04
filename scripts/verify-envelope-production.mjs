@@ -1,0 +1,40 @@
+/* global process, console, document, localStorage, window, Event */
+import assert from 'node:assert/strict';
+import { URL } from 'node:url';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { chromium, expect } from '@playwright/test';
+import { decode } from '../src/config.ts';
+const address = process.argv[2] ?? 'http://127.0.0.1:5194';
+const directory = 'artifacts/envelopes', key = 'petalpop.draft.v1';
+await mkdir(directory, { recursive: true });
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+try {
+  const page = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 1280, height: 960 } }), errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto(address); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true');
+  await page.getByRole('tab', { name: 'Objects', exact: true }).click(); await page.getByRole('button', { name: 'Add Sealed Letter', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Add Sealed Letter', exact: true }).locator('img')).toHaveJSProperty('naturalWidth', 480);
+  await page.screenshot({ path: `${directory}/sealed-scene.png`, fullPage: true });
+  await page.getByRole('button', { name: 'Open & write a note', exact: true }).click();
+  const editor = page.getByRole('textbox', { name: 'Envelope note text', exact: true }); await editor.fill('A little joy, just for you. 🌷');
+  await editor.evaluate(node => { const range = document.createRange(); range.selectNodeContents(node); const s = window.getSelection(); s.removeAllRanges(); s.addRange(range); document.dispatchEvent(new Event('selectionchange')); });
+  await page.getByRole('button', { name: 'Bold', exact: true }).click(); await page.getByLabel('Note font', { exact: true }).selectOption('serif'); await page.getByLabel('Note font size', { exact: true }).selectOption('24');
+  await page.getByRole('dialog').screenshot({ path: `${directory}/production-editor.png` }); await page.getByRole('button', { name: 'Save & seal', exact: true }).click();
+  await page.waitForFunction(key => JSON.parse(localStorage.getItem(key))?.objects[0]?.note?.runs[0]?.size === 24, key);
+  const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)).objects[0], key);
+  await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeEnabled();
+  const url = await page.locator('.share-link').inputValue(); assert.match(new URL(url).hash, /^#s=[A-Za-z0-9_-]{16}$/);
+  const response = await page.request.get(`${address}/api/bouquets/${new URL(url).hash.slice(3)}`); assert.equal(response.status(), 200); assert.deepEqual(decode((await response.json()).payload).objects[0], saved);
+  const recipient = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 } }); recipient.on('pageerror', e => errors.push(e.message));
+  await recipient.goto(url); await recipient.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(recipient.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();
+  await recipient.getByRole('button', { name: 'Open your letter', exact: true }).click(); const letter = recipient.getByRole('dialog', { name: 'Read envelope note', exact: true });
+  await expect(letter.locator('.note-reader')).toHaveText('A little joy, just for you. 🌷'); await expect(letter.locator('.note-reader span').first()).toHaveCSS('font-size', '24px'); await expect(letter.locator('.note-reader span').first()).toHaveCSS('font-weight', '700');
+  assert.equal(await recipient.evaluate(key => localStorage.getItem(key), key), null);
+  await letter.screenshot({ path: `${directory}/production-letter-mobile.png` }); await letter.getByRole('button', { name: 'Close letter', exact: true }).click();
+  const download = recipient.waitForEvent('download'); await recipient.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); await (await download).saveAs(`${directory}/production-card.png`);
+  await page.goto(`${address}/asset-study.html`); await page.waitForSelector('[data-ready="true"]'); assert.equal(await page.locator('.asset-card').count(), 9);
+  await page.locator('[data-asset="sealed-envelope"]').click(); await expect(page.locator('.stage')).toHaveAttribute('data-asset', 'sealed-envelope');
+  assert.equal((await page.request.get(`${address}/models/sealed-envelope.glb`)).status(), 200); assert.deepEqual(errors, []);
+  await writeFile(`${directory}/production-validation.json`, JSON.stringify({ environment: 'Local production build, headless Chromium / SwiftShader', formattedNoteShared: true, shortLink: true, recipientDraftPreserved: true, pngDownloaded: true, exportedModel: true, errors }, null, 2));
+  console.log('Production envelope editor, shared note, mobile reader, PNG and model checks passed.');
+} finally { await browser.close(); }

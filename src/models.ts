@@ -2,6 +2,8 @@ import * as T from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { type BouquetConfigV1 } from './config';
 import { layout } from './layout';
+import { wrapperProfile } from './containment';
+import { stemBase } from './flowerArrangement';
 
 type Vec = [number, number, number];
 type Finish = 'petal' | 'leaf' | 'paper' | 'satin' | 'metal' | 'glass';
@@ -31,7 +33,8 @@ function ball(g: T.Group, color: string, p: Vec, scale: Vec, finish: Finish = 'p
 }
 function tube(g: T.Group, color: string, start: Vec, end: Vec, thickness = .012, finish: Finish = 'leaf') {
   const a = new T.Vector3(...start), b = new T.Vector3(...end), d = b.clone().sub(a);
-  const m = add(g, cached('stem', () => new T.CylinderGeometry(.8, 1, 1, 6)), color, a.add(b).multiplyScalar(.5).toArray() as Vec, [thickness, d.length(), thickness], [0, 0, 0], finish);
+  const long = d.length() > .3;
+  const m = add(g, cached(long ? 'branch-stem' : 'stem', () => new T.CylinderGeometry(.8, 1, 1, 6, long ? 8 : 1)), color, a.add(b).multiplyScalar(.5).toArray() as Vec, [thickness, d.length(), thickness], [0, 0, 0], finish);
   m.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), d.normalize()); return m;
 }
 function curve(g: T.Group, color: string, points: Vec[], radius = .01, finish: Finish = 'leaf', segments = 18) {
@@ -232,15 +235,17 @@ function wrapPoint(sheet: WrapSheet, u: number, v: number): Vec {
 }
 function wrapSheet(g: T.Group, color: string, sheet: WrapSheet, finish: Finish = 'paper') {
   const segments = sheet.facets ? 6 : sheet.pleats ? sheet.pleats * 8 : 32;
-  add(g, surface(14, segments, (u, v) => wrapPoint(sheet, u, v), (u, v) => {
+  const wall = add(g, surface(14, segments, (u, v) => wrapPoint(sheet, u, v), (u, v) => {
     const crease = sheet.pleats ? Math.cos(v * TAU * sheet.pleats) * .045 : Math.cos(v * Math.PI * 3 + sheet.angle) * .025;
     return .91 + .09 * u + crease * Math.sin(u * Math.PI);
   }), color, [0, 0, 0], [1, 1, 1], [0, 0, 0], finish);
+  wall.userData.wrapperWall = true;
   // A narrow turned-over hem gives paper thickness without a heavy extruded shell.
-  add(g, surface(2, segments, (u, v) => {
+  const hem = add(g, surface(2, segments, (u, v) => {
     const p = wrapPoint(sheet, .974 + u * .026, v), a = sheet.angle + (v - .5) * sheet.span;
     p[0] += Math.sin(a) * .006; p[2] += Math.cos(a) * .006; return p;
   }), tint(color, .14), [0, 0, 0], [1, 1, 1], [0, 0, 0], finish);
+  hem.userData.wrapperWall = true;
 }
 function floristSheets(g: T.Group, color: string, options: Partial<WrapSheet> & { lift?: number } = {}, finish: Finish = 'paper') {
   const { lift = 0, ...shape } = options;
@@ -257,8 +262,9 @@ export function wrapper(id: string, color: string) {
       const a = v * TAU, sx = Math.sin(a), sz = Math.cos(a), width = .63 + .11 * u ** 3, depth = .44 + .17 * u ** 3;
       return [Math.sign(sx) * Math.abs(sx) ** .34 * width, -1.43 + u * 1.75, Math.sign(sz) * Math.abs(sz) ** .34 * depth];
     };
-    add(g, surface(12, 64, bagPoint, (u, v) => .88 + .1 * u + .025 * Math.cos(v * TAU * 4)), color, [0, 0, 0], [1, 1, 1], [0, 0, 0], 'paper');
-    add(g, surface(2, 64, (u, v) => { const p = bagPoint(.966 + u * .034, v); p[0] *= 1.005; p[2] *= 1.008; return p; }), light, [0, 0, 0], [1, 1, 1], [0, 0, 0], 'paper');
+    const wall = add(g, surface(12, 64, bagPoint, (u, v) => .88 + .1 * u + .025 * Math.cos(v * TAU * 4)), color, [0, 0, 0], [1, 1, 1], [0, 0, 0], 'paper');
+    const hem = add(g, surface(2, 64, (u, v) => { const p = bagPoint(.966 + u * .034, v); p[0] *= 1.005; p[2] *= 1.008; return p; }), light, [0, 0, 0], [1, 1, 1], [0, 0, 0], 'paper');
+    wall.userData.wrapperWall = hem.userData.wrapperWall = true;
     add(g, new T.BoxGeometry(1.19, .018, .8), dark, [0, -1.43, 0], [1, 1, 1], [0, 0, 0], 'paper');
     for (const z of [-.585, .585]) {
       curve(g, dark, [[-.29, .24, z], [-.30, .58, z], [0, .72, z], [.30, .58, z], [.29, .24, z]], .013, 'paper', 24);
@@ -396,18 +402,26 @@ export function stemLeaf(tulip: boolean) {
   return mergeModel(g);
 }
 export function buildBouquet(config: BouquetConfigV1, placed = layout(config)) {
-  const g = new T.Group(), prototypes = new Map<string, T.Group>();
+  const g = new T.Group(), prototypes = new Map<string, T.Group>(), paper = wrapper(config.wrapper.id, config.wrapper.color);
+  const boundary = wrapperProfile(paper);
   for (const [category, entries] of [['flowers', placed.flowers], ['fillers', placed.fillers]] as const) entries.forEach(p => {
     const [x, y, z] = p.position, upright = category === 'flowers' && p.id === 'lavender';
     const normal = new T.Vector3(x * .43, p.id === 'tulip' ? .95 : .62, z * .43 + (p.id === 'tulip' ? .28 : .55)).normalize();
     const end: Vec = category === 'flowers' && !upright ? [x - normal.x * .08, y - normal.y * .08, z - normal.z * .08] : [x, y - .45 * p.scale, z];
-    curve(g, '#638450', [[x * .07, -1.36, z * .07], [x * .54, .2, z * .54], end], .011, 'leaf', 12);
-    if (category === 'flowers') leaf(g, '#6d925d', [x * .72, .62, z * .72], p.id === 'tulip' ? .53 : .31, p.id === 'tulip' ? .06 : .085, (x > 0 ? -1 : 1) * .65, p.turn);
+    const base: Vec = [x * .07, stemBase(config), z * .07];
+    curve(g, '#638450', [base, [x * .54, .2, z * .54], end], .011, 'leaf', 32);
+    if (category === 'flowers') {
+      const custom = config.arrangement && (config.arrangement.edits.length || config.arrangement.profile === 'stepped' || config.arrangement.showStems);
+      const attachment = custom ? new T.Vector3(...base).lerp(new T.Vector3(...end), .73).toArray() as Vec : [x * .72, .62, z * .72] as Vec;
+      leaf(g, '#6d925d', attachment, (p.id === 'tulip' ? .53 : .31) * (custom ? p.scale : 1), (p.id === 'tulip' ? .06 : .085) * (custom ? p.scale : 1), (x > 0 ? -1 : 1) * .65, p.turn);
+    }
     const key = `${category}:${p.id}:${p.color}`;
     if (!prototypes.has(key)) prototypes.set(key, category === 'flowers' ? flower(p.id, p.color) : filler(p.id, p.color));
     const model = prototypes.get(key)!.clone(); model.position.set(x, y, z); model.scale.setScalar(p.scale);
+    if (category === 'flowers' && !upright) model.traverse(o => { if (o instanceof T.Mesh) o.userData.wrapperContact = false; });
     if (category === 'flowers' && !upright) { model.quaternion.setFromUnitVectors(new T.Vector3(0, 0, 1), normal); model.rotateZ(p.turn * .2); }
     else { model.rotation.y = p.turn; model.rotation.z = -x * .18; } g.add(model);
   });
-  g.add(wrapper(config.wrapper.id, config.wrapper.color)); g.add(fitRibbon(ribbon(config.ribbon.id, config.ribbon.color), config.wrapper.id)); return mergeModel(g);
+  boundary.bake(g);
+  g.add(paper); g.add(fitRibbon(ribbon(config.ribbon.id, config.ribbon.color), config.wrapper.id)); return mergeModel(g);
 }

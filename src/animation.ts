@@ -2,6 +2,8 @@ import * as T from 'three';
 import { type BouquetConfigV1 } from './config';
 import { layout, type Placement } from './layout';
 import { disposeModel, fitRibbon, mergeModel, previewModel, ribbon, stemLeaf, wrapper } from './models';
+import { WrapperBoundary } from './containment';
+import { stemBase } from './flowerArrangement';
 
 const UP = new T.Vector3(0, 1, 0), FRONT = new T.Vector3(0, 0, 1);
 type StemCategory = 'flowers' | 'fillers';
@@ -60,6 +62,7 @@ export function optimizeMaterials(group: T.Group, economy = false) {
 function instances(prototype: T.Group, capacity: number) {
   return prototype.children.map(child => {
     const m = child as T.Mesh, inst = new T.InstancedMesh(m.geometry, m.material, capacity);
+    inst.userData.wrapperContact = m.userData.wrapperContact === true;
     inst.instanceMatrix.setUsage(T.DynamicDrawUsage); inst.frustumCulled = false; inst.count = 0; return inst;
   });
 }
@@ -78,6 +81,7 @@ export function collisionLayout(config: BouquetConfigV1) {
 export class AnimatedBouquet {
   readonly group = new T.Group();
   readonly stems: Stem[] = [];
+  readonly boundary = new WrapperBoundary();
   readonly stats = { modelBuilds: 0, updates: 0, updateMs: 0, updateMaxMs: 0, contacts: 0, transitioning: 0, active: 0 };
   private batches = new Map<string, Batch>();
   private decorations = new T.Group();
@@ -85,6 +89,7 @@ export class AnimatedBouquet {
   private initialized = false;
   private settleTime = 0;
   private economy = false;
+  private baseY = -1.36;
   private stemMeshes: T.InstancedMesh[];
   private stemPrototype: T.Group;
   private leaves: { prototype: T.Group; meshes: T.InstancedMesh[]; used: number }[];
@@ -97,25 +102,30 @@ export class AnimatedBouquet {
   private euler = new T.Euler();
   constructor() {
     this.stemPrototype = new T.Group();
-    const geo = new T.CylinderGeometry(.008, .011, 1, 5, 8, true);
+    const geo = new T.CylinderGeometry(.008, .011, 1, 5, 24, true);
     // A small fixed curve adds a natural bend; the instance follows the moving flower head.
     const p = geo.getAttribute('position');
     for (let i = 0; i < p.count; i++) p.setX(i, p.getX(i) + Math.sin((p.getY(i) + .5) * Math.PI) * .018);
     geo.computeVertexNormals();
     this.stemPrototype.add(new T.Mesh(geo, new T.MeshLambertMaterial({ color: '#638450', side: T.DoubleSide })));
+    this.boundary.bind(this.stemPrototype);
     this.stemMeshes = instances(this.stemPrototype, 72); this.group.add(...this.stemMeshes);
-    this.leaves = [false, true].map(tulip => { const prototype = stemLeaf(tulip); optimizeMaterials(prototype); const meshes = instances(prototype, 48); this.group.add(...meshes); return { prototype, meshes, used: 0 }; });
+    this.leaves = [false, true].map(tulip => { const prototype = stemLeaf(tulip); optimizeMaterials(prototype); this.boundary.bind(prototype); const meshes = instances(prototype, 48); this.group.add(...meshes); return { prototype, meshes, used: 0 }; });
     this.group.add(this.decorations);
   }
   sync(config: BouquetConfigV1, animate: boolean) {
+    this.baseY = stemBase(config);
     const start = performance.now(), placed = collisionLayout(config), wanted = new Set<string>(), ordinals = new Map<string, number>();
     for (const [category, entries] of [['flowers', placed.flowers], ['fillers', placed.fillers]] as const) for (const p of entries) {
       const kind = `${category}:${p.id}`, ordinal = ordinals.get(kind) ?? 0;
-      ordinals.set(kind, ordinal + 1); const key = `${kind}:${ordinal}`; wanted.add(key);
+      ordinals.set(kind, ordinal + 1); const key = p.key ? `${category}:${p.key}` : `${kind}:${ordinal}`; wanted.add(key);
       const batchKey = `${kind}:${p.color}`;
       let batch = this.batches.get(batchKey);
       if (!batch) {
         const prototype = previewModel(category, p.id, p.color); optimizeMaterials(prototype, this.economy);
+        // Bloom-only meshes remain untouched; upright lavender includes a long lower stalk.
+        prototype.userData.wrapperContact = category === 'fillers' || p.id === 'lavender';
+        if (prototype.userData.wrapperContact) this.boundary.bind(prototype);
         const meshes = instances(prototype, category === 'flowers' ? 24 : 12);
         batch = { key: batchKey, prototype, meshes, used: 0 }; this.batches.set(batchKey, batch); this.group.add(...meshes); this.stats.modelBuilds++;
       }
@@ -135,7 +145,8 @@ export class AnimatedBouquet {
     const decorKey = JSON.stringify([config.wrapper, config.ribbon]);
     if (decorKey !== this.decorKey) {
       this.group.remove(this.decorations); disposeModel(this.decorations);
-      const source = new T.Group(); source.add(wrapper(config.wrapper.id, config.wrapper.color));
+      const source = new T.Group(), paper = wrapper(config.wrapper.id, config.wrapper.color);
+      this.boundary.set(paper); source.add(paper);
       source.add(fitRibbon(ribbon(config.ribbon.id, config.ribbon.color), config.wrapper.id));
       this.decorations = mergeModel(source); optimizeMaterials(this.decorations, this.economy); this.group.add(this.decorations); this.decorKey = decorKey;
     }
@@ -166,23 +177,23 @@ export class AnimatedBouquet {
       s.position.lerp(this.endpoint, blend);
     }
     this.stats.contacts = resolveContacts(this.stems, snap ? 6 : 2);
-    for (const b of this.batches.values()) b.used = 0;
+    for (const b of this.batches.values()) { b.used = 0; b.meshes.forEach(m => { (m.userData.flowerKeys ??= []).length = 0; }); }
     this.leaves.forEach(l => { l.used = 0; });
     let stemIndex = 0, transitioning = 0, active = 0;
     for (const s of this.stems) {
       const growth = Math.max(.001, s.growth), sc = growth * s.scale;
       if (Math.abs(s.targetGrowth - s.growth) > .015 || Math.abs(s.scale - s.targetScale) > .005) transitioning++;
       if (s.targetGrowth) active++;
-      this.base.set(s.target.x * .07, -1.36, s.target.z * .07);
+      this.base.set(s.target.x * .07, this.baseY, s.target.z * .07);
       this.dummy.position.copy(this.base).lerp(s.position, growth); this.dummy.quaternion.copy(s.rotation);
       if (motion) { this.euler.set(Math.sin(time * 1.1 + s.phase) * .022, 0, Math.cos(time * .95 + s.phase) * .018); this.sway.setFromEuler(this.euler); this.dummy.quaternion.multiply(this.sway); }
       this.dummy.scale.setScalar(sc); this.dummy.updateMatrix();
-      const slot = s.batch.used++; s.batch.meshes.forEach(m => m.setMatrixAt(slot, this.dummy.matrix));
+      const slot = s.batch.used++; s.batch.meshes.forEach(m => { m.setMatrixAt(slot, this.dummy.matrix); m.userData.flowerKeys[slot] = s.category === 'flowers' && s.targetGrowth ? s.key.slice('flowers:'.length) : null; });
       // Stem and leaf attachment points follow the same moving head, so edits do not detach them.
       this.endpoint.copy(this.base).lerp(s.position, growth);
       if (s.category === 'fillers' || s.id === 'lavender') this.endpoint.y -= .5 * sc;
       else { this.normal.copy(FRONT).applyQuaternion(s.rotation); this.endpoint.addScaledVector(this.normal, -.075 * sc); }
-      this.base.set(s.target.x * .07, -1.36, s.target.z * .07);
+      this.base.set(s.target.x * .07, this.baseY, s.target.z * .07);
       this.delta.subVectors(this.endpoint, this.base);
       this.dummy.position.copy(this.base).addScaledVector(this.delta, .5);
       this.dummy.quaternion.setFromUnitVectors(UP, this.normal.copy(this.delta).normalize());
@@ -195,11 +206,13 @@ export class AnimatedBouquet {
         this.dummy.scale.setScalar(sc); this.dummy.updateMatrix(); l.meshes.forEach(m => m.setMatrixAt(l.used, this.dummy.matrix)); l.used++;
       }
     }
-    this.stemMeshes.forEach(m => { m.count = stemIndex; m.instanceMatrix.needsUpdate = true; });
-    this.leaves.forEach(l => l.meshes.forEach(m => { m.count = l.used; m.instanceMatrix.needsUpdate = true; }));
+    // Transform edits invalidate cached bounds used by raycasting and geometry inspection.
+    const refresh = (m: T.InstancedMesh, count: number) => { m.count = count; m.instanceMatrix.needsUpdate = true; m.boundingBox = null; m.boundingSphere = null; };
+    this.stemMeshes.forEach(m => refresh(m, stemIndex));
+    this.leaves.forEach(l => l.meshes.forEach(m => refresh(m, l.used)));
     const idle: Batch[] = [];
     for (const b of this.batches.values()) {
-      b.meshes.forEach(m => { m.count = b.used; m.visible = b.used > 0; m.instanceMatrix.needsUpdate = true; });
+      b.meshes.forEach(m => { refresh(m, b.used); m.visible = b.used > 0; });
       if (!b.used) idle.push(b);
     }
     // Bound GPU cache growth when exploring colors or many presets.
@@ -212,6 +225,7 @@ export class AnimatedBouquet {
     optimizeMaterials(this.decorations, true);
     for (const b of this.batches.values()) {
       optimizeMaterials(b.prototype, true);
+      if (b.prototype.userData.wrapperContact) this.boundary.bind(b.prototype);
       b.meshes.forEach((m, i) => { m.material = (b.prototype.children[i] as T.Mesh).material; });
     }
   }
@@ -222,5 +236,6 @@ export class AnimatedBouquet {
     this.stemMeshes.forEach(m => m.dispose()); disposeModel(this.stemPrototype);
     this.leaves.forEach(l => { l.meshes.forEach(m => m.dispose()); disposeModel(l.prototype); });
     disposeModel(this.decorations); this.group.clear(); this.stems.length = 0;
+    this.boundary.dispose();
   }
 }

@@ -1,0 +1,11 @@
+{
+  "shortUrlLength": 41,
+  "sourcePhotoLength": 2139,
+  "crop": {
+    "mode": "fill",
+    "zoom": 2,
+    "x": 0.24999999167536868,
+    "y": 0
+  },
+  "errors": []
+}

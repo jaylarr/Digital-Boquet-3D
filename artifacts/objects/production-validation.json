@@ -1,0 +1,18 @@
+{
+  "address": "http://127.0.0.1:5181",
+  "environment": "Built Vite app; headless Chromium with SwiftShader, local preview",
+  "objectCount": 5,
+  "photoBytes": 6747,
+  "persistedPlacement": [
+    1.004,
+    -1.5,
+    -1.5
+  ],
+  "sharedUrlLength": 41,
+  "draftReload": true,
+  "freshRecipientDraftPreserved": true,
+  "remixMatches": true,
+  "pngDownloaded": true,
+  "separateAssetStudyAvailable": true,
+  "errors": []
+}

@@ -1,0 +1,17 @@
+{
+  "shortUrlLength": 41,
+  "arrangement": {
+    "profile": "stepped",
+    "edits": [
+      {
+        "key": "rose:0",
+        "height": 0.45,
+        "size": 1.35,
+        "x": 0,
+        "z": 0
+      }
+    ],
+    "showStems": true
+  },
+  "errors": []
+}

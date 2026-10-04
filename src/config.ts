@@ -1,19 +1,24 @@
 import LZString from 'lz-string';
-import { catalog, palettes } from './catalog';
+import { catalog, palettes } from './catalog.ts';
+import { validateGiftObjects, type GiftObject } from './giftCatalog.ts';
+import { pruneArrangement, validateArrangement, type FlowerArrangement } from './flowerArrangement.ts';
 export interface Selection { id: string; count: number; color: string; }
 export interface BouquetConfigV1 {
   version: 1; seed: number; flowers: Selection[]; fillers: Selection[];
   wrapper: { id: string; color: string }; ribbon: { id: string; color: string };
   effects: string[]; palette: string; size: number; spread: number;
-  gift: { to: string; from: string; message: string };
+  gift: { to: string; from: string; title: string; message: string };
+  objects: GiftObject[];
+  arrangement?: FlowerArrangement;
 }
+export const GIFT_TITLE_LIMIT = 100, GIFT_BODY_LIMIT = 500;
 export const DRAFT_KEY = 'petalpop.draft.v1';
 export const starter: BouquetConfigV1 = {
   version: 1, seed: 72631,
   flowers: [{ id: 'rose', count: 3, color: '#e886a3' }, { id: 'tulip', count: 3, color: '#dfa4d8' }, { id: 'daisy', count: 3, color: '#fff1dc' }],
   fillers: [{ id: 'eucalyptus', count: 3, color: '#89aaa0' }],
   wrapper: { id: 'classic-cone', color: '#e1bd94' }, ribbon: { id: 'classic-bow', color: '#b77ca8' },
-  effects: [], palette: 'sugar', size: 1, spread: 1, gift: { to: '', from: '', message: '' },
+  effects: [], palette: 'sugar', size: 1, spread: 1, gift: { to: '', from: '', title: '', message: '' }, objects: [],
 };
 export const total = (selection: Selection[]) => selection.reduce((n, item) => n + item.count, 0);
 export const clone = (config: BouquetConfigV1): BouquetConfigV1 => structuredClone(config);
@@ -47,14 +52,28 @@ export function validate(value: unknown): BouquetConfigV1 {
   if (!palettes.some(p => p.id === value.palette) || typeof value.size !== 'number' || !Number.isFinite(value.size) || value.size < .8 || value.size > 1.2 || typeof value.spread !== 'number' || !Number.isFinite(value.spread) || value.spread < .8 || value.spread > 1.2) throw new Error('This bouquet has invalid settings.');
   if (!record(value.gift)) throw new Error('This bouquet has an invalid message.');
   const text = (entry: unknown, max: number) => { if (typeof entry !== 'string' || Array.from(entry).length > max) throw new Error('This bouquet’s message is too long.'); return entry; };
-  return { version: 1, seed: value.seed as number, flowers, fillers, wrapper: decor(value.wrapper, 'wrappers'), ribbon: decor(value.ribbon, 'ribbons'), effects: value.effects as string[], palette: value.palette as string, size: value.size, spread: value.spread, gift: { to: text(value.gift.to, 50), from: text(value.gift.from, 50), message: text(value.gift.message, 500) } };
+  // Missing titles are valid in existing version-one links and drafts; their note remains the body.
+  return { version: 1, seed: value.seed as number, flowers, fillers, wrapper: decor(value.wrapper, 'wrappers'), ribbon: decor(value.ribbon, 'ribbons'), effects: value.effects as string[], palette: value.palette as string, size: value.size, spread: value.spread, gift: { to: text(value.gift.to, 50), from: text(value.gift.from, 50), title: value.gift.title === undefined ? '' : text(value.gift.title, GIFT_TITLE_LIMIT), message: text(value.gift.message, GIFT_BODY_LIMIT) }, objects: validateGiftObjects(value.objects), ...(value.arrangement !== undefined ? { arrangement: validateArrangement(value.arrangement, flowers) } : {}) };
 }
-export function encode(config: BouquetConfigV1) { return LZString.compressToEncodedURIComponent(JSON.stringify(validate(config))); }
+export function encode(config: BouquetConfigV1) {
+  const c = validate(config), stems = (entries: Selection[]) => entries.map(s => [s.id, s.count, s.color.slice(1)]);
+  // Stable IDs and ordered fields reduce portable links without depending on catalog order.
+  const wire: unknown[] = [2, c.seed, stems(c.flowers), stems(c.fillers), [c.wrapper.id, c.wrapper.color.slice(1)], [c.ribbon.id, c.ribbon.color.slice(1)], c.effects, c.palette, c.size, c.spread, [c.gift.to, c.gift.from, c.gift.title, c.gift.message], c.objects.map(o => [o.uid, o.id, o.position, o.rotation, o.scale, o.color?.slice(1) ?? null, o.photo ?? null, o.crop ? [o.crop.mode, o.crop.zoom, o.crop.x, o.crop.y] : null, ...(o.frameOrientation ? [o.note ?? null, o.frameOrientation] : o.note ? [o.note] : [])])];
+  if (c.arrangement) wire.push(c.arrangement);
+  return `c.${LZString.compressToEncodedURIComponent(JSON.stringify(wire))}`;
+}
+function expandWire(v: unknown) {
+  if (!Array.isArray(v) || ![12, 13].includes(v.length) || v[0] !== 2 || !Array.isArray(v[10]) || v[10].length !== 4 || !Array.isArray(v[11])) throw new Error('This bouquet link seems broken.');
+  const stems = (entries: unknown) => { if (!Array.isArray(entries)) throw new Error('This bouquet link seems broken.'); return entries.map(s => { if (!Array.isArray(s) || s.length !== 3) throw new Error('This bouquet link seems broken.'); return { id: s[0], count: s[1], color: `#${s[2]}` }; }); };
+  const decor = (d: unknown) => { if (!Array.isArray(d) || d.length !== 2) throw new Error('This bouquet link seems broken.'); return { id: d[0], color: `#${d[1]}` }; };
+  return { version: 1, seed: v[1], flowers: stems(v[2]), fillers: stems(v[3]), wrapper: decor(v[4]), ribbon: decor(v[5]), effects: v[6], palette: v[7], size: v[8], spread: v[9], gift: { to: v[10][0], from: v[10][1], title: v[10][2], message: v[10][3] }, ...(v.length === 13 ? { arrangement: v[12] } : {}), objects: v[11].map(o => { if (!Array.isArray(o) || ![8, 9, 10].includes(o.length) || (o[7] !== null && (!Array.isArray(o[7]) || o[7].length !== 4))) throw new Error('This bouquet link seems broken.'); return { uid: o[0], id: o[1], position: o[2], rotation: o[3], scale: o[4], ...(o[5] !== null ? { color: `#${o[5]}` } : {}), ...(o[6] !== null ? { photo: o[6] } : {}), ...(o[7] !== null ? { crop: { mode: o[7][0], zoom: o[7][1], x: o[7][2], y: o[7][3] } } : {}), ...(o.length >= 9 && o[8] !== null ? { note: o[8] } : {}), ...(o.length === 10 ? { frameOrientation: o[9] } : {}) }; }) };
+}
 export function decode(payload: string) {
-  if (!payload || payload.length > 6000 || !/^[A-Za-z0-9+\-$]+$/.test(payload)) throw new Error('This bouquet link seems broken.');
-  const text = LZString.decompressFromEncodedURIComponent(payload);
-  if (!text || text.length > 12000) throw new Error('This bouquet link seems broken.');
-  try { return validate(JSON.parse(text)); } catch (error) { if (error instanceof SyntaxError) throw new Error('This bouquet link seems broken.'); throw error; }
+  const compact = payload.startsWith('c.'), compressed = compact ? payload.slice(2) : payload;
+  if (!compressed || payload.length > 90000 || !/^[A-Za-z0-9+\-$]+$/.test(compressed)) throw new Error('This bouquet link seems broken.');
+  const text = LZString.decompressFromEncodedURIComponent(compressed);
+  if (!text || text.length > 180000) throw new Error('This bouquet link seems broken.');
+  try { return validate(compact ? expandWire(JSON.parse(text)) : JSON.parse(text)); } catch (error) { if (error instanceof SyntaxError) throw new Error('This bouquet link seems broken.'); throw error; }
 }
 export function shareUrl(config: BouquetConfigV1, address = window.location.href) { const url = new URL(address); url.hash = `b=${encode(config)}`; url.search = ''; return url.href; }
 export function loadDraft(storage?: Pick<Storage, 'getItem'>) { try { const text = (storage ?? window.localStorage).getItem(DRAFT_KEY); return text ? validate(JSON.parse(text)) : clone(starter); } catch { return clone(starter); } }
@@ -77,5 +96,5 @@ export function surprise(config: BouquetConfigV1, nextSeed = seed()) {
   const flowers = [...catalog.flowers];
   for (let i = flowers.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [flowers[i], flowers[j]] = [flowers[j], flowers[i]]; }
   const result = { ...config, seed: nextSeed, flowers: flowers.slice(0, 2 + Math.floor(rng() * 3)).map(f => ({ id: f.id, count: 2 + Math.floor(rng() * 3), color: f.color })), fillers: [{ id: pick(catalog.fillers).id, count: 2 + Math.floor(rng() * 4), color: '#89aaa0' }], wrapper: { id: pick(catalog.wrappers).id, color: '#ffffff' }, ribbon: { id: pick(catalog.ribbons).id, color: '#ffffff' }, effects: rng() > .5 ? [pick(catalog.effects).id] : [] };
-  return applyPalette(result, pick(palettes).id);
+  return applyPalette(pruneArrangement(result), pick(palettes).id);
 }

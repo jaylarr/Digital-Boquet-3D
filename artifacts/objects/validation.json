@@ -1,0 +1,105 @@
+{
+  "before": {
+    "calls": 25,
+    "triangles": 58662,
+    "fps": 0,
+    "frames": 76,
+    "pixelRatio": 1,
+    "economy": false,
+    "objects": 1,
+    "objectBuilds": 1,
+    "modelBuilds": 4,
+    "updates": 1,
+    "updateMs": 134.10000002384186,
+    "updateMaxMs": 134.10000002384186,
+    "contacts": 10,
+    "transitioning": 0,
+    "active": 12,
+    "cachedModels": 4,
+    "visibleStems": 12
+  },
+  "after": {
+    "calls": 25,
+    "triangles": 58662,
+    "fps": 0,
+    "frames": 121,
+    "pixelRatio": 1,
+    "economy": false,
+    "objects": 1,
+    "objectBuilds": 1,
+    "modelBuilds": 4,
+    "updates": 1,
+    "updateMs": 134.10000002384186,
+    "updateMaxMs": 134.10000002384186,
+    "contacts": 10,
+    "transitioning": 0,
+    "active": 12,
+    "cachedModels": 4,
+    "visibleStems": 12
+  },
+  "finalObjects": [
+    {
+      "uid": "dfbc53cc-06f1-42e6-99df-8cd042d0d263",
+      "id": "teddy-bear",
+      "position": [
+        -1.2,
+        -1.5,
+        0.45
+      ],
+      "rotation": 0.6108652381980153,
+      "scale": 0.86,
+      "photoLength": 0
+    },
+    {
+      "uid": "42e8c630-68c5-4945-9666-05b311f54f63",
+      "id": "heart-balloon",
+      "position": [
+        1.15,
+        -1.5,
+        0.35
+      ],
+      "rotation": 0,
+      "scale": 0.8,
+      "photoLength": 0
+    },
+    {
+      "uid": "768f3cde-0c6f-4d95-ae64-bc84e18b0306",
+      "id": "cute-puppy",
+      "position": [
+        -0.65,
+        -1.5,
+        1.05
+      ],
+      "rotation": 0,
+      "scale": 0.72,
+      "photoLength": 0
+    },
+    {
+      "uid": "16ca2323-fc6e-42c0-9142-4f4964e26ca7",
+      "id": "cute-kitten",
+      "position": [
+        0.65,
+        -1.5,
+        1.05
+      ],
+      "rotation": 0,
+      "scale": 0.72,
+      "photoLength": 0
+    },
+    {
+      "uid": "8e754952-7d29-4f79-b17d-3310a0b09a61",
+      "id": "standing-frame",
+      "position": [
+        1.25,
+        -1.5,
+        0.6
+      ],
+      "rotation": -0.12,
+      "scale": 0.72,
+      "photoLength": 5971
+    }
+  ],
+  "sharedUrlLength": 41,
+  "errors": [],
+  "receiverErrors": []
+}

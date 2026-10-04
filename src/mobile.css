@@ -1,0 +1,116 @@
+/* One page scroll on phones; navigation stays close to the user's thumbs. */
+.mobile-studio-nav, .mobile-selection { display: none; }
+
+@media (max-width: 760px) {
+  .app { --mobile-header: 68px; --editor-nav: 156px; padding: 0 14px calc(82px + env(safe-area-inset-bottom)); }
+  .app.gift-mode { padding-bottom: env(safe-area-inset-bottom); }
+  .site-header { position: sticky; top: 0; z-index: 20; height: var(--mobile-header); padding: 10px 0; background: var(--cream); }
+  .brand { font-size: 23px; gap: 8px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand small { font-size: 10px; }
+  .header-actions { gap: 5px; }
+  .workspace { padding: 18px 0 12px; gap: 20px; }
+  .column-heading { margin-bottom: 12px; }
+  .column-heading h1 { font-size: 27px; }
+  .column-heading .eyebrow { font-size: 8px; letter-spacing: .8px; }
+  .preset-trigger { font-size: 12px; max-width: 108px; }
+  .scene-wrap { height: clamp(240px, 36svh, 360px); }
+  .scene-hint { font-size: 12px; bottom: 10px; }
+  .scene-toolbar { padding: 7px 8px; }
+  .scene-toolbar .quiet-button { font-size: 12px; }
+  .preview-top { padding: 14px 14px 0; }
+  .live-label { letter-spacing: .9px; }
+  .front-guide button { min-height: 44px; font-size: 11px; }
+  .palette-section { margin-top: 14px; }
+  .palette-name, .surprise-row > span { font-size: 12px; }
+  .palette-swatch { width: 44px; min-width: 44px; height: 48px; }
+  .palette-swatch > span { width: 30px; height: 30px; }
+  .surprise-row { margin-top: 8px; padding-top: 8px; }
+  #bouquet-preview, #builder-navigation { scroll-margin-top: calc(var(--mobile-header) + 8px); }
+  .tab-panel, #selected-object-controls, .arrangement-controls { scroll-margin-top: calc(var(--mobile-header) + var(--editor-nav) + 12px); }
+  .builder-card { overflow: visible; border-radius: 18px; }
+  .builder-heading { padding: 18px 16px 12px; }
+  .builder-heading h2 { font-size: 22px; }
+  .save-status { font-size: 11px; max-width: 110px; }
+  .builder-navigation { position: sticky; top: var(--mobile-header); z-index: 15; background: #fffdfb; border-bottom: 1px solid var(--line); box-shadow: 0 5px 12px #65435b08; }
+  .history-controls { height: 48px; padding: 2px 8px; border-bottom: 0; }
+  .history-controls button { font-size: 13px; min-height: 44px; }
+  .history-controls > span { font-size: 10px; max-width: none; margin-right: 6px; }
+  .tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 4px 8px 8px; overflow: visible; border-bottom: 0; }
+  .tabs button { flex-direction: row; justify-content: center; gap: 5px; padding: 8px 4px; min-height: 46px; border-radius: 10px; color: #79616f; font-size: 12px; background: #faf5f7; }
+  .tabs button svg { width: 16px; height: 16px; }
+  .tabs button.active { background: #f0dfe8; color: #7e4762; box-shadow: inset 0 0 0 1px #d7b6c8; }
+  .tabs button.active::after { display: none; }
+  .tab-panel { height: auto; max-height: none; overflow: visible; padding: 20px 14px; scrollbar-gutter: auto; }
+  .panel-heading { margin-bottom: 16px; }
+  .panel-heading h3 { font-size: 20px; }
+  .panel-heading p { font-size: 13px; }
+  .limit-pill { font-size: 12px; padding: 6px 8px; }
+  .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .item-choice { min-height: 112px; padding: 10px 4px; }
+  .catalog-image { width: 68px; height: 68px; }
+  .item-name { font-size: 12px; }
+  .item-settings { margin: 0; padding: 3px 1px 7px; }
+  .stepper button { min-width: 44px; width: 44px; }
+  .stepper > span { min-width: 12px; }
+  .color-control { min-width: 0; font-size: 12px; }
+  .item-settings .color-control { max-width: none; padding: 0 5px; }
+  .arrangement-controls { padding: 16px 14px 12px; gap: 16px; border-radius: 0 0 18px 18px; }
+  .slider-control input, .individual-flower-controls input { height: 44px; }
+  .slider-control label, .individual-flower-controls label > span { font-size: 13px; }
+  .slider-control label > span, .individual-flower-controls output { font-size: 12px; }
+  .flower-edit-switch { margin-bottom: 14px; }
+  .flower-edit-switch button { min-height: 44px; font-size: 12px; }
+  .flower-profile-art { height: 38px; margin: 0; transform: scale(.8); }
+  .flower-profile-options { gap: 8px; margin-bottom: 16px; }
+  .flower-profile-options button { padding: 4px 5px 10px; }
+  .flower-profile-options small { font-size: 11px; }
+  .flower-arranger-help, .object-help { font-size: 12px; }
+  .individual-flower-controls { grid-template-columns: 1fr; gap: 8px; }
+  .flower-reset-actions button { font-size: 12px; }
+  .stem-visibility strong { font-size: 13px; }
+  .stem-visibility small, .stem-bag-note { font-size: 12px; }
+  .stem-visibility input { width: 24px; height: 24px; }
+  .objects-panel { display: flex; flex-direction: column; }
+  .object-list { order: -2; margin: 0 0 14px; }
+  .object-row > button:first-child { font-size: 13px; min-height: 48px; }
+  .object-index { width: 26px; height: 26px; font-size: 12px; }
+  .object-controls { order: -1; margin: 0 0 20px; padding: 14px 0 16px; border-bottom: 1px solid var(--line); }
+  .object-control-heading strong { font-size: 16px; }
+  .object-control-heading .quiet-button { font-size: 12px; }
+  .object-position-controls label, .object-finish-controls label { grid-template-columns: 1fr auto; gap: 0 10px; font-size: 13px; padding: 7px 0; }
+  .object-position-controls input, .object-finish-controls input { grid-column: 1 / -1; grid-row: 2; height: 44px; }
+  .object-position-controls output, .object-finish-controls output { grid-column: 2; grid-row: 1; font-size: 12px; }
+  .object-color-row, .object-controls .secondary-button, .object-controls > .quiet-button { font-size: 13px; }
+  .object-add img { width: 64px; height: 72px; }
+  .object-add > span { font-size: 12px; }
+  .object-photo-tools p { font-size: 12px; }
+  .object-photo-upload { min-height: 48px; font-size: 14px; }
+  .mobile-selection { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 4px 10px; margin-top: 8px; border: 1px solid #e4d1dc; background: #fffafc; border-radius: 12px; font-size: 13px; color: #805b71; }
+  .mobile-selection .quiet-button { font-size: 13px; }
+  .mobile-studio-nav { position: fixed; z-index: 25; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 8px max(12px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-right)); background: #fffcfaf5; border-top: 1px solid #e1d0da; box-shadow: 0 -5px 24px #7351660b; backdrop-filter: blur(12px); }
+  .mobile-studio-nav button { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; min-height: 54px; padding: 5px; color: #826676; font-size: 12px; }
+  .mobile-studio-nav button[aria-current] { background: #f1e0e9; color: #804761; font-weight: 700; }
+  .app:not(.gift-mode) .toast { bottom: calc(84px + env(safe-area-inset-bottom)); z-index: 30; }
+  .gift-fields input, .gift-fields textarea, .share-link, .individual-flower-select select, .note-toolbar select { font-size: 16px; }
+  .gift-fields input::placeholder, .gift-fields textarea::placeholder { font-size: 14px; }
+  .gift-fields label, .share-link-label { font-size: 14px; }
+  .modal { max-height: calc(100dvh - 28px); overscroll-behavior: contain; }
+  .note-tool-group button { min-width: 44px; width: 44px; }
+  .note-content { scroll-margin: 20px; }
+  .app:has(.gift-fields input:focus, .gift-fields textarea:focus) .mobile-studio-nav { display: none; }
+}
+
+@media (max-width: 359px) {
+  .tabs button { gap: 3px; font-size: 11px; }
+  .tabs button svg { width: 14px; height: 14px; }
+  .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .object-catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .scene-toolbar { flex-wrap: wrap; justify-content: center; gap: 0; }
+  .scene-toolbar > .quiet-button { flex: 1; }
+  .scene-utilities { justify-content: center; }
+  .column-heading h1 { font-size: 24px; }
+  .history-controls > span { display: none; }
+  .brand { font-size: 22px; }
+  .gift-mode .header-actions .quiet-button { font-size: 12px; padding: 5px; }
+}

@@ -1,6 +1,8 @@
 node_modules/
+.data/
 dist/
 test-results/
+.checks/
 playwright-report/
 *.tsbuildinfo
 *-output.log

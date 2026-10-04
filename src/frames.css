@@ -1,0 +1,8 @@
+.frame-orientation{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0;font-size:12px;color:#856879}
+.frame-orientation>div{display:flex;padding:3px;background:#f2e8ee;border:1px solid #e7d7e1;border-radius:10px;gap:3px}
+.frame-orientation button{min-height:38px;font-size:11px;padding:7px 12px;border-radius:7px;color:#856879}
+.frame-orientation button.active{background:#fffafc;box-shadow:0 1px 4px #76594316;color:#80546f;font-weight:600}
+.frame-orientation button:hover{background:#fff7fb}
+.crop-frame.snapshot-frame{padding:10px 10px 30px;background:var(--frame-color);border-color:#d5c6b3}
+.crop-frame.snapshot-frame .crop-mat{padding:0;box-shadow:none}
+.crop-frame.golden-frame{padding:12px;box-shadow:inset 2px 2px 0 #fff1c3,inset -2px -2px 0 #866532,3px 8px 14px #76594325}

@@ -1,0 +1,50 @@
+{
+  "environment": "Headless Chromium / SwiftShader software GPU; 1280×960; motion paused; warm quantity edits; latency includes React commit and two animation frames",
+  "medianMs": 67.80000001192093,
+  "maxMs": 88.80000001192093,
+  "samples": [
+    25.399999976158142,
+    64.5,
+    64.59999996423721,
+    66.80000001192093,
+    67.80000001192093,
+    76.30000001192093,
+    42.69999998807907,
+    88.80000001192093,
+    78.20000004768372,
+    77.80000001192093,
+    84.30000001192093,
+    62
+  ],
+  "longTasks": [
+    61,
+    59,
+    63,
+    64,
+    73,
+    85,
+    75,
+    74,
+    80,
+    59
+  ],
+  "metrics": {
+    "calls": 13,
+    "triangles": 26934,
+    "fps": 0,
+    "frames": 27,
+    "pixelRatio": 1,
+    "economy": false,
+    "objects": 0,
+    "objectBuilds": 0,
+    "modelBuilds": 4,
+    "updates": 13,
+    "updateMs": 0.10000002384185791,
+    "updateMaxMs": 90.40000003576279,
+    "contacts": 10,
+    "transitioning": 0,
+    "active": 12,
+    "cachedModels": 4,
+    "visibleStems": 12
+  }
+}

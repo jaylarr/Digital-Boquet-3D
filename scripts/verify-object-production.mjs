@@ -1,0 +1,68 @@
+/* global process, console, document, localStorage */
+import assert from 'node:assert/strict';
+import { Buffer } from 'node:buffer';
+import { URL } from 'node:url';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { chromium, expect } from '@playwright/test';
+
+const address = process.argv[2] ?? 'http://127.0.0.1:5191';
+const directory = 'artifacts/objects';
+const key = 'petalpop.draft.v1';
+await mkdir(directory, { recursive: true });
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+try {
+  const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1280, height: 960 } });
+  const page = await context.newPage(), errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto(address);
+  await page.getByTestId('scene').locator('canvas').waitFor();
+  await page.waitForFunction(() => document.querySelector('[data-testid="scene"]')?.getAttribute('data-ready') === 'true');
+  await page.getByRole('tab', { name: 'Objects', exact: true }).click();
+  for (const name of ['Cuddle Teddy', 'Heart Balloon', 'Golden Puppy', 'Ginger Kitten', 'Memory Frame']) await page.getByRole('button', { name: `Add ${name}`, exact: true }).click();
+  await page.waitForFunction(key => JSON.parse(localStorage.getItem(key))?.objects.length === 5, key);
+  const image = await page.evaluate(() => {
+    const canvas = document.createElement('canvas'); canvas.width = 500; canvas.height = 400;
+    const c = canvas.getContext('2d'); c.fillStyle = '#d3e8e5'; c.fillRect(0, 0, 500, 400);
+    c.fillStyle = '#b86e8c'; c.fillRect(0, 0, 80, 400); c.fillStyle = '#e6b757'; c.fillRect(420, 0, 80, 400);
+    c.fillStyle = '#425650'; c.textAlign = 'center'; c.font = 'bold 34px sans-serif';
+    c.fillText('TOP', 250, 75); c.fillText('Our memory', 250, 210); c.fillText('BOTTOM', 250, 335);
+    return canvas.toDataURL('image/png');
+  });
+  await page.getByLabel('Frame picture', { exact: true }).setInputFiles({ name: 'memory.png', mimeType: 'image/png', buffer: Buffer.from(image.split(',')[1], 'base64') });
+  await page.getByRole('button', { name: 'Fill the frame', exact: true }).click();
+  await page.getByRole('button', { name: 'Apply crop', exact: true }).click();
+  await page.waitForFunction(key => JSON.parse(localStorage.getItem(key))?.objects[4].photo?.startsWith('data:image/jpeg;base64,'), key);
+  const before = await page.evaluate(key => JSON.parse(localStorage.getItem(key)).objects[4], key);
+  await page.getByRole('slider', { name: 'Object size', exact: true }).press('ArrowRight');
+  await page.waitForFunction(({ key, size }) => JSON.parse(localStorage.getItem(key)).objects[4].scale > size, { key, size: before.scale });
+  await page.getByRole('button', { name: 'Tap a spot to place', exact: true }).click();
+  const bounds = await page.getByTestId('scene').boundingBox();
+  await page.mouse.click(bounds.x + bounds.width * .72, bounds.y + bounds.height * .65);
+  await page.waitForFunction(({ key, position }) => JSON.stringify(JSON.parse(localStorage.getItem(key)).objects[4].position) !== JSON.stringify(position), { key, position: before.position });
+  const design = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), key);
+  await page.reload(); await page.waitForFunction(() => document.querySelector('[data-testid="scene"]')?.getAttribute('data-ready') === 'true');
+  assert.deepEqual(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).objects, key), design.objects);
+  await page.getByRole('tab', { name: 'Objects', exact: true }).click();
+  await page.screenshot({ path: `${directory}/production-editor.png`, fullPage: true });
+  await page.getByRole('button', { name: 'Share bouquet', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeEnabled();
+  const url = await page.locator('.share-link').inputValue();
+  assert.match(new URL(url).hash, /^#s=[A-Za-z0-9_-]{16}$/); assert.ok(url.length < 60);
+  const recipientContext = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1280, height: 960 } });
+  const recipient = await recipientContext.newPage(); recipient.on('pageerror', e => errors.push(e.message));
+  await recipient.goto(url); await recipient.getByRole('button', { name: 'Tap to open', exact: true }).click();
+  await recipient.getByRole('button', { name: 'Keep this bouquet', exact: true }).waitFor();
+  await recipient.waitForFunction(() => [...document.querySelectorAll('button')].some(button => button.textContent.includes('Keep this bouquet') && !button.disabled));
+  assert.equal(await recipient.evaluate(key => localStorage.getItem(key), key), null);
+  const pending = recipient.waitForEvent('download'); await recipient.getByRole('button', { name: 'Keep this bouquet', exact: true }).click();
+  await (await pending).saveAs(`${directory}/production-card.png`);
+  await recipient.screenshot({ path: `${directory}/production-gift.png`, fullPage: true });
+  await recipient.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click();
+  await recipient.waitForFunction(key => JSON.parse(localStorage.getItem(key))?.objects.length === 5, key);
+  assert.deepEqual(await recipient.evaluate(key => JSON.parse(localStorage.getItem(key)).objects, key), design.objects);
+  await page.goto(`${address}/asset-study.html`); await page.waitForSelector('[data-ready="true"]');
+  assert.equal(await page.locator('.asset-card').count(), 9);
+  assert.deepEqual(errors, []);
+  await writeFile(`${directory}/production-validation.json`, JSON.stringify({ address, environment: 'Built Vite app; headless Chromium with SwiftShader, local preview', objectCount: design.objects.length, photoBytes: design.objects[4].photo.length, persistedPlacement: design.objects[4].position, sharedUrlLength: url.length, draftReload: true, freshRecipientDraftPreserved: true, remixMatches: true, pngDownloaded: true, separateAssetStudyAvailable: true, errors }, null, 2));
+  console.log('Production object placement, photo, draft, sharing, remix, PNG and asset-study checks passed.');
+} finally { await browser.close(); }

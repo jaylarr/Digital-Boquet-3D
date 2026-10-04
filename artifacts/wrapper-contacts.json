@@ -1,0 +1,62 @@
+[
+  {
+    "id": "classic-cone",
+    "calls": 13,
+    "triangles": 90000,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "double-cone",
+    "calls": 13,
+    "triangles": 94096,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "scalloped",
+    "calls": 13,
+    "triangles": 90000,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "pleated",
+    "calls": 13,
+    "triangles": 89232,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "ruffled",
+    "calls": 13,
+    "triangles": 98192,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "origami",
+    "calls": 13,
+    "triangles": 86864,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "heart-collar",
+    "calls": 14,
+    "triangles": 92860,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "petal-collar",
+    "calls": 13,
+    "triangles": 93072,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "gift-bag",
+    "calls": 13,
+    "triangles": 89420,
+    "differentSilhouettePixels": 0
+  },
+  {
+    "id": "frosted",
+    "calls": 14,
+    "triangles": 94096,
+    "differentSilhouettePixels": 0
+  }
+]

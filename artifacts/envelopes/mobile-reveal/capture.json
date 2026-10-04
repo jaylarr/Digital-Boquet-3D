@@ -1,0 +1,19 @@
+{
+  "viewport": [
+    390,
+    844
+  ],
+  "address": "http://127.0.0.1:5194/",
+  "animationNames": [
+    "note-backdrop",
+    "note-flight",
+    "note-paper",
+    "note-flap",
+    "note-seal",
+    "note-caption"
+  ],
+  "revealed": true,
+  "errors": [],
+  "captureMethod": "Timestamped frames rendered from the real mobile CSS animations",
+  "preview": "mobile-envelope-opening.gif"
+}

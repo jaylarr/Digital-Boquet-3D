@@ -1,0 +1,47 @@
+/* global process, console, window, localStorage, Event, HTMLInputElement, document */
+import assert from 'node:assert/strict';
+import { URL } from 'node:url';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { chromium, expect } from '@playwright/test';
+import { clone, decode, DRAFT_KEY, starter } from '../src/config.ts';
+const address = process.argv[2] ?? 'http://127.0.0.1:5194', directory = 'artifacts/arrangement';
+await mkdir(directory, { recursive: true });
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const range = async (page, label, value) => page.getByRole('slider', { name: label, exact: true }).evaluate((input, value) => { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(input, value); input.dispatchEvent(new Event('input', { bubbles: true })); }, value);
+const draft = page => page.evaluate(key => JSON.parse(localStorage.getItem(key)), DRAFT_KEY);
+try {
+  const page = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 1280, height: 960 } }), errors = [];
+  page.on('pageerror', e => errors.push(e.message)); await page.goto(address); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true');
+  await page.getByRole('button', { name: 'Show front view', exact: true }).click();
+  await page.getByTestId('scene').screenshot({ path: `${directory}/natural-front.png` });
+  await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click();
+  await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await page.getByRole('button', { name: 'Stepped filler arrangement', exact: true }).click(); await page.locator('.tab-panel').evaluate(n => { n.scrollTop = 0; }); await page.screenshot({ path: `${directory}/production-fillers.png`, fullPage: true });
+  await page.getByRole('tab', { name: 'Wrap', exact: true }).click(); await page.getByRole('button', { name: 'Show front view', exact: true }).click();
+  await page.getByTestId('scene').screenshot({ path: `${directory}/stepped-front.png` });
+  await page.getByLabel('Show bottom stems', { exact: true }).check(); await page.getByRole('button', { name: 'Show front view', exact: true }).click();
+  await page.getByTestId('scene').screenshot({ path: `${directory}/stems-visible.png` });
+  await page.getByRole('button', { name: 'Select Mini Gift Bag', exact: true }).click(); await expect(page.getByLabel('Show bottom stems', { exact: true })).toHaveCount(0); await page.getByRole('button', { name: 'Show front view', exact: true }).click();
+  await page.getByTestId('scene').screenshot({ path: `${directory}/bag-enclosed.png` });
+  await page.getByRole('button', { name: 'Select Classic Cone', exact: true }).click(); await expect(page.getByLabel('Show bottom stems', { exact: true })).toBeChecked();
+  await page.getByRole('tab', { name: 'Flowers', exact: true }).click(); await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:1');
+  await range(page, 'Individual flower height', '.45'); await range(page, 'Individual flower size', '1.4'); await range(page, 'Individual flower horizontal position', '.2'); await range(page, 'Individual flower depth', '-.25');
+  await expect.poll(async () => (await draft(page)).arrangement.edits[0]).toEqual({ key: 'rose:1', height: .45, size: 1.4, x: .2, z: -.25 });
+  await page.getByRole('button', { name: 'Show front view', exact: true }).click(); await page.locator('.tab-panel').evaluate(n => { n.scrollTop = 0; }); await page.screenshot({ path: `${directory}/production-editor.png`, fullPage: true });
+  await page.getByRole('tab', { name: 'Objects', exact: true }).click(); await page.getByRole('button', { name: 'Add Sealed Letter', exact: true }).click(); await page.getByRole('button', { name: 'Open & write a note', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Envelope note text', exact: true }).fill('A little joy at every height. 🌷'); await page.getByRole('button', { name: 'Save & seal', exact: true }).click();
+  await expect.poll(async () => (await draft(page)).objects[0]?.note?.runs[0]?.text).toBe('A little joy at every height. 🌷'); const saved = await draft(page);
+  await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeEnabled(); const url = await page.locator('.share-link').inputValue(); assert.match(new URL(url).hash, /^#s=/);
+  const response = await page.request.get(`${address}/api/bouquets/${new URL(url).hash.slice(3)}`); assert.equal(response.status(), 200); assert.deepEqual(decode((await response.json()).payload), saved);
+  const recipient = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true }); recipient.on('pageerror', e => errors.push(e.message));
+  const priorDraft = clone(starter); priorDraft.gift.title = 'My own saved bouquet'; await recipient.addInitScript(({ key, priorDraft }) => { if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify(priorDraft)); }, { key: DRAFT_KEY, priorDraft });
+  await recipient.goto(url); await recipient.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(recipient.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled(); assert.deepEqual(await draft(recipient), priorDraft);
+  await recipient.getByRole('button', { name: 'Show front view', exact: true }).click(); await recipient.screenshot({ path: `${directory}/production-gift-mobile.png`, fullPage: true });
+  await recipient.getByRole('button', { name: 'Open your letter', exact: true }).click(); await expect(recipient.locator('.note-reader')).toHaveText('A little joy at every height. 🌷'); await recipient.getByRole('button', { name: 'Close letter', exact: true }).click();
+  const pending = recipient.waitForEvent('download'); await recipient.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); const download = await pending; await download.saveAs(`${directory}/production-card.png`);
+  await recipient.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(() => draft(recipient)).toEqual(saved); await recipient.getByRole('button', { name: 'Arrange blooms', exact: true }).click();
+  await expect(recipient.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); await recipient.getByLabel('Individual flower', { exact: true }).selectOption('rose:1'); await expect(recipient.getByRole('slider', { name: 'Individual flower height', exact: true })).toHaveValue('0.45'); await expect(recipient.getByLabel('Show bottom stems', { exact: true })).toBeChecked();
+  assert.equal(await recipient.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true); assert.deepEqual(errors, []);
+  await recipient.getByRole('tab', { name: 'Fillers', exact: true }).click(); await expect(recipient.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await writeFile(`${directory}/production-validation.json`, JSON.stringify({ environment: 'Local production build, Chromium / SwiftShader, emulated mobile touch', steppedArrangement: true, steppedFillers: true, individualTransforms: true, stemsToggle: true, bagEnclosed: true, savedLinkRoundTrip: true, recipientDraftPreserved: true, remixExact: true, letterCompatible: true, pngDownloaded: true, arrangement: saved.arrangement, errors }, null, 2));
+  console.log('Production stepped flowers and fillers, individual flowers, stems, bag, sharing, letter, mobile remix and PNG checks passed.');
+} finally { await browser.close(); }

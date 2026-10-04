@@ -1,0 +1,17 @@
+{
+  "address": "http://127.0.0.1:5194",
+  "frameDesigns": 4,
+  "orientation": true,
+  "picturePreserved": true,
+  "undoRedo": true,
+  "duplicate": true,
+  "sharing": true,
+  "remix": true,
+  "png": true,
+  "widths": [
+    320,
+    390,
+    768
+  ],
+  "errors": []
+}
