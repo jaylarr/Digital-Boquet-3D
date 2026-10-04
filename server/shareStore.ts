@@ -5,7 +5,7 @@ import { decode, encode, validate } from '../src/config.ts';
 
 export const SHARE_CODE = /^[A-Za-z0-9_-]{16}$/;
 const STORAGE_LIMIT = 100 * 1024 * 1024;
-/** Immutable snapshots live on disk, survive restarts, and contain the complete gift. */
+/** Immutable snapshots live on disk, survive restarts, and contain theee complete gift. */
 export class ShareStore {
   private directory: string;
   private queue: Promise<unknown> = Promise.resolve();
