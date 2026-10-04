@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
 export default defineConfig({ ...base,
-  testMatch: ['mobile-studio.spec.ts', 'studio.spec.ts', 'envelopes.spec.ts'],
+  testMatch: ['mobile-studio.spec.ts', 'live-flower-editor.spec.ts', 'studio.spec.ts', 'envelopes.spec.ts'],
   outputDir: 'test-results/mobile-studio',
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report/mobile-studio' }]],
   use: { ...base.use, baseURL: 'http://127.0.0.1:5195' },

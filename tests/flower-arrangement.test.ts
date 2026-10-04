@@ -7,6 +7,42 @@ import { AnimatedBouquet } from '../src/animation';
 import { buildBouquet, disposeModel } from '../src/models';
 
 describe('individual flower arrangement', () => {
+  it('moves all flower heights together in both profiles while preserving individual edits and fillers', () => {
+    const config = clone(starter);
+    for (const profile of ['natural', 'stepped'] as const) {
+      config.arrangement = { ...DEFAULT_ARRANGEMENT, profile, edits: [{ ...defaultFlowerEdit('rose:1'), height: .2, x: .1, size: 1.2 }] };
+      const original = layout(config);
+      for (const height of [-.4, .35, .7]) {
+        config.arrangement.height = height;
+        const adjusted = layout(config);
+        for (const [i, flower] of adjusted.flowers.entries()) {
+          expect(flower.position[1] - original.flowers[i].position[1]).toBeCloseTo(height);
+          expect({ ...flower, position: [flower.position[0], original.flowers[i].position[1], flower.position[2]] }).toEqual(original.flowers[i]);
+        }
+        expect(adjusted.fillers).toEqual(original.fillers);
+        expect(config.arrangement.edits[0].height).toBe(.2);
+      }
+    }
+    expect(layout({ ...clone(starter), arrangement: { ...DEFAULT_ARRANGEMENT, height: 0 } })).toEqual(layout(starter));
+  });
+  it('persists optional overall height in drafts and both encodings and rejects malformed values', () => {
+    const config = clone(starter); config.arrangement = { ...DEFAULT_ARRANGEMENT, height: .36 };
+    expect(decode(encode(config))).toEqual(config);
+    let saved = ''; saveDraft(config, { setItem: (_key, value) => { saved = value; } }); expect(loadDraft({ getItem: () => saved })).toEqual(config);
+    for (const height of [null, '.3', NaN, Infinity, -.41, .71, {}]) expect(() => validate({ ...config, arrangement: { ...config.arrangement, height } })).toThrow('overall flower height');
+    const old = { ...clone(starter), arrangement: DEFAULT_ARRANGEMENT }; expect(decode(encode(old))).toEqual(old); expect(validate(old).arrangement).not.toHaveProperty('height');
+  });
+  it('updates every cached bloom and full-detail export when the overall height changes', () => {
+    const config = clone(starter); config.fillers = []; config.flowers = [{ id: 'rose', count: 3, color: '#e886a3' }];
+    const engine = new AnimatedBouquet(); engine.sync(config, false);
+    const blooms = engine.stems.filter(s => s.category === 'flowers'), previous = blooms.map(s => s.target.y), builds = engine.stats.modelBuilds;
+    const original = buildBouquet(config), before = new T.Box3().setFromObject(original); disposeModel(original);
+    config.arrangement = { ...DEFAULT_ARRANGEMENT, height: .5 }; engine.sync(config, false);
+    expect(engine.stats.modelBuilds).toBe(builds);
+    blooms.forEach((bloom, i) => { expect(engine.stems).toContain(bloom); expect(bloom.target.y - previous[i]).toBeCloseTo(.5); });
+    const exported = buildBouquet(config); expect(new T.Box3().setFromObject(exported).max.y - before.max.y).toBeCloseTo(.5);
+    disposeModel(exported); engine.dispose();
+  });
   it('preserves old layouts and stores all new settings through drafts and portable links', () => {
     expect(layout({ ...clone(starter), arrangement: DEFAULT_ARRANGEMENT })).toEqual(layout(starter));
     expect(decode(encode(starter))).toEqual(starter);

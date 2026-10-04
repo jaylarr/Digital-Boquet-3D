@@ -3,7 +3,7 @@ import type { BouquetConfigV1, Selection } from './config.ts';
 
 export interface FlowerEdit { key: string; height: number; size: number; x: number; z: number; }
 export type HeightProfile = 'natural' | 'stepped';
-export interface FlowerArrangement { profile: HeightProfile; edits: FlowerEdit[]; showStems: boolean; fillerProfile?: HeightProfile; }
+export interface FlowerArrangement { profile: HeightProfile; edits: FlowerEdit[]; showStems: boolean; fillerProfile?: HeightProfile; height?: number; }
 export const DEFAULT_ARRANGEMENT: FlowerArrangement = { profile: 'natural', edits: [], showStems: false };
 export const FLOWER_EDIT_BOUNDS = { height: [-.4, .7], size: [.6, 1.45], x: [-.45, .45], z: [-.45, .45] } as const;
 export function flowerInstances(flowers: Selection[]) {
@@ -17,6 +17,7 @@ export function validateArrangement(value: unknown, flowers: Selection[]): Flowe
   const v = value as Record<string, unknown>;
   if (!['natural', 'stepped'].includes(v.profile as string) || typeof v.showStems !== 'boolean' || !Array.isArray(v.edits) || v.edits.length > 24) throw new Error('This bouquet has an invalid flower arrangement.');
   if (v.fillerProfile !== undefined && !['natural', 'stepped'].includes(v.fillerProfile as string)) throw new Error('This bouquet has an invalid filler arrangement.');
+  if (v.height !== undefined && (typeof v.height !== 'number' || !Number.isFinite(v.height) || v.height < FLOWER_EDIT_BOUNDS.height[0] || v.height > FLOWER_EDIT_BOUNDS.height[1])) throw new Error('This bouquet has an invalid overall flower height.');
   const seen = new Set<string>(), live = new Set(flowerInstances(flowers).map(f => f.key));
   const edits: FlowerEdit[] = [];
   for (const entry of v.edits) {
@@ -28,7 +29,7 @@ export function validateArrangement(value: unknown, flowers: Selection[]): Flowe
     // Removed blooms do not pass their old settings to newly added flowers.
     if (live.has(e.key)) edits.push({ key: e.key, height: e.height as number, size: e.size as number, x: e.x as number, z: e.z as number });
   }
-  return { profile: v.profile as HeightProfile, edits, showStems: v.showStems, ...(v.fillerProfile !== undefined ? { fillerProfile: v.fillerProfile as HeightProfile } : {}) };
+  return { profile: v.profile as HeightProfile, edits, showStems: v.showStems, ...(v.fillerProfile !== undefined ? { fillerProfile: v.fillerProfile as HeightProfile } : {}), ...(v.height !== undefined ? { height: v.height as number } : {}) };
 }
 export function pruneArrangement(config: BouquetConfigV1): BouquetConfigV1 {
   if (!config.arrangement) return config;

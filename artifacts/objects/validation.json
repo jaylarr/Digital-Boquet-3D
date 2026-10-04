@@ -1,17 +1,19 @@
 {
   "before": {
-    "calls": 25,
+    "calls": 26,
     "triangles": 58662,
     "fps": 0,
-    "frames": 76,
+    "frames": 89,
     "pixelRatio": 1,
     "economy": false,
     "objects": 1,
     "objectBuilds": 1,
+    "groundY": -1.5,
+    "editGrid": true,
     "modelBuilds": 4,
     "updates": 1,
-    "updateMs": 134.10000002384186,
-    "updateMaxMs": 134.10000002384186,
+    "updateMs": 181.19999998807907,
+    "updateMaxMs": 181.19999998807907,
     "contacts": 10,
     "transitioning": 0,
     "active": 12,
@@ -19,18 +21,20 @@
     "visibleStems": 12
   },
   "after": {
-    "calls": 25,
+    "calls": 26,
     "triangles": 58662,
     "fps": 0,
-    "frames": 121,
+    "frames": 123,
     "pixelRatio": 1,
     "economy": false,
     "objects": 1,
     "objectBuilds": 1,
+    "groundY": -1.5,
+    "editGrid": true,
     "modelBuilds": 4,
     "updates": 1,
-    "updateMs": 134.10000002384186,
-    "updateMaxMs": 134.10000002384186,
+    "updateMs": 181.19999998807907,
+    "updateMaxMs": 181.19999998807907,
     "contacts": 10,
     "transitioning": 0,
     "active": 12,
@@ -39,7 +43,7 @@
   },
   "finalObjects": [
     {
-      "uid": "dfbc53cc-06f1-42e6-99df-8cd042d0d263",
+      "uid": "52dbcbd0-8483-4726-b316-9e829cf8acdd",
       "id": "teddy-bear",
       "position": [
         -1.2,
@@ -51,7 +55,7 @@
       "photoLength": 0
     },
     {
-      "uid": "42e8c630-68c5-4945-9666-05b311f54f63",
+      "uid": "802aff66-551f-4fc6-aa0d-09be2eab57c1",
       "id": "heart-balloon",
       "position": [
         1.15,
@@ -63,7 +67,7 @@
       "photoLength": 0
     },
     {
-      "uid": "768f3cde-0c6f-4d95-ae64-bc84e18b0306",
+      "uid": "9a05675c-1cb0-4294-9f4b-fecfd227bad9",
       "id": "cute-puppy",
       "position": [
         -0.65,
@@ -75,7 +79,7 @@
       "photoLength": 0
     },
     {
-      "uid": "16ca2323-fc6e-42c0-9142-4f4964e26ca7",
+      "uid": "f22ac425-83a9-47fc-92ec-9e93b0ce9c78",
       "id": "cute-kitten",
       "position": [
         0.65,
@@ -87,7 +91,7 @@
       "photoLength": 0
     },
     {
-      "uid": "8e754952-7d29-4f79-b17d-3310a0b09a61",
+      "uid": "76cad2e4-ab8f-40e6-8912-33c960d27a19",
       "id": "standing-frame",
       "position": [
         1.25,

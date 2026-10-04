@@ -79,6 +79,7 @@ Localhost links work only on the machine running the app. Cross-device short lin
 - `src/EnvelopeNote.tsx` / `src/notes.css`: animated envelope reveal, accessible note dialog and rich text controls. `src/notes.ts` validates plain text and allowed formatting without storing or rendering arbitrary HTML.
 - `src/App.tsx` / `src/styles.css`: accessible responsive editor and gift flow.
 - `src/MobileStudioNav.tsx` / `src/mobile.css`: thumb-accessible Bouquet / Customize / Gift preview navigation, sticky mobile categories/history, natural page scrolling, and larger editing controls. Object placement jumps to the scene; Adjust returns to the selected object's controls. Gift preview returns to the previous studio position.
+- Mobile **Arrange blooms** keeps the same live 3D canvas above a scrolling control panel, so adjustments remain visible. **All blooms** includes overall height, size and spread; **One bloom** adjusts the selected flower. Overall height preserves Natural dome / Stepped profiles and individual offsets, and persists through drafts, history, links, remix and PNG export. **Done** returns to flower selection.
 - `public/catalog/` / `src/catalog-thumbnails.json`: pre-rendered catalog and preset-color thumbnails; opening the editor does not generate these models.
 - `src/thumbnails.ts`: bounded on-demand fallback for custom colors. `npm.cmd run generate:catalog` refreshes the bundled images from the actual models while the development server runs on port 5180.
 - `tests/`: state/model tests and real Chromium browser tests.

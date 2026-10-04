@@ -12,7 +12,7 @@ export function layout(config: BouquetConfigV1): { flowers: Placement[]; fillers
     const x = Math.cos(a) * r * radius, z = Math.sin(a) * r * radius;
     const edit = config.arrangement?.edits.find(e => e.key === item.key);
     const tier = steppedHeight(config.arrangement?.profile, z + (edit?.z ?? 0), radius);
-    return { key: item.key, id: item.id, color: item.color, position: [x + (edit?.x ?? 0), 1.05 + .38 * Math.sqrt(1 - r * r) + rng() * .06 + tier + (edit?.height ?? 0), z + (edit?.z ?? 0)], scale: (.87 + rng() * .13) * config.size * (edit?.size ?? 1), turn: rng() * Math.PI * 2 };
+    return { key: item.key, id: item.id, color: item.color, position: [x + (edit?.x ?? 0), 1.05 + .38 * Math.sqrt(1 - r * r) + rng() * .06 + tier + (config.arrangement?.height ?? 0) + (edit?.height ?? 0), z + (edit?.z ?? 0)], scale: (.87 + rng() * .13) * config.size * (edit?.size ?? 1), turn: rng() * Math.PI * 2 };
   });
   const fillerEntries = expand(config.fillers);
   const fillers = fillerEntries.map((item, i): Placement => {

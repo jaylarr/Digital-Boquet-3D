@@ -21,6 +21,7 @@ test('four frame designs change orientation, retain recroppable pictures, duplic
   await page.getByRole('tab', { name: 'Objects', exact: true }).click();
   for (const name of ['Memory Frame', 'Landscape Frame', 'Golden Frame', 'Snapshot Frame']) {
     await page.getByRole('button', { name: `Add ${name}`, exact: true }).click();
+    await page.getByRole('button', { name: 'Keep sample picture', exact: true }).click();
     const orientations = page.getByRole('group', { name: 'Frame orientation', exact: true });
     await expect(orientations.getByRole('button', { name: name === 'Landscape Frame' ? 'Landscape' : 'Portrait', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await orientations.getByRole('button', { name: 'Landscape', exact: true }).click();

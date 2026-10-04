@@ -64,6 +64,9 @@ test('opening animates the seal, flap and rising paper; dragging does not open a
   await page.emulateMedia({ reducedMotion: 'no-preference' }); const c = clone(starter); c.objects = [createGiftObject('sealed-envelope', [])];
   await page.addInitScript(({ key, c }) => localStorage.setItem(key, JSON.stringify(c)), { key: DRAFT_KEY, c });
   await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true');
+  await page.getByRole('tab', { name: 'Objects', exact: true }).click();
+  await page.getByRole('button', { name: 'Edit Sealed Letter 1', exact: true }).click();
+  await page.getByTestId('scene').scrollIntoViewIfNeeded();
   const p = await point(page, c.objects[0].uid); await page.mouse.move(p.x, p.y); await page.mouse.down(); await page.mouse.move(p.x - 48, p.y + 12, { steps: 8 }); await page.mouse.up();
   await expect.poll(async () => (await draft(page)).objects[0].position).not.toEqual(c.objects[0].position); await expect(page.getByRole('dialog')).toHaveCount(0);
   const newPoint = await point(page, c.objects[0].uid); await page.mouse.click(newPoint.x, newPoint.y);

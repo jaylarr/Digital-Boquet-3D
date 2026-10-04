@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 import mobile from './playwright.mobile.config';
 export default defineConfig({ ...mobile,
-  testMatch: 'mobile-studio.spec.ts',
+  testMatch: ['mobile-studio.spec.ts', 'live-flower-editor.spec.ts'],
   outputDir: 'test-results/mobile-production',
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report/mobile-production' }]],
   use: { ...mobile.use, baseURL: 'http://127.0.0.1:5194' },

@@ -20,7 +20,7 @@ test('stepped heights and individual edits persist, undo, shuffle and select the
   await page.addInitScript(({ key, c }) => { if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify(c)); }, { key: DRAFT_KEY, c });
   await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true');
   const builds = (await metrics(page)).modelBuilds;
-  await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click();
+  await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'One bloom', exact: true }).click();
   await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click();
   await expect.poll(async () => (await draft(page)).arrangement?.profile).toBe('stepped');
   await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:1');
@@ -54,7 +54,7 @@ test('stem visibility excludes bags and exact arrangements survive short links, 
   await page.getByRole('tab', { name: 'Wrap', exact: true }).click(); const stems = page.getByLabel('Show bottom stems', { exact: true }); await expect(stems).not.toBeChecked(); await stems.check();
   await page.getByRole('button', { name: 'Select Mini Gift Bag', exact: true }).click(); await expect(stems).toHaveCount(0); await expect(page.getByText('The bag keeps its stems inside.', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Select Classic Cone', exact: true }).click(); await expect(stems).toBeChecked(); await stems.uncheck(); await stems.check();
-  await page.getByRole('tab', { name: 'Flowers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click();
+  await page.getByRole('tab', { name: 'Flowers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'One bloom', exact: true }).click();
   await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click(); await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:0'); await setRange(page, 'Individual flower height', '.45'); await setRange(page, 'Individual flower size', '1.35');
   await expect.poll(async () => (await draft(page)).arrangement?.edits[0]?.size).toBe(1.35); const saved = await draft(page);
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); const url = await readyLink(page); expect(new URL(url).hash).toMatch(/^#s=/); expect((await sharedDesign(page, url)).arrangement).toEqual(saved.arrangement);
@@ -70,7 +70,7 @@ test('stem visibility excludes bags and exact arrangements survive short links, 
 });
 
 test('mobile controls fit, keyboard edits and resets work, and removed flowers lose their adjustments', async ({ page }) => {
-  await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click();
+  await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'One bloom', exact: true }).click();
   for (const width of [320, 390, 768, 1280]) { await page.setViewportSize({ width, height: 844 }); await expect(page.getByLabel('Individual flower', { exact: true })).toBeVisible(); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
   await page.setViewportSize({ width: 390, height: 844 }); await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:2');
   const height = page.getByRole('slider', { name: 'Individual flower height', exact: true }); await height.focus(); await height.press('ArrowRight'); await height.press('ArrowRight'); await expect(height).toHaveValue('0.02');
@@ -78,14 +78,14 @@ test('mobile controls fit, keyboard edits and resets work, and removed flowers l
   await setRange(page, 'Individual flower height', '.5'); await page.getByLabel('Individual flower', { exact: true }).selectOption('tulip:0'); await setRange(page, 'Individual flower size', '.6');
   await expect.poll(async () => (await draft(page)).arrangement?.edits.length).toBe(2); await page.getByRole('button', { name: 'Reset all flower edits', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement?.edits).toEqual([]);
   await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:2'); await setRange(page, 'Individual flower height', '.5');
-  await page.getByRole('button', { name: 'Choose flowers', exact: true }).click(); await page.getByRole('button', { name: 'Remove one Rose', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement?.edits).toEqual([]);
-  await page.getByRole('button', { name: 'Add one Rose', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:2'); await expect(height).toHaveValue('0');
+  await page.getByRole('button', { name: 'Done', exact: true }).click(); await page.getByRole('button', { name: 'Remove one Rose', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement?.edits).toEqual([]);
+  await page.getByRole('button', { name: 'Add one Rose', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'One bloom', exact: true }).click(); await page.getByLabel('Individual flower', { exact: true }).selectOption('rose:2'); await expect(height).toHaveValue('0');
   await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click(); await setRange(page, 'Individual flower height', '.7'); await setRange(page, 'Individual flower size', '1.45'); await page.getByLabel('Show bottom stems', { exact: true }).check();
   await page.getByRole('button', { name: 'Show front view', exact: true }).click(); await page.getByTestId('scene').scrollIntoViewIfNeeded();
   await expect.poll(async () => { const points = await page.evaluate(() => (window as unknown as { __petalpopFlowerPoints: () => Record<string, [number, number]> }).__petalpopFlowerPoints()); const box = (await page.getByTestId('scene').boundingBox())!; return Object.values(points).every(([x, y]) => x > 25 && x < box.width - 25 && y > 35 && y < box.height - 35); }).toBe(true);
   await page.screenshot({ path: 'artifacts/arrangement/editor-mobile.png', fullPage: true });
   await expect.poll(async () => (await draft(page)).arrangement?.profile).toBe('stepped');
-  await page.getByRole('button', { name: 'Reset bouquet', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement).toBeUndefined();
+  await page.getByRole('navigation', { name: 'Studio navigation' }).getByRole('button', { name: 'Bouquet', exact: true }).click(); await page.getByRole('button', { name: 'Reset bouquet', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement).toBeUndefined();
   await expect(height).toHaveValue('0'); await expect(page.getByRole('button', { name: 'Natural dome arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); await expect(page.getByLabel('Show bottom stems', { exact: true })).not.toBeChecked();
 });
 
@@ -99,7 +99,7 @@ test('fillers have independent stepped heights with undo, shuffle, reload, shari
   expect((await draft(page)).arrangement?.profile).toBe('natural'); expect((await metrics(page)).modelBuilds).toBe(builds);
   await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(page.getByRole('button', { name: 'Natural filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Redo', exact: true }).click(); await expect(page.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('tab', { name: 'Flowers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click();
+  await page.getByRole('tab', { name: 'Flowers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange blooms', exact: true }).click(); await page.getByRole('button', { name: 'One bloom', exact: true }).click(); await page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true }).click();
   await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await page.getByRole('button', { name: 'Natural filler arrangement', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement?.fillerProfile).toBe('natural'); expect((await draft(page)).arrangement?.profile).toBe('stepped');
   await page.getByRole('button', { name: 'Stepped filler arrangement', exact: true }).click(); await page.getByRole('button', { name: 'Shuffle', exact: true }).click(); await expect.poll(async () => (await draft(page)).seed).not.toBe(c.seed);
   await expect.poll(async () => (await draft(page)).arrangement?.fillerProfile).toBe('stepped'); await page.getByRole('button', { name: 'Show front view', exact: true }).click();

@@ -6,3 +6,10 @@
 .crop-frame.snapshot-frame{padding:10px 10px 30px;background:var(--frame-color);border-color:#d5c6b3}
 .crop-frame.snapshot-frame .crop-mat{padding:0;box-shadow:none}
 .crop-frame.golden-frame{padding:12px;box-shadow:inset 2px 2px 0 #fff1c3,inset -2px -2px 0 #866532,3px 8px 14px #76594325}
+.frame-picture-modal{max-width:420px;max-height:calc(100svh - 32px);overflow-y:auto;overscroll-behavior:contain}
+.frame-picture-modal .modal-top h2{font-size:23px}
+.frame-picture-modal .modal-description{font-size:12px;line-height:1.7;margin:10px 0}
+.frame-picture-modal .crop-stage{padding:20px 0;margin:16px 0}
+.frame-picture-modal .crop-mat canvas{width:min(180px,42vw);cursor:default}
+.frame-picture-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.frame-picture-later{margin-top:8px;font-size:12px}

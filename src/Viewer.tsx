@@ -11,8 +11,9 @@ import { type ObjectScene } from './objectScene';
 import { objectSize } from './giftCatalog';
 import type { NoteOrigin } from './EnvelopeNote';
 import { layout } from './layout';
+import { bouquetGround, objectGroundOffset } from './sceneGround';
 
-export interface ViewerMetrics { calls: number; triangles: number; fps: number; frames: number; pixelRatio: number; economy: boolean; modelBuilds: number; updateMs: number; updateMaxMs: number; updates: number; contacts: number; transitioning: number; active: number; cachedModels: number; visibleStems: number; objects: number; objectBuilds: number; }
+export interface ViewerMetrics { calls: number; triangles: number; fps: number; frames: number; pixelRatio: number; economy: boolean; modelBuilds: number; updateMs: number; updateMaxMs: number; updates: number; contacts: number; transitioning: number; active: number; cachedModels: number; visibleStems: number; objects: number; objectBuilds: number; groundY: number; editGrid: boolean; }
 export interface ViewerHandle { reset: () => void; front: () => void; capture: () => Promise<HTMLCanvasElement>; metrics: () => ViewerMetrics; objectPoints: () => Record<string, [number, number]>; flowerPoints: () => Record<string, [number, number]>; }
 export type ViewDirection = 'Front' | 'Right side' | 'Back' | 'Left side';
 interface Props { config: BouquetConfigV1; motion: boolean; replay: number; onReady: (handle: ViewerHandle | null) => void; onFailure: () => void; onDirection?: (direction: ViewDirection) => void; interaction?: ObjectInteraction; openNote?: (uid: string, origin?: NoteOrigin) => void; flowerInteraction?: { selected: string | null; select: (key: string) => void }; }
@@ -23,6 +24,8 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
   const [design, setDesign] = useState<AnimatedBouquet | null>(null), [effects, setEffects] = useState<Effects | null>(null);
   const [objectEngine, setObjectEngine] = useState<ObjectScene | null>(null), [dragging, setDragging] = useState(false);
   const objectHelpers = useRef<T.Group | null>(null);
+  const groundHelpers = useRef<T.Group | null>(null);
+  const ground = bouquetGround(config), groundOffset = objectGroundOffset(ground);
   const flowerMarker = useRef<T.Mesh | null>(null);
   const objectReady = useCallback((engine: ObjectScene | null) => setObjectEngine(engine), []);
   const objectBusy = useCallback((value: boolean) => { if (controls.current) controls.current.enabled = !value; setDragging(value); }, []);
@@ -38,15 +41,15 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
   let centerY = hasRainbow ? .65 : .25, height = config.effects.length ? 4.8 : 3.7, depth = 0;
   if (config.arrangement) {
     const { flowers, fillers } = layout(config);
-    const minY = config.arrangement.showStems && config.wrapper.id !== 'gift-bag' ? -1.88 : -1.55;
+    const minY = ground - .05;
     const raisedFillers = config.arrangement.fillerProfile === 'stepped' ? fillers : [];
     const maxY = Math.max(centerY + height / 2, ...flowers.map(p => p.position[1] + .65 * p.scale), ...raisedFillers.map(p => p.position[1] + .8 * p.scale));
     width = Math.max(width, ...flowers.map(p => (Math.abs(p.position[0]) + .55 * p.scale) * 2), ...raisedFillers.map(p => (Math.abs(p.position[0]) + .4 * p.scale) * 2));
     centerY = (maxY + minY) / 2; height = maxY - minY + .15;
   }
   if (config.objects.length) {
-    let maxY = centerY + height / 2, minY = Math.min(-1.55, centerY - height / 2), extentX = width / 2, extentZ = 1.2;
-    for (const o of config.objects) { const size = objectSize(o); const radius = Math.hypot(size[0], size[2]) * o.scale / 2; extentX = Math.max(extentX, Math.abs(o.position[0]) + radius); extentZ = Math.max(extentZ, Math.abs(o.position[2]) + radius); maxY = Math.max(maxY, o.position[1] + size[1] * o.scale); minY = Math.min(minY, o.position[1]); }
+    let maxY = centerY + height / 2, minY = Math.min(ground - .05, centerY - height / 2), extentX = width / 2, extentZ = 1.2;
+    for (const o of config.objects) { const size = objectSize(o); const radius = Math.hypot(size[0], size[2]) * o.scale / 2; extentX = Math.max(extentX, Math.abs(o.position[0]) + radius); extentZ = Math.max(extentZ, Math.abs(o.position[2]) + radius); maxY = Math.max(maxY, o.position[1] + groundOffset + size[1] * o.scale); minY = Math.min(minY, o.position[1] + groundOffset); }
     centerY = (maxY + minY) / 2; height = maxY - minY + .3; width = Math.max(width, Math.hypot(extentX, extentZ) * 2); depth = extentZ * .65;
   }
   const frameTarget = useRef(new T.Vector3(0, centerY, 0));
@@ -162,7 +165,7 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
           for (const x of [bounds.min.x, bounds.max.x]) for (const y of [bounds.min.y, bounds.max.y]) for (const z of [bounds.min.z, bounds.max.z]) { const p = new T.Vector3(x, y, z).sub(exportCenter).applyQuaternion(inverse); safeDistance = Math.max(safeDistance, p.z + Math.max(Math.abs(p.x), Math.abs(p.y)) / tangent * 1.12); }
         }
         exportCamera.position.copy(direction).multiplyScalar(safeDistance).add(exportCenter); exportCamera.lookAt(exportCenter);
-        const previous = gl.getRenderTarget(); design.group.visible = false; if (objectHelpers.current) objectHelpers.current.visible = false; const markerVisible = flowerMarker.current?.visible; if (flowerMarker.current) flowerMarker.current.visible = false; scene.add(full);
+        const previous = gl.getRenderTarget(); design.group.visible = false; if (objectHelpers.current) objectHelpers.current.visible = false; if (groundHelpers.current) groundHelpers.current.visible = false; const markerVisible = flowerMarker.current?.visible; if (flowerMarker.current) flowerMarker.current.visible = false; scene.add(full);
         try {
           updateEffects(effects.entries, 1.25, true); gl.setRenderTarget(target); gl.setClearColor('#ffffff', 0); gl.clear(); gl.render(scene, exportCamera);
           const pixels = new Uint8Array(1080 * 1080 * 4); gl.readRenderTargetPixels(target, 0, 0, 1080, 1080, pixels);
@@ -170,9 +173,9 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
           const context = canvas.getContext('2d')!, image = context.createImageData(1080, 1080);
           for (let y = 0; y < 1080; y++) image.data.set(pixels.subarray((1079 - y) * 4320, (1080 - y) * 4320), y * 4320);
           context.putImageData(image, 0, 0); return canvas;
-        } finally { gl.setRenderTarget(previous); target.dispose(); scene.remove(full); disposeModel(full); design.group.visible = true; if (objectHelpers.current) objectHelpers.current.visible = true; if (flowerMarker.current) flowerMarker.current.visible = !!markerVisible; updateEffects(effects.entries, elapsed.current, !motionRef.current); invalidate(); }
+        } finally { gl.setRenderTarget(previous); target.dispose(); scene.remove(full); disposeModel(full); design.group.visible = true; if (objectHelpers.current) objectHelpers.current.visible = true; if (groundHelpers.current) groundHelpers.current.visible = true; if (flowerMarker.current) flowerMarker.current.visible = !!markerVisible; updateEffects(effects.entries, elapsed.current, !motionRef.current); invalidate(); }
       },
-      metrics: () => ({ calls: gl.info.render.calls, triangles: gl.info.render.triangles, fps: fps.current.value, frames: gl.info.render.frame, pixelRatio: gl.getPixelRatio(), economy: fps.current.quality > 0, objects: objectEngine?.entries.size ?? 0, objectBuilds: objectEngine?.builds ?? 0, ...design.metrics() }),
+      metrics: () => ({ calls: gl.info.render.calls, triangles: gl.info.render.triangles, fps: fps.current.value, frames: gl.info.render.frame, pixelRatio: gl.getPixelRatio(), economy: fps.current.quality > 0, objects: objectEngine?.entries.size ?? 0, objectBuilds: objectEngine?.builds ?? 0, groundY: bouquetGround(configRef.current), editGrid: !!groundHelpers.current?.getObjectByName('edit-ground-grid')?.visible, ...design.metrics() }),
       objectPoints: () => { const result: Record<string, [number, number]> = {}; objectEngine?.group.updateMatrixWorld(true); objectEngine?.entries.forEach((entry, uid) => { const point = new T.Box3().setFromObject(entry.model).getCenter(new T.Vector3()).project(camera); result[uid] = [(point.x + 1) * size.width / 2, (1 - point.y) * size.height / 2]; }); return result; },
       flowerPoints: () => { const result: Record<string, [number, number]> = {}; design.stems.filter(s => s.category === 'flowers' && s.targetGrowth).forEach(s => { const point = s.position.clone().project(camera); result[s.key.slice('flowers:'.length)] = [(point.x + 1) * size.width / 2, (1 - point.y) * size.height / 2]; }); return result; },
     });
@@ -185,8 +188,9 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
     {design && <primitive object={design.group} onClick={(event: ThreeEvent<MouseEvent>) => { if (!flowerInteraction || event.delta > 4 || event.instanceId === undefined) return; const key = event.object.userData.flowerKeys?.[event.instanceId]; if (typeof key === 'string') { event.stopPropagation(); flowerInteraction.select(key); } }} />}
     {flowerInteraction && <mesh ref={flowerMarker} visible={false} raycast={() => {}}><torusGeometry args={[.42, .012, 6, 48]} /><meshBasicMaterial color="#b96e96" transparent opacity={.72} depthWrite={false} depthTest={false} /></mesh>}
     {effects && <primitive object={effects.group} />}
-    {!!config.objects.length && <ObjectLayer objects={config.objects} interaction={interaction} openNote={openNote} busy={objectBusy} engineReady={objectReady} helpers={objectHelpers} />}
-    <mesh position={[0, config.arrangement?.showStems && config.wrapper.id !== 'gift-bag' ? -1.87 : -1.55, 0]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[1.2, 32]} /><meshBasicMaterial color="#ba9bad" transparent opacity={.12} depthWrite={false} /></mesh>
+    {!!config.objects.length && <ObjectLayer objects={config.objects} ground={ground} interaction={interaction} openNote={openNote} busy={objectBusy} engineReady={objectReady} helpers={objectHelpers} />}
+    <group ref={groundHelpers}>{interaction && <gridHelper name="edit-ground-grid" args={[7, 14, '#ae8b9e', '#d4bdcb']} position={[0, ground + .003, .5]} raycast={() => {}} />}</group>
+    <mesh position={[0, ground - .005, 0]} rotation={[-Math.PI / 2, 0, 0]} raycast={() => {}}><circleGeometry args={[1.2, 32]} /><meshBasicMaterial color="#ba9bad" transparent opacity={.12} depthWrite={false} /></mesh>
     <OrbitControls ref={controls} target={[0, centerY, 0]} enabled={!dragging} enablePan={false} enableDamping dampingFactor={.1} minDistance={3.8} maxDistance={config.objects.length ? 24 : 13} minPolarAngle={.35} maxPolarAngle={2.4} onChange={directionChanged} onStart={() => { cameraTween.current = false; }} />
   </>;
 }

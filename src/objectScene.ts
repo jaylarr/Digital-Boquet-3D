@@ -1,6 +1,7 @@
 import * as T from 'three';
 import { createGiftModel, disposeGiftModel, samplePhotoTexture } from './giftModels';
-import { giftAssets, isFrame, frameOrientation, frameShape, objectSize, type GiftObject } from './giftCatalog';
+import { giftAssets, isFrame, frameOrientation, frameShape, objectSize, OBJECT_FLOOR, type GiftObject } from './giftCatalog';
+import { objectGroundOffset } from './sceneGround';
 import { photoCanvas } from './objectPhotos';
 
 interface Entry { model: T.Group; id: string; orientation?: string; photo?: string; cropKey?: string; color?: string; photoError: boolean; }
@@ -12,7 +13,8 @@ export class ObjectScene {
   builds = 0;
   private disposed = false;
   constructor(private changed: () => void, private photoFailed: () => void, private environment: T.Texture) { this.group.name = 'gift-objects'; }
-  sync(objects: GiftObject[]) {
+  sync(objects: GiftObject[], ground = OBJECT_FLOOR) {
+    this.group.position.y = objectGroundOffset(ground);
     const live = new Set(objects.map(o => o.uid));
     for (const [uid, entry] of this.entries) if (!live.has(uid)) { this.group.remove(entry.model); disposeGiftModel(entry.model); this.entries.delete(uid); }
     for (const object of objects) {
