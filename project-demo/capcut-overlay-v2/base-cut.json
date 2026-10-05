@@ -1,0 +1,391 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationFrames": 2700,
+  "clips": [
+    {
+      "id": "PP-01",
+      "startFrame": 0,
+      "durationFrames": 150,
+      "path": "base/PP-01-base.mp4",
+      "sha256": "ab84e8d880f5016ba3ba25adefc61be2e9f4c89ea8d6bee9a46a0ff019cbe36e",
+      "source": "../public/media/hero.mp4",
+      "layers": [
+        {
+          "x": 225,
+          "y": 0,
+          "w": 550,
+          "h": 612,
+          "top": 325
+        }
+      ],
+      "encodedDuration": 5
+    },
+    {
+      "id": "PP-02",
+      "startFrame": 150,
+      "durationFrames": 120,
+      "path": "base/PP-02-base.mp4",
+      "sha256": "b2904dda3a81f0e4f98fbc4c01f6d7d20072b0168ec6c832465346c03c056a63",
+      "source": "../public/media/02.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 355,
+          "w": 552,
+          "h": 440,
+          "top": 930
+        },
+        {
+          "x": 390,
+          "y": 180,
+          "w": 660,
+          "h": 720,
+          "top": 310,
+          "from": 0,
+          "to": 3.3
+        }
+      ],
+      "encodedDuration": 4
+    },
+    {
+      "id": "PP-03",
+      "startFrame": 270,
+      "durationFrames": 210,
+      "path": "base/PP-03-base.mp4",
+      "sha256": "5ddb1dac19cbac37b18ba5b08d677d3140fec8577376b15a7513c7f3b0e8fcac",
+      "source": "../public/media/03.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 818,
+          "y": 430,
+          "w": 552,
+          "h": 350,
+          "top": 1010
+        }
+      ],
+      "encodedDuration": 7
+    },
+    {
+      "id": "PP-04",
+      "startFrame": 480,
+      "durationFrames": 150,
+      "path": "base/PP-04-base.mp4",
+      "sha256": "d12564648b5d0d9cc6b6ca02d76f43eb5be84f3552b01aad1fe8585b57bd7369",
+      "source": "../public/media/04.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 315,
+          "w": 552,
+          "h": 450,
+          "top": 945
+        }
+      ],
+      "encodedDuration": 5
+    },
+    {
+      "id": "PP-05",
+      "startFrame": 630,
+      "durationFrames": 180,
+      "path": "base/PP-05-base.mp4",
+      "sha256": "2f915d8dd92c32b287f22af3874e89981977aa2f11379f38c2a512b5ad0a66d9",
+      "source": "../public/media/05.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 355,
+          "w": 552,
+          "h": 440,
+          "top": 930
+        }
+      ],
+      "encodedDuration": 6
+    },
+    {
+      "id": "PP-06",
+      "startFrame": 810,
+      "durationFrames": 180,
+      "path": "base/PP-06-base.mp4",
+      "sha256": "5a42c56c3beb8bb53cb40391ad6b0aaddf5ccbaef8b88057ed58ee964816500b",
+      "source": "../public/media/06.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 335,
+          "w": 552,
+          "h": 430,
+          "top": 965
+        }
+      ],
+      "encodedDuration": 6
+    },
+    {
+      "id": "PP-07",
+      "startFrame": 990,
+      "durationFrames": 240,
+      "path": "base/PP-07-base.mp4",
+      "sha256": "da3145d92f482b04a559d3095c9d944cd81f7428a1bbf5d29fab5e55aff8cfac",
+      "source": "../public/media/07.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 340,
+          "w": 552,
+          "h": 420,
+          "top": 980
+        }
+      ],
+      "encodedDuration": 8
+    },
+    {
+      "id": "PP-08",
+      "startFrame": 1230,
+      "durationFrames": 120,
+      "path": "base/PP-08-base.mp4",
+      "sha256": "443f6a50ab995199baaa079307426d6b9b5bcf04b38921cf38a364557bebcb3f",
+      "source": "../public/media/08.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 806,
+          "y": 210,
+          "w": 356,
+          "h": 51,
+          "top": 1120
+        },
+        {
+          "x": 500,
+          "y": 833,
+          "w": 250,
+          "h": 65,
+          "top": 1440
+        }
+      ],
+      "encodedDuration": 4
+    },
+    {
+      "id": "PP-09",
+      "startFrame": 1350,
+      "durationFrames": 180,
+      "path": "base/PP-09-base.mp4",
+      "sha256": "643e7156a0adedd9c379258d9b70d51d330e0a22aa680953b73be07e24da6a19",
+      "source": "../public/media/09.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 435,
+          "w": 552,
+          "h": 425,
+          "top": 970
+        }
+      ],
+      "encodedDuration": 6
+    },
+    {
+      "id": "PP-10",
+      "startFrame": 1530,
+      "durationFrames": 270,
+      "path": "base/PP-10-base.mp4",
+      "sha256": "c57157571207078f3333106b5d1d78b26753f85ff3d9eda519100d282236d892",
+      "source": "../public/media/10.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 355,
+          "w": 552,
+          "h": 440,
+          "top": 930
+        },
+        {
+          "x": 370,
+          "y": 60,
+          "w": 700,
+          "h": 920,
+          "top": 225,
+          "from": 2.56385,
+          "to": 7.64551
+        }
+      ],
+      "encodedDuration": 9
+    },
+    {
+      "id": "PP-11",
+      "startFrame": 1800,
+      "durationFrames": 270,
+      "path": "base/PP-11-base.mp4",
+      "sha256": "bd5450286705a9a87fee9321dea88f2764655242306eb11e48fb5e2183d2c8de",
+      "source": "../public/media/11.mp4",
+      "layers": [
+        {
+          "x": 53,
+          "y": 221,
+          "w": 707,
+          "h": 450,
+          "top": 180
+        },
+        {
+          "x": 816,
+          "y": 355,
+          "w": 552,
+          "h": 440,
+          "top": 930
+        },
+        {
+          "x": 445,
+          "y": 155,
+          "w": 550,
+          "h": 750,
+          "top": 225,
+          "from": 0.9,
+          "to": 7.1
+        }
+      ],
+      "encodedDuration": 9
+    },
+    {
+      "id": "PP-12",
+      "startFrame": 2070,
+      "durationFrames": 90,
+      "path": "base/PP-12-base.mp4",
+      "sha256": "7394d7c0392b7e32b56a5c817c2e7f7185f8cb65de2eda19bc773e7c5d628843",
+      "source": "../public/media/confetti.mp4",
+      "layers": [
+        {
+          "x": 225,
+          "y": 0,
+          "w": 550,
+          "h": 612,
+          "top": 325
+        }
+      ],
+      "encodedDuration": 3
+    },
+    {
+      "id": "PP-13",
+      "startFrame": 2160,
+      "durationFrames": 210,
+      "path": "base/PP-13-base.mp4",
+      "sha256": "c4a94bcf6347a0e051f1e6d22f471402aaf864995986c48050484257e5b3687d",
+      "source": "../public/media/13.mp4",
+      "layers": [
+        {
+          "x": 816,
+          "y": 355,
+          "w": 552,
+          "h": 440,
+          "top": 700
+        },
+        {
+          "x": 445,
+          "y": 155,
+          "w": 550,
+          "h": 750,
+          "top": 225,
+          "from": 3,
+          "to": 7
+        }
+      ],
+      "encodedDuration": 7
+    },
+    {
+      "id": "PP-14",
+      "startFrame": 2370,
+      "durationFrames": 150,
+      "path": "base/PP-14-base.mp4",
+      "sha256": "e77f3d0612b4c75c83e66a9c423fb7e6fd95dd2112fdf2999b327cfc6501346f",
+      "source": "../public/media/14.mp4",
+      "layers": [
+        {
+          "x": 300,
+          "y": 70,
+          "w": 850,
+          "h": 1000,
+          "top": 260
+        }
+      ],
+      "encodedDuration": 5
+    },
+    {
+      "id": "PP-15",
+      "startFrame": 2520,
+      "durationFrames": 180,
+      "path": "base/PP-15-base.mp4",
+      "sha256": "4ac67cf63e3a8f684036a3977a785bc05672b72e00d3ab707cffaeb366bfc3da",
+      "source": "../public/media/hero.mp4",
+      "layers": [
+        {
+          "x": 225,
+          "y": 0,
+          "w": 550,
+          "h": 612,
+          "top": 325
+        }
+      ],
+      "encodedDuration": 6
+    }
+  ]
+}

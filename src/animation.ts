@@ -177,7 +177,7 @@ export class AnimatedBouquet {
       s.position.lerp(this.endpoint, blend);
     }
     this.stats.contacts = resolveContacts(this.stems, snap ? 6 : 2);
-    for (const b of this.batches.values()) { b.used = 0; b.meshes.forEach(m => { (m.userData.flowerKeys ??= []).length = 0; }); }
+    for (const b of this.batches.values()) { b.used = 0; b.meshes.forEach(m => { (m.userData.flowerKeys ??= []).length = 0; (m.userData.fillerKeys ??= []).length = 0; }); }
     this.leaves.forEach(l => { l.used = 0; });
     let stemIndex = 0, transitioning = 0, active = 0;
     for (const s of this.stems) {
@@ -188,7 +188,7 @@ export class AnimatedBouquet {
       this.dummy.position.copy(this.base).lerp(s.position, growth); this.dummy.quaternion.copy(s.rotation);
       if (motion) { this.euler.set(Math.sin(time * 1.1 + s.phase) * .022, 0, Math.cos(time * .95 + s.phase) * .018); this.sway.setFromEuler(this.euler); this.dummy.quaternion.multiply(this.sway); }
       this.dummy.scale.setScalar(sc); this.dummy.updateMatrix();
-      const slot = s.batch.used++; s.batch.meshes.forEach(m => { m.setMatrixAt(slot, this.dummy.matrix); m.userData.flowerKeys[slot] = s.category === 'flowers' && s.targetGrowth ? s.key.slice('flowers:'.length) : null; });
+      const slot = s.batch.used++; s.batch.meshes.forEach(m => { m.setMatrixAt(slot, this.dummy.matrix); m.userData.flowerKeys[slot] = s.category === 'flowers' && s.targetGrowth ? s.key.slice('flowers:'.length) : null; m.userData.fillerKeys[slot] = s.category === 'fillers' && s.targetGrowth ? s.key.slice('fillers:'.length) : null; });
       // Stem and leaf attachment points follow the same moving head, so edits do not detach them.
       this.endpoint.copy(this.base).lerp(s.position, growth);
       if (s.category === 'fillers' || s.id === 'lavender') this.endpoint.y -= .5 * sc;

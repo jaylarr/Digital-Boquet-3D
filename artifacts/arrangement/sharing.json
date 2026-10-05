@@ -2,6 +2,7 @@
   "shortUrlLength": 41,
   "arrangement": {
     "profile": "stepped",
+    "fillerProfile": "stepped",
     "edits": [
       {
         "key": "rose:0",

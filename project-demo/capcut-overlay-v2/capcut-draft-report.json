@@ -1,0 +1,28 @@
+{
+  "draft": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\capcut-projects\\PetalPop - Overlay Ad V2\\draft_content.json",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationSeconds": 90,
+  "baseClips": 15,
+  "overlayClips": 15,
+  "tracks": [
+    "PP-BASE",
+    "PP-NARRATION",
+    "PP-OVERLAYS",
+    "PP-MUSIC",
+    "PP-SFX-IN",
+    "PP-SFX-OUT",
+    "PP-TAP-SFX"
+  ],
+  "clipIdentity": "Stable PP identifiers in material names and UUID5 segment IDs",
+  "allMediaPresent": true,
+  "readbackChecked": true,
+  "exactTimelineChecked": true,
+  "audioGainMatchesMaster": true,
+  "fullLengthMusicTail": true,
+  "noDuplicateOwnedTracks": true,
+  "existingUnrelatedTracksPreserved": true,
+  "openedInCapCut": false,
+  "liveCapCutProjectsModified": false
+}

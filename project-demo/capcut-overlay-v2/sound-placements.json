@@ -1,0 +1,268 @@
+{
+  "originalMusic": "132 BPM synthesized electropop with electric-piano chords, syncopated bass, bright plucks, stereo percussion, letter/photo bridge and final cadence; no sampled songs",
+  "voice": "Existing local generic synthetic narration",
+  "editorVolume": 0.9885530946569389,
+  "gainDb": -0.09999999999999987,
+  "measuredRaw": {
+    "integratedLufs": -18.2,
+    "truePeakDb": -1.1
+  },
+  "placements": [
+    {
+      "moment": "PP-01",
+      "direction": "in",
+      "type": "chime",
+      "path": "audio/PP-01-in.wav",
+      "startFrame": 0,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-01",
+      "direction": "out",
+      "type": "chime",
+      "path": "audio/PP-01-out.wav",
+      "startFrame": 141,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-02",
+      "direction": "in",
+      "type": "slide",
+      "path": "audio/PP-02-in.wav",
+      "startFrame": 150,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-02",
+      "direction": "out",
+      "type": "slide",
+      "path": "audio/PP-02-out.wav",
+      "startFrame": 261,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-03",
+      "direction": "in",
+      "type": "tap",
+      "path": "audio/PP-03-in.wav",
+      "startFrame": 270,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-03",
+      "direction": "out",
+      "type": "tap",
+      "path": "audio/PP-03-out.wav",
+      "startFrame": 471,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-04",
+      "direction": "in",
+      "type": "leaf",
+      "path": "audio/PP-04-in.wav",
+      "startFrame": 480,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-04",
+      "direction": "out",
+      "type": "leaf",
+      "path": "audio/PP-04-out.wav",
+      "startFrame": 621,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-05",
+      "direction": "in",
+      "type": "ribbon",
+      "path": "audio/PP-05-in.wav",
+      "startFrame": 630,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-05",
+      "direction": "out",
+      "type": "ribbon",
+      "path": "audio/PP-05-out.wav",
+      "startFrame": 801,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-06",
+      "direction": "in",
+      "type": "air",
+      "path": "audio/PP-06-in.wav",
+      "startFrame": 810,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-06",
+      "direction": "out",
+      "type": "air",
+      "path": "audio/PP-06-out.wav",
+      "startFrame": 981,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-07",
+      "direction": "in",
+      "type": "air",
+      "path": "audio/PP-07-in.wav",
+      "startFrame": 990,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-07",
+      "direction": "out",
+      "type": "air",
+      "path": "audio/PP-07-out.wav",
+      "startFrame": 1221,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-08",
+      "direction": "in",
+      "type": "reverse",
+      "path": "audio/PP-08-in.wav",
+      "startFrame": 1230,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-08",
+      "direction": "out",
+      "type": "reverse",
+      "path": "audio/PP-08-out.wav",
+      "startFrame": 1341,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-09",
+      "direction": "in",
+      "type": "bounce",
+      "path": "audio/PP-09-in.wav",
+      "startFrame": 1350,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-09",
+      "direction": "out",
+      "type": "bounce",
+      "path": "audio/PP-09-out.wav",
+      "startFrame": 1521,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-10",
+      "direction": "in",
+      "type": "paper",
+      "path": "audio/PP-10-in.wav",
+      "startFrame": 1530,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-10",
+      "direction": "out",
+      "type": "paper",
+      "path": "audio/PP-10-out.wav",
+      "startFrame": 1791,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-11",
+      "direction": "in",
+      "type": "camera",
+      "path": "audio/PP-11-in.wav",
+      "startFrame": 1800,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-11",
+      "direction": "out",
+      "type": "camera",
+      "path": "audio/PP-11-out.wav",
+      "startFrame": 2061,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-12",
+      "direction": "in",
+      "type": "confetti",
+      "path": "audio/PP-12-in.wav",
+      "startFrame": 2070,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-12",
+      "direction": "out",
+      "type": "confetti",
+      "path": "audio/PP-12-out.wav",
+      "startFrame": 2151,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-13",
+      "direction": "in",
+      "type": "chime",
+      "path": "audio/PP-13-in.wav",
+      "startFrame": 2160,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-13",
+      "direction": "out",
+      "type": "chime",
+      "path": "audio/PP-13-out.wav",
+      "startFrame": 2361,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-14",
+      "direction": "in",
+      "type": "paper",
+      "path": "audio/PP-14-in.wav",
+      "startFrame": 2370,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-14",
+      "direction": "out",
+      "type": "paper",
+      "path": "audio/PP-14-out.wav",
+      "startFrame": 2511,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-15",
+      "direction": "in",
+      "type": "chime",
+      "path": "audio/PP-15-in.wav",
+      "startFrame": 2520,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-15",
+      "direction": "out",
+      "type": "chime",
+      "path": "audio/PP-15-out.wav",
+      "startFrame": 2691,
+      "durationSeconds": 0.3
+    },
+    {
+      "moment": "PP-03",
+      "direction": "tap",
+      "type": "tap",
+      "path": "audio/PP-03-tap-1.wav",
+      "startFrame": 368,
+      "durationSeconds": 0.48
+    },
+    {
+      "moment": "PP-03",
+      "direction": "tap",
+      "type": "tap",
+      "path": "audio/PP-03-tap-2.wav",
+      "startFrame": 396,
+      "durationSeconds": 0.48
+    }
+  ]
+}

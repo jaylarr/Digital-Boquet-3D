@@ -1,0 +1,34 @@
+{
+  "10": {
+    "nativeAnimationComplete": true,
+    "sourceRevealSeconds": 3.3666666666666663,
+    "editedRevealSeconds": 2.2,
+    "intendedCSSAnimationSeconds": 2.1,
+    "recordingTimingAdjusted": true,
+    "recordedTailIncludedSeconds": 1.3266666666666644,
+    "openAt": 2.5638499431602884,
+    "afterRevealAt": 4.763849943160288,
+    "closeAt": 8.345509662751043
+  },
+  "11": {
+    "uploadAt": 0.6857208943716269,
+    "openAt": 0.9,
+    "closeAt": 7.1
+  },
+  "13": {
+    "openAt": 3,
+    "copiedStateHoldSeconds": 1,
+    "completeActionSequence": true
+  },
+  "14": {
+    "nativeAnimationComplete": true,
+    "sourceRevealSeconds": 5.699999999999999,
+    "editedRevealSeconds": 2.2,
+    "intendedCSSAnimationSeconds": 2.1,
+    "recordingTimingAdjusted": true,
+    "recordedTailIncludedSeconds": 1.9600000000000009,
+    "openAt": 2,
+    "afterRevealAt": 4.2,
+    "closeAt": 5
+  }
+}

@@ -1,0 +1,415 @@
+{
+  "canvas": {
+    "height": 1920,
+    "ratio": "original",
+    "width": 1080
+  },
+  "fps": 30,
+  "segments": [
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-01-base.mp4",
+      "source": {
+        "duration": 5000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 5000000,
+        "start": 0
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-02-base.mp4",
+      "source": {
+        "duration": 4000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 4000000,
+        "start": 5000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-03-base.mp4",
+      "source": {
+        "duration": 7000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 7000000,
+        "start": 9000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-04-base.mp4",
+      "source": {
+        "duration": 5000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 5000000,
+        "start": 16000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-05-base.mp4",
+      "source": {
+        "duration": 6000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 6000000,
+        "start": 21000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-06-base.mp4",
+      "source": {
+        "duration": 6000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 6000000,
+        "start": 27000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-07-base.mp4",
+      "source": {
+        "duration": 8000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 8000000,
+        "start": 33000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-08-base.mp4",
+      "source": {
+        "duration": 4000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 4000000,
+        "start": 41000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-09-base.mp4",
+      "source": {
+        "duration": 6000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 6000000,
+        "start": 45000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-10-base.mp4",
+      "source": {
+        "duration": 9000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 9000000,
+        "start": 51000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-11-base.mp4",
+      "source": {
+        "duration": 9000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 9000000,
+        "start": 60000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-12-base.mp4",
+      "source": {
+        "duration": 3000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 3000000,
+        "start": 69000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-13-base.mp4",
+      "source": {
+        "duration": 7000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 7000000,
+        "start": 72000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-14-base.mp4",
+      "source": {
+        "duration": 5000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 5000000,
+        "start": 79000000
+      }
+    },
+    {
+      "clip": {
+        "alpha": 1.0,
+        "flip": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "rotation": 0.0,
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "transform": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-15-base.mp4",
+      "source": {
+        "duration": 6000000,
+        "start": 0
+      },
+      "target": {
+        "duration": 6000000,
+        "start": 84000000
+      }
+    }
+  ]
+}

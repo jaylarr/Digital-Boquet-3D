@@ -12,7 +12,8 @@ describe('movable gift objects', () => {
     expect(decode(encode(config))).toEqual(config);
     let saved = ''; expect(saveDraft(config, { setItem: (_key, value) => { saved = value; } })).toBe(true);
     expect(loadDraft({ getItem: () => saved })).toEqual(config);
-    expect(applyPalette(config, 'mint').objects).toEqual(config.objects); expect(surprise(config, 77).objects).toEqual(config.objects);
+    expect(applyPalette(config, 'mint').objects).toEqual(config.objects);
+    expect(surprise(config, 77).objects.find(o => o.uid === config.objects[4].uid)).toMatchObject({ photo: config.objects[4].photo, scale: config.objects[4].scale });
   });
   it('preserves every frame design, orientation, original picture and crop in portable links and drafts', () => {
     for (const asset of giftAssets.filter(a => isFrame(a.id))) for (const orientation of ['portrait', 'landscape'] as const) {

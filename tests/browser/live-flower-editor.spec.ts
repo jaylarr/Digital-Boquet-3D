@@ -16,7 +16,7 @@ test('live mobile preview stays visible during a real touch height drag, scrolli
   const page = await context.newPage(); const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
   await mkdir('artifacts/live-flower-editor', { recursive: true });
   await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); await arrange(page);
-  const scene = page.getByTestId('scene'), canvas = scene.locator('canvas'), panel = page.getByRole('tabpanel', { name: 'Flowers', exact: true });
+  const scene = page.getByTestId('scene'), canvas = scene.locator('canvas');
   const position = (await scene.boundingBox())!;
   expect(position.y).toBeGreaterThanOrEqual(56); expect(position.y + position.height).toBeLessThan(340);
   await page.evaluate(() => { const canvas = document.querySelector('[data-testid=scene] canvas')!; canvas.setAttribute('data-original-canvas', 'true'); });
@@ -41,7 +41,7 @@ test('live mobile preview stays visible during a real touch height drag, scrolli
   const individual = page.getByRole('slider', { name: 'Individual flower height', exact: true }); await individual.press('ArrowRight'); await expect(individual).toHaveValue('0.01');
   await expect.poll(async () => (await draft(page)).arrangement?.edits[0]?.height).toBe(.01);
   const size = page.getByRole('slider', { name: 'Individual flower size', exact: true }); await size.scrollIntoViewIfNeeded(); await size.press('ArrowRight');
-  await panel.evaluate(e => e.scrollTo({ top: e.scrollHeight }));
+  await page.locator('.workspace').evaluate(e => e.scrollTo({ top: e.scrollHeight }));
   expect((await scene.boundingBox())!).toEqual(position); expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden');
   await expect(canvas).toBeVisible();
   await page.getByRole('slider', { name: 'Individual flower depth', exact: true }).scrollIntoViewIfNeeded();
@@ -50,7 +50,7 @@ test('live mobile preview stays visible during a real touch height drag, scrolli
   await page.getByRole('navigation', { name: 'Studio navigation' }).getByRole('button', { name: 'Gift preview', exact: true }).tap();
   await expect(page.getByRole('button', { name: 'Tap to open', exact: true })).toBeVisible(); expect(await page.evaluate(() => document.body.style.overflow)).toBe('');
   await page.getByRole('button', { name: 'Back to studio', exact: true }).tap(); await expect(page.locator('.app')).toHaveClass(/flower-workspace/); await expect(page.getByLabel('Individual flower', { exact: true })).toHaveValue('rose:0');
-  await page.getByRole('button', { name: 'Done', exact: true }).tap(); await expect(page.locator('.app')).not.toHaveClass(/flower-workspace/); expect(await page.evaluate(() => document.body.style.overflow)).toBe('');
+  await page.getByRole('button', { name: 'Done', exact: true }).tap(); await expect(page.locator('.app')).not.toHaveClass(/flower-workspace/); expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden');
   await expect(page.getByRole('tab', { name: 'Fillers', exact: true })).toBeVisible();
   await writeFile('artifacts/live-flower-editor/live-validation.json', JSON.stringify({ lifted, scenePosition: position, sameCanvas: true, livePixelsChangedBeforeRelease: true, undoGroupedGesture: true, modelBuilds: builds, errors }, null, 2));
   expect(errors).toEqual([]); await context.close();
@@ -64,7 +64,8 @@ test('bulk height survives reload, saved and portable gifts and mobile remix, an
   for (const [width, heightPx] of [[320, 568], [390, 844], [700, 390]]) {
     await page.setViewportSize({ width, height: heightPx });
     await height.scrollIntoViewIfNeeded(); const scene = (await page.getByTestId('scene').boundingBox())!, control = (await height.boundingBox())!;
-    expect(scene.y).toBeGreaterThanOrEqual(50); expect(scene.y + scene.height).toBeLessThan(control.y);
+    expect(scene.y).toBeGreaterThanOrEqual(50);
+    if (width > heightPx) expect(scene.x + scene.width).toBeLessThan(control.x); else expect(scene.y + scene.height).toBeLessThan(control.y);
     expect(control.y + control.height).toBeLessThan(heightPx - 69); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     if (width === 320) await page.screenshot({ path: 'artifacts/live-flower-editor/all-blooms-320.png' });
   }

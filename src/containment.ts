@@ -1,6 +1,7 @@
 import * as T from 'three';
 
-const ANGLES = 64, ROWS = 96, TAU = Math.PI * 2, CLEARANCE = .065;
+// Keep faces between constrained vertices inside pleated paper as stepped stems shrink.
+const ANGLES = 64, ROWS = 96, TAU = Math.PI * 2, CLEARANCE = .12;
 const RELEASE_CURVE = 40;
 const profiles = new Map<string, WrapperProfile>();
 

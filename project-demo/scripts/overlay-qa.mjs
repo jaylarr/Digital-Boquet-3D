@@ -1,0 +1,31 @@
+import path from 'node:path';
+import {readFile,writeFile} from 'node:fs/promises';
+import {chromium} from 'playwright';
+import {createHash} from 'node:crypto';
+import {demo,run,ffmpeg,probe,browserExecutable} from './common.mjs';
+const out=path.join(demo,'capcut-overlay-v2'),file=path.join(out,'petalpop-overlay-ad.mp4');
+const p=await probe(file),v=p.streams.find(s=>s.codec_type==='video'),a=p.streams.find(s=>s.codec_type==='audio');
+if(v.width!==1080||v.height!==1920||v.r_frame_rate!=='30/1'||Number(v.nb_frames)!==2700||v.codec_name!=='h264'||v.pix_fmt!=='yuv420p'||a.codec_name!=='aac'||Math.abs(Number(p.format.duration)-90)>.15)throw Error('Invalid export format');
+await run(ffmpeg,['-v','error','-i',file,'-f','null','-']);
+const meter=await run(ffmpeg,['-v','info','-i',file,'-af','ebur128=peak=true','-f','null','-']);
+const I=Number([...meter.stderr.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)?.[1]),peak=Number([...meter.stderr.matchAll(/Peak:\s+(-?[\d.]+) dBFS/g)].at(-1)?.[1]);
+if(!Number.isFinite(I)||I<-22||I>-15||peak>-.7)throw Error(`Audio outside target: ${I} LUFS, ${peak} dBFS`);
+await run(ffmpeg,['-y','-v','error','-i',file,'-vf','select=gte(t\\,2.25)','-frames:v','1',path.join(out,'poster.png')]);
+const times=[2.3,7.4,12.4,18.5,24.5,30.7,37,43.5,48.7,57,64,70,78.2,83.5,88.7];
+for(let i=0;i<times.length;i++)await run(ffmpeg,['-y','-v','error','-i',file,'-vf',`select=gte(t\\,${times[i]})`,'-frames:v','1',path.join(out,'review',`final-${String(i+1).padStart(2,'0')}.png`)]);
+const browser=await chromium.launch({headless:true,executablePath:browserExecutable});
+const views=[];
+for(const viewport of [{width:1360,height:980},{width:390,height:844}]){
+ const page=await browser.newPage({viewport});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5208/');await page.waitForFunction(()=>document.querySelector('video').readyState>=1);
+ const metadata=await page.locator('video').evaluate(el=>({duration:el.duration,width:el.videoWidth,height:el.videoHeight}));
+ await page.locator('[data-at="60"]').click();await page.waitForFunction(()=>{const v=document.querySelector('video');return v.currentTime>60.3&&!v.paused;});
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
+ await page.screenshot({path:path.join(out,'review',`player-${viewport.width}.png`),fullPage:true});
+ if(errors.length||overflow||Math.abs(metadata.duration-90)>.15)throw Error('Preview playback failed');
+ views.push({viewport,metadata,playback:true,overflow,errors});await page.close();
+}
+await browser.close();
+const report={sha256:createHash('sha256').update(await readFile(file)).digest('hex'),bytes:(await readFile(file)).length,duration:Number(p.format.duration),width:v.width,height:v.height,fps:30,codec:v.codec_name,pixelFormat:v.pix_fmt,audioCodec:a.codec_name,fullDecode:true,integratedLufs:I,truePeakDb:peak,browserViews:views,frameSamples:times,capcutUiVerified:false,publication:false};
+await writeFile(path.join(out,'qa-report.json'),JSON.stringify(report,null,2)+'\n');
+console.log('Export decode, levels and desktop/mobile playback passed.');

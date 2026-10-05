@@ -1,0 +1,110 @@
+{
+  "allOverlaysContainTransparency": true,
+  "checks": [
+    {
+      "id": "PP-01",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9669097222222223,
+      "sampledAtSeconds": 2.5
+    },
+    {
+      "id": "PP-02",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9542587770061728,
+      "sampledAtSeconds": 2
+    },
+    {
+      "id": "PP-03",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9588961226851852,
+      "sampledAtSeconds": 3.5
+    },
+    {
+      "id": "PP-04",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9504460841049382,
+      "sampledAtSeconds": 2.5
+    },
+    {
+      "id": "PP-05",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9455068479938271,
+      "sampledAtSeconds": 3
+    },
+    {
+      "id": "PP-06",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9493952546296296,
+      "sampledAtSeconds": 3
+    },
+    {
+      "id": "PP-07",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9532368827160493,
+      "sampledAtSeconds": 4
+    },
+    {
+      "id": "PP-08",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9601104359567901,
+      "sampledAtSeconds": 2
+    },
+    {
+      "id": "PP-09",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9603057484567902,
+      "sampledAtSeconds": 3
+    },
+    {
+      "id": "PP-10",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9566507523148148,
+      "sampledAtSeconds": 4.5
+    },
+    {
+      "id": "PP-11",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9495076195987654,
+      "sampledAtSeconds": 4.5
+    },
+    {
+      "id": "PP-12",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9758217592592593,
+      "sampledAtSeconds": 1.5
+    },
+    {
+      "id": "PP-13",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.956294849537037,
+      "sampledAtSeconds": 3.5
+    },
+    {
+      "id": "PP-14",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9564515817901235,
+      "sampledAtSeconds": 2.5
+    },
+    {
+      "id": "PP-15",
+      "min": 0,
+      "max": 255,
+      "transparentFraction": 0.9438589891975309,
+      "sampledAtSeconds": 3
+    }
+  ]
+}

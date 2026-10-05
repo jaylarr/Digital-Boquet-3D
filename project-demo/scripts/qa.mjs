@@ -1,0 +1,22 @@
+import path from 'node:path';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {demo,root,ffmpeg,probe,run,json} from './common.mjs';
+const video=path.join(demo,'output/petalpop-marketing-ad.mp4');const p=await probe(video),v=p.streams.find(s=>s.codec_type==='video'),a=p.streams.find(s=>s.codec_type==='audio');
+if(v.width!==1080||v.height!==1920||v.codec_name!=='h264'||v.pix_fmt!=='yuv420p'||v.avg_frame_rate!=='30/1'||a.codec_name!=='aac'||Math.abs(Number(p.format.duration)-90)>.2)throw new Error('Video output format does not match the approved specification.');
+await run(ffmpeg,['-v','error','-i',video,'-f','null','-']);
+const sound=await run(ffmpeg,['-hide_banner','-i',video,'-af','volumedetect','-vn','-f','null','-']);
+const measure=await run(ffmpeg,['-hide_banner','-i',video,'-af','ebur128=peak=true','-vn','-f','null','-']);
+const integratedLUFS=Number(measure.stderr.match(/Integrated loudness:\s+I:\s+(-?[\d.]+)/)?.[1]);
+const truePeakDBFS=Number(measure.stderr.match(/True peak:\s+Peak:\s+(-?[\d.]+)/)?.[1]);
+if(!Number.isFinite(integratedLUFS)||integratedLUFS<-21||integratedLUFS>-15||!Number.isFinite(truePeakDBFS)||truePeakDBFS>-.7)throw new Error(`Unexpected soundtrack levels: ${integratedLUFS} LUFS, ${truePeakDBFS} dBFS true peak`);
+const subtitles=JSON.parse(await readFile(path.join(demo,'public/assets/captions.json'),'utf8'));let previous=0;for(const c of subtitles.cues){if(c.start<previous-.01||c.end<=c.start||c.end>90)throw new Error('Caption timing is invalid.');previous=c.end;}
+const stamp=t=>{const ms=Math.round(t*1000);return `${String(Math.floor(ms/3600000)).padStart(2,'0')}:${String(Math.floor(ms/60000)%60).padStart(2,'0')}:${String(Math.floor(ms/1000)%60).padStart(2,'0')}.${String(ms%1000).padStart(3,'0')}`;};
+await writeFile(path.join(demo,'output/petalpop-marketing-ad.vtt'),'WEBVTT\n\n'+subtitles.cues.map(c=>`${stamp(c.start)} --> ${stamp(c.end)}\n${c.text}\n`).join('\n'));
+const contactTimes=[2.4,6.8,12.5,18.5,24,30,37,43,48,56.8,63.7,70,78.3,83.6,88.5];
+for(let i=0;i<contactTimes.length;i++)await run(ffmpeg,['-y','-v','error','-ss',String(contactTimes[i]),'-i',video,'-vf','scale=270:480','-frames:v','1',path.join(demo,'.cache',`contact-${String(i+1).padStart(2,'0')}.jpg`)]);
+await run(ffmpeg,['-y','-v','error','-framerate','1','-i',path.join(demo,'.cache/contact-%02d.jpg'),'-vf','tile=5x3','-frames:v','1',path.join(demo,'output/qa/contact-sheet.jpg')]);
+await run(ffmpeg,['-y','-v','error','-ss','2.4','-i',video,'-frames:v','1',path.join(demo,'output/petalpop-poster.png')]);
+const data=await readFile(video),script=await readFile(path.join(root,'docs/marketing-ad-script.md'));
+await json('output/qa-report.json',{checkedAt:new Date().toISOString(),passed:true,format:{width:v.width,height:v.height,fps:v.avg_frame_rate,duration:Number(p.format.duration),video:v.codec_name,audio:a.codec_name,pixelFormat:v.pix_fmt,sizeBytes:data.length},fullDecode:'passed',subtitleCues:subtitles.cues.length,audioLevels:sound.stderr.match(/(?:mean_volume|max_volume):[^\n]+/g),integratedLUFS,truePeakDBFS,loudnessSummary:measure.stderr.slice(-900),videoSHA256:createHash('sha256').update(data).digest('hex'),scriptSHA256:createHash('sha256').update(script).digest('hex'),claims:'Real local app demonstration; fictional gift and generated photo; no publication or public cross-device verification',listeningReview:'Audio levels and timing checked; human listening review available in preview'});
+console.log('Format, decode, audio measurements and subtitle QA passed.');

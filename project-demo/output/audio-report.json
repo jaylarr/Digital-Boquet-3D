@@ -1,0 +1,116 @@
+{
+  "durationSeconds": 90,
+  "voice": "af_heart",
+  "engine": "Local Kokoro 82M q8 generic synthetic voice",
+  "music": "Original synthesized 120 BPM electropop; C-major motif, bass, marimba-like plucks, pads, claps, shaker, scene variations and final cadence",
+  "sampledSongs": false,
+  "duckedUnderNarration": true,
+  "segments": [
+    {
+      "id": "01",
+      "start": 0.2,
+      "duration": 2.364916666666667,
+      "sourceSeconds": 2.375,
+      "tempo": 1
+    },
+    {
+      "id": "02",
+      "start": 5.2,
+      "duration": 3.5909166666666668,
+      "sourceSeconds": 3.95,
+      "tempo": 1.0972222222222223
+    },
+    {
+      "id": "03",
+      "start": 9.2,
+      "duration": 3.5882916666666667,
+      "sourceSeconds": 3.6,
+      "tempo": 1
+    },
+    {
+      "id": "04",
+      "start": 16.2,
+      "duration": 2.8901666666666666,
+      "sourceSeconds": 2.9,
+      "tempo": 1
+    },
+    {
+      "id": "05",
+      "start": 21.2,
+      "duration": 3.4132083333333334,
+      "sourceSeconds": 3.425,
+      "tempo": 1
+    },
+    {
+      "id": "06",
+      "start": 27.2,
+      "duration": 3.415375,
+      "sourceSeconds": 3.425,
+      "tempo": 1
+    },
+    {
+      "id": "07",
+      "start": 33.2,
+      "duration": 4.564666666666667,
+      "sourceSeconds": 4.575,
+      "tempo": 1
+    },
+    {
+      "id": "08",
+      "start": 41.2,
+      "duration": 3.0687083333333334,
+      "sourceSeconds": 3.075,
+      "tempo": 1
+    },
+    {
+      "id": "09",
+      "start": 45.2,
+      "duration": 3.685,
+      "sourceSeconds": 3.7,
+      "tempo": 1
+    },
+    {
+      "id": "10",
+      "start": 51.2,
+      "duration": 4.5645,
+      "sourceSeconds": 4.575,
+      "tempo": 1
+    },
+    {
+      "id": "11",
+      "start": 60.2,
+      "duration": 4.693333333333333,
+      "sourceSeconds": 4.7,
+      "tempo": 1
+    },
+    {
+      "id": "12",
+      "start": 69.2,
+      "duration": 1.9199583333333334,
+      "sourceSeconds": 1.925,
+      "tempo": 1
+    },
+    {
+      "id": "13",
+      "start": 72.2,
+      "duration": 4.536208333333334,
+      "sourceSeconds": 4.55,
+      "tempo": 1
+    },
+    {
+      "id": "14",
+      "start": 79.2,
+      "duration": 3.7679583333333335,
+      "sourceSeconds": 3.775,
+      "tempo": 1
+    },
+    {
+      "id": "15",
+      "start": 84.2,
+      "duration": 5.597625,
+      "sourceSeconds": 6.45,
+      "tempo": 1.1517857142857144
+    }
+  ],
+  "captionTiming": "Measured scene speech durations with sentence timing apportioned by word counts"
+}

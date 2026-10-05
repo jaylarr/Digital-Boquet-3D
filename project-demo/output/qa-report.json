@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-04T07:47:55.910Z",
+  "passed": true,
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": "30/1",
+    "duration": 90.005,
+    "video": "h264",
+    "audio": "aac",
+    "pixelFormat": "yuv420p",
+    "sizeBytes": 21052907
+  },
+  "fullDecode": "passed",
+  "subtitleCues": 31,
+  "audioLevels": [
+    "mean_volume: -20.5 dB\r",
+    "max_volume: -4.5 dB\r"
+  ],
+  "integratedLUFS": -18.1,
+  "truePeakDBFS": -4.5,
+  "loudnessSummary": " -inf  -inf dBFS  TPK:  -4.5  -4.5 dBFS\r\n[Parsed_ebur128_0 @ 00000245ff4b78c0] t: 89.899979  TARGET:-23 LUFS    M: -97.6 S: -17.1     I: -18.1 LUFS       LRA:   5.9 LU  FTPK:  -inf  -inf dBFS  TPK:  -4.5  -4.5 dBFS\r\n[Parsed_ebur128_0 @ 00000245ff4b78c0] t: 89.999979  TARGET:-23 LUFS    M:-110.0 S: -17.2     I: -18.1 LUFS       LRA:   5.9 LU  FTPK:  -inf  -inf dBFS  TPK:  -4.5  -4.5 dBFS\r\n[Parsed_ebur128_0 @ 00000245ff4b78c0] Summary:\r\n\r\n  Integrated loudness:\r\n    I:         -18.1 LUFS\r\n    Threshold: -28.1 LUFS\r\n\r\n  Loudness range:\r\n    LRA:         5.9 LU\r\n    Threshold: -38.2 LUFS\r\n    LRA low:   -22.0 LUFS\r\n    LRA high:  -16.0 LUFS\r\n\r\n  True peak:\r\n    Peak:       -4.5 dBFS\r\n[out#0/null @ 00000245feed7900] video:0KiB audio:16876KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown\r\nsize=N/A time=00:01:30.00 bitrate=N/A speed= 196x elapsed=0:00:00.45    \r\n",
+  "videoSHA256": "eb34c5518c84abaaa3132efe932d67c7a7b5b12c245393ed7370beb2938a4e01",
+  "scriptSHA256": "01c196eeee25c3910fd0a7913af900e26a0939cc59dd55d8e80120f975cdcc65",
+  "claims": "Real local app demonstration; fictional gift and generated photo; no publication or public cross-device verification",
+  "listeningReview": "Audio levels and timing checked; human listening review available in preview"
+}

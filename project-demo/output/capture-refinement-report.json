@@ -1,0 +1,25 @@
+{
+  "requested": "10",
+  "captures": [
+    {
+      "id": "10",
+      "rawSource": "recordings/raw/page@6265a03d41a51684d625a0161d18c1b7.webm",
+      "trimStart": 5.551,
+      "sourceSeconds": 21.871,
+      "screenshotSeconds": 5.178,
+      "outputSeconds": 9,
+      "speed": 2.430111111111111,
+      "marks": [
+        {
+          "label": "open",
+          "time": 2.296
+        },
+        {
+          "label": "letter-revealed",
+          "time": 6.101
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

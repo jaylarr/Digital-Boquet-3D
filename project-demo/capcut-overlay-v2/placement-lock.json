@@ -1,0 +1,25 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationFrames": 2700,
+  "baseCutSha256": "2f6a6b4d6eff38618213082ce7519a7e2703073c350638eeabeece9e992546db",
+  "momentIds": [
+    "PP-01",
+    "PP-02",
+    "PP-03",
+    "PP-04",
+    "PP-05",
+    "PP-06",
+    "PP-07",
+    "PP-08",
+    "PP-09",
+    "PP-10",
+    "PP-11",
+    "PP-12",
+    "PP-13",
+    "PP-14",
+    "PP-15"
+  ],
+  "completeFamily": true
+}

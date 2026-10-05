@@ -1,0 +1,191 @@
+{
+  "durationSeconds": 90,
+  "cues": [
+    {
+      "start": 0.2,
+      "end": 1.3824583333333333,
+      "text": "It's their day.",
+      "scene": "01"
+    },
+    {
+      "start": 1.3824583333333333,
+      "end": 2.564916666666667,
+      "text": "Make it personal.",
+      "scene": "01"
+    },
+    {
+      "start": 5.2,
+      "end": 6.54659375,
+      "text": "Meet PetalPop 3D.",
+      "scene": "02"
+    },
+    {
+      "start": 6.54659375,
+      "end": 8.790916666666668,
+      "text": "Your own little bouquet studio.",
+      "scene": "02"
+    },
+    {
+      "start": 9.2,
+      "end": 10.504833333333332,
+      "text": "Pick their favorite flowers.",
+      "scene": "03"
+    },
+    {
+      "start": 10.504833333333332,
+      "end": 12.788291666666666,
+      "text": "Add a few, or a few more.",
+      "scene": "03"
+    },
+    {
+      "start": 16.2,
+      "end": 19.090166666666665,
+      "text": "Add greenery and little finishing touches.",
+      "scene": "04"
+    },
+    {
+      "start": 21.2,
+      "end": 24.613208333333333,
+      "text": "Choose your wrap, tie a ribbon, and make the colors yours.",
+      "scene": "05"
+    },
+    {
+      "start": 27.2,
+      "end": 30.615375,
+      "text": "Shape the whole bouquet: height, size, and spread.",
+      "scene": "06"
+    },
+    {
+      "start": 33.2,
+      "end": 34.604512820512824,
+      "text": "Or tap one bloom.",
+      "scene": "07"
+    },
+    {
+      "start": 34.604512820512824,
+      "end": 37.76466666666667,
+      "text": "Lift it, resize it, and find its perfect spot.",
+      "scene": "07"
+    },
+    {
+      "start": 41.2,
+      "end": 43.041225000000004,
+      "text": "Shuffle, undo, redo.",
+      "scene": "08"
+    },
+    {
+      "start": 43.041225000000004,
+      "end": 44.268708333333336,
+      "text": "Keep exploring.",
+      "scene": "08"
+    },
+    {
+      "start": 45.2,
+      "end": 46.83777777777778,
+      "text": "Add a little companion.",
+      "scene": "09"
+    },
+    {
+      "start": 46.83777777777778,
+      "end": 48.885000000000005,
+      "text": "Move, turn, and resize it.",
+      "scene": "09"
+    },
+    {
+      "start": 51.2,
+      "end": 53.30669230769231,
+      "text": "Write something only you would say.",
+      "scene": "10"
+    },
+    {
+      "start": 53.30669230769231,
+      "end": 55.7645,
+      "text": "Style your letter, then save and seal.",
+      "scene": "10"
+    },
+    {
+      "start": 60.2,
+      "end": 61.54095238095238,
+      "text": "Add a favorite photo.",
+      "scene": "11"
+    },
+    {
+      "start": 61.54095238095238,
+      "end": 64.89333333333333,
+      "text": "Choose the frame, crop the moment, and make it fit.",
+      "scene": "11"
+    },
+    {
+      "start": 69.2,
+      "end": 71.11995833333333,
+      "text": "And a little celebration.",
+      "scene": "12"
+    },
+    {
+      "start": 72.2,
+      "end": 74.14408928571429,
+      "text": "Add their name and your message.",
+      "scene": "13"
+    },
+    {
+      "start": 74.14408928571429,
+      "end": 76.73620833333334,
+      "text": "Copy a gift link, or save a card.",
+      "scene": "13"
+    },
+    {
+      "start": 79.2,
+      "end": 80.70718333333333,
+      "text": "They tap to open.",
+      "scene": "14"
+    },
+    {
+      "start": 80.70718333333333,
+      "end": 82.96795833333333,
+      "text": "Your flowers, your photo, your words.",
+      "scene": "14"
+    },
+    {
+      "start": 84.2,
+      "end": 84.708875,
+      "text": "Birthdays.",
+      "scene": "15"
+    },
+    {
+      "start": 84.708875,
+      "end": 85.21775000000001,
+      "text": "Anniversaries.",
+      "scene": "15"
+    },
+    {
+      "start": 85.21775000000001,
+      "end": 85.72662500000001,
+      "text": "Thank-yous.",
+      "scene": "15"
+    },
+    {
+      "start": 85.72662500000001,
+      "end": 86.74437500000002,
+      "text": "Just because.",
+      "scene": "15"
+    },
+    {
+      "start": 86.74437500000002,
+      "end": 87.76212500000003,
+      "text": "PetalPop 3D.",
+      "scene": "15"
+    },
+    {
+      "start": 87.76212500000003,
+      "end": 88.77987500000003,
+      "text": "Little blooms.",
+      "scene": "15"
+    },
+    {
+      "start": 88.77987500000003,
+      "end": 89.79762500000004,
+      "text": "Big feelings.",
+      "scene": "15"
+    }
+  ]
+}

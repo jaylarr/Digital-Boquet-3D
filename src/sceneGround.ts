@@ -1,6 +1,6 @@
 import type { BouquetConfigV1 } from './config';
-import { stemBase } from './flowerArrangement';
-import { OBJECT_FLOOR } from './giftCatalog';
+import { stemBase } from './flowerArrangement.ts';
+import { OBJECT_FLOOR } from './giftCatalog.ts';
 
 /** Saved object heights are relative to the original floor, so old gifts keep their placements. */
 export function bouquetGround(config: BouquetConfigV1) {

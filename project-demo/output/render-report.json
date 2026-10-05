@@ -1,0 +1,16 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationSeconds": 90,
+  "codec": "H.264/AAC",
+  "secondsToRender": 1426.905,
+  "composition": "PetalPopAd",
+  "source": "Approved 90-second script",
+  "music": "Original 120 BPM electropop",
+  "publication": false,
+  "deliveryPixelFormat": "yuv420p",
+  "colorRange": "limited / TV",
+  "normalizedFrom": "yuvj420p",
+  "webOptimized": true
+}

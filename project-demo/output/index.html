@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PetalPop 3D — Little blooms. Big feelings.</title>
+<style>
+:root{color-scheme:light;font-family:'Trebuchet MS',sans-serif;background:#FAF7F2;color:#493E46}*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:minmax(280px,480px) 1fr;gap:40px;align-items:start}video{display:block;width:100%;max-height:calc(100vh - 80px);background:#F4E7EC;border-radius:24px;box-shadow:0 16px 50px #92576F20;border:1px solid #ECE3E4}h1{font-size:38px;letter-spacing:-1px;line-height:1.1;margin:24px 0 18px}h1 em{font-family:Georgia,serif;font-weight:400;color:#92576F}p{line-height:1.65}small{color:#92576F;letter-spacing:1.5px}a{color:#92576F;text-underline-offset:4px}.links{display:flex;gap:18px;flex-wrap:wrap;margin:28px 0}.chapters{display:grid;grid-template-columns:1fr 1fr;gap:8px}button{font:inherit;background:#FFFCF9;border:1px solid #ECE3E4;border-radius:12px;color:#493E46;padding:12px;text-align:left;cursor:pointer}button:hover,button:focus-visible{background:#F4E7EC;outline:2px solid #92576F}button span{color:#92576F;margin-right:10px;font-variant-numeric:tabular-nums}.note{font-size:13px;color:#7B6C75;margin-top:28px}@media(max-width:700px){main{grid-template-columns:1fr;padding:20px;gap:12px}video{max-height:80vh}h1{font-size:32px}}
+</style>
+<main>
+<video id="ad" controls playsinline preload="metadata" poster="petalpop-poster.png" aria-label="PetalPop 3D marketing advertisement"><source src="petalpop-marketing-ad.mp4" type="video/mp4"><track src="petalpop-marketing-ad.vtt" kind="captions" srclang="en" label="English"></video>
+<section><small>PETALPOP 3D · 90 SECONDS</small><h1>Little blooms.<br><em>Big feelings.</em></h1><p>A personal bouquet, a favorite memory, and a letter from you. This ad follows one birthday gift from the first flower to the moment it opens.</p><p>Original upbeat music, narration, subtitles, moving botanical layers, and real app demonstrations.</p><div class="links"><a href="petalpop-marketing-ad.mp4" download>Download video</a><a href="petalpop-marketing-ad.srt" download>Subtitles</a><a href="../public/assets/original-score.wav">Original music</a></div><div class="chapters" id="chapters" aria-label="Jump to a feature"></div><p class="note">1080 × 1920 · 30 fps · H.264 / AAC<br>Recorded in the local app with a fictional gift and an AI-generated memory photo. Generic synthetic narration. Sharing footage uses the local demo.</p></section>
+</main>
+<script>
+const video=document.querySelector('#ad');const chapters=[[0,'Birthday idea'],[5,'Start with a preset'],[9,'Flowers & quantities'],[16,'Fillers'],[21,'Wrap, ribbon & color'],[27,'All blooms'],[33,'One bloom'],[41,'Shuffle & history'],[45,'Companions'],[51,'Animated letter'],[60,'Photo frame'],[69,'Confetti Pop'],[72,'Personalize & share'],[79,'Open the gift'],[84,'Occasions']];for(const [time,label]of chapters){const b=document.createElement('button');const stamp=String(Math.floor(time/60)).padStart(2,'0')+':'+String(time%60).padStart(2,'0');b.innerHTML='<span>'+stamp+'</span>'+label;b.addEventListener('click',()=>{video.currentTime=time;video.play().catch(()=>{});});document.querySelector('#chapters').appendChild(b);} 
+</script>
+</html>

@@ -1,0 +1,5416 @@
+{
+  "canvas_config": {
+    "width": 1080,
+    "height": 1920,
+    "ratio": "original"
+  },
+  "color_space": 0,
+  "config": {
+    "adjust_max_index": 1,
+    "attachment_info": [],
+    "combination_max_index": 1,
+    "export_range": null,
+    "extract_audio_last_index": 1,
+    "lyrics_recognition_id": "",
+    "lyrics_sync": true,
+    "lyrics_taskinfo": [],
+    "maintrack_adsorb": true,
+    "material_save_mode": 0,
+    "multi_language_current": "none",
+    "multi_language_list": [],
+    "multi_language_main": "none",
+    "multi_language_mode": "none",
+    "original_sound_last_index": 1,
+    "record_audio_last_index": 1,
+    "sticker_max_index": 1,
+    "subtitle_keywords_config": null,
+    "subtitle_recognition_id": "",
+    "subtitle_sync": true,
+    "subtitle_taskinfo": [],
+    "system_font_list": [],
+    "use_float_render": false,
+    "video_mute": false,
+    "zoom_info_params": null
+  },
+  "cover": null,
+  "create_time": 0,
+  "duration": 90000000,
+  "extra_info": null,
+  "fps": 30,
+  "free_render_index_mode_on": false,
+  "group_container": null,
+  "id": "91E08AC5-22FB-47e2-9AA0-7DC300FAEA2B",
+  "is_drop_frame_timecode": false,
+  "keyframe_graph_list": [],
+  "keyframes": {
+    "adjusts": [],
+    "audios": [],
+    "effects": [],
+    "filters": [],
+    "handwrites": [],
+    "stickers": [],
+    "texts": [],
+    "videos": []
+  },
+  "last_modified_platform": {
+    "app_id": 359289,
+    "app_source": "cc",
+    "app_version": "6.7.0",
+    "os": "windows"
+  },
+  "lyrics_effects": [],
+  "materials": {
+    "ai_translates": [],
+    "audio_balances": [],
+    "audio_effects": [],
+    "audio_fades": [],
+    "audio_track_indexes": [],
+    "audios": [
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 90000000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "60f79a72bf1159b7be0b0c3ba658841d",
+        "local_material_id": "60f79a72bf1159b7be0b0c3ba658841d",
+        "music_id": "60f79a72bf1159b7be0b0c3ba658841d",
+        "name": "narration.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\narration.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 90000000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "f6f50e3c8f845eb6bfa5ac25743e303e",
+        "local_material_id": "f6f50e3c8f845eb6bfa5ac25743e303e",
+        "music_id": "f6f50e3c8f845eb6bfa5ac25743e303e",
+        "name": "music-for-editor.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\music-for-editor.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "cd63eb4892605d3f80fe3d2f65bb242e",
+        "local_material_id": "cd63eb4892605d3f80fe3d2f65bb242e",
+        "music_id": "cd63eb4892605d3f80fe3d2f65bb242e",
+        "name": "PP-01-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-01-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "5671f9f94db454c48ab701af81fa9880",
+        "local_material_id": "5671f9f94db454c48ab701af81fa9880",
+        "music_id": "5671f9f94db454c48ab701af81fa9880",
+        "name": "PP-01-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-01-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "18c2e67b93d9596cb06e9902a86ea5b3",
+        "local_material_id": "18c2e67b93d9596cb06e9902a86ea5b3",
+        "music_id": "18c2e67b93d9596cb06e9902a86ea5b3",
+        "name": "PP-02-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-02-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "f2822bc7e33a5f26ab8b86fb6a48d470",
+        "local_material_id": "f2822bc7e33a5f26ab8b86fb6a48d470",
+        "music_id": "f2822bc7e33a5f26ab8b86fb6a48d470",
+        "name": "PP-02-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-02-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "cbbdbc4df8a95b119386668d2a10b446",
+        "local_material_id": "cbbdbc4df8a95b119386668d2a10b446",
+        "music_id": "cbbdbc4df8a95b119386668d2a10b446",
+        "name": "PP-03-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-03-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "50bc4b44055a58c188cefd8649e4365c",
+        "local_material_id": "50bc4b44055a58c188cefd8649e4365c",
+        "music_id": "50bc4b44055a58c188cefd8649e4365c",
+        "name": "PP-03-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-03-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "13d4e5e056215dc2974fe4ced25273db",
+        "local_material_id": "13d4e5e056215dc2974fe4ced25273db",
+        "music_id": "13d4e5e056215dc2974fe4ced25273db",
+        "name": "PP-04-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-04-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "6b493cc4ff04559b906d21b4b353baf4",
+        "local_material_id": "6b493cc4ff04559b906d21b4b353baf4",
+        "music_id": "6b493cc4ff04559b906d21b4b353baf4",
+        "name": "PP-04-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-04-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "d1f01a3bfc2252498af973b67b88d156",
+        "local_material_id": "d1f01a3bfc2252498af973b67b88d156",
+        "music_id": "d1f01a3bfc2252498af973b67b88d156",
+        "name": "PP-05-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-05-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "9de698dfcbba529599f5a5c1c3ce0f11",
+        "local_material_id": "9de698dfcbba529599f5a5c1c3ce0f11",
+        "music_id": "9de698dfcbba529599f5a5c1c3ce0f11",
+        "name": "PP-05-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-05-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "8efbf9cc3b845aa9a186c50695c1cd72",
+        "local_material_id": "8efbf9cc3b845aa9a186c50695c1cd72",
+        "music_id": "8efbf9cc3b845aa9a186c50695c1cd72",
+        "name": "PP-06-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-06-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "20f251f48de6556ebfb0a63c589be4ec",
+        "local_material_id": "20f251f48de6556ebfb0a63c589be4ec",
+        "music_id": "20f251f48de6556ebfb0a63c589be4ec",
+        "name": "PP-06-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-06-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "23ca2a8cc7e154d688a33597b16cc2b5",
+        "local_material_id": "23ca2a8cc7e154d688a33597b16cc2b5",
+        "music_id": "23ca2a8cc7e154d688a33597b16cc2b5",
+        "name": "PP-07-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-07-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "82af751c190e5696a3dc20df609194fe",
+        "local_material_id": "82af751c190e5696a3dc20df609194fe",
+        "music_id": "82af751c190e5696a3dc20df609194fe",
+        "name": "PP-07-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-07-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "3ba9bc2d76eb5b00801a3c2f55f1b298",
+        "local_material_id": "3ba9bc2d76eb5b00801a3c2f55f1b298",
+        "music_id": "3ba9bc2d76eb5b00801a3c2f55f1b298",
+        "name": "PP-08-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-08-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "c552230469c652ccb5394db5739fd34e",
+        "local_material_id": "c552230469c652ccb5394db5739fd34e",
+        "music_id": "c552230469c652ccb5394db5739fd34e",
+        "name": "PP-08-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-08-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "208cfd6f130059479979fbe4efbfcc1e",
+        "local_material_id": "208cfd6f130059479979fbe4efbfcc1e",
+        "music_id": "208cfd6f130059479979fbe4efbfcc1e",
+        "name": "PP-09-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-09-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "684fc514e608549a958b70825280d2ea",
+        "local_material_id": "684fc514e608549a958b70825280d2ea",
+        "music_id": "684fc514e608549a958b70825280d2ea",
+        "name": "PP-09-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-09-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "f176fd561a12540f86de5d5bd6704c67",
+        "local_material_id": "f176fd561a12540f86de5d5bd6704c67",
+        "music_id": "f176fd561a12540f86de5d5bd6704c67",
+        "name": "PP-10-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-10-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "7e1e9edbc64f564abd2d6d7d3954cb27",
+        "local_material_id": "7e1e9edbc64f564abd2d6d7d3954cb27",
+        "music_id": "7e1e9edbc64f564abd2d6d7d3954cb27",
+        "name": "PP-10-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-10-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "2ae90d9295995c93b1972c05e328d04f",
+        "local_material_id": "2ae90d9295995c93b1972c05e328d04f",
+        "music_id": "2ae90d9295995c93b1972c05e328d04f",
+        "name": "PP-11-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-11-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "c7da256be7c3523a880d1af02f857478",
+        "local_material_id": "c7da256be7c3523a880d1af02f857478",
+        "music_id": "c7da256be7c3523a880d1af02f857478",
+        "name": "PP-11-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-11-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "1bb0c96400b65cb6bbf18e337a082530",
+        "local_material_id": "1bb0c96400b65cb6bbf18e337a082530",
+        "music_id": "1bb0c96400b65cb6bbf18e337a082530",
+        "name": "PP-12-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-12-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "b0e0abcbf8ff5fce9cfea3f2f2f26717",
+        "local_material_id": "b0e0abcbf8ff5fce9cfea3f2f2f26717",
+        "music_id": "b0e0abcbf8ff5fce9cfea3f2f2f26717",
+        "name": "PP-12-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-12-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "32bfb8651e5652d4b3ff34153c9afe8f",
+        "local_material_id": "32bfb8651e5652d4b3ff34153c9afe8f",
+        "music_id": "32bfb8651e5652d4b3ff34153c9afe8f",
+        "name": "PP-13-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-13-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "014e841081025a3b800ec7437c0128f5",
+        "local_material_id": "014e841081025a3b800ec7437c0128f5",
+        "music_id": "014e841081025a3b800ec7437c0128f5",
+        "name": "PP-13-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-13-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "9cb935b4cb4b5e3db9840e92f7b969e8",
+        "local_material_id": "9cb935b4cb4b5e3db9840e92f7b969e8",
+        "music_id": "9cb935b4cb4b5e3db9840e92f7b969e8",
+        "name": "PP-14-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-14-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "e41550119044503593d44210aee9b5fd",
+        "local_material_id": "e41550119044503593d44210aee9b5fd",
+        "music_id": "e41550119044503593d44210aee9b5fd",
+        "name": "PP-14-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-14-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "eba877ad5a285bc481ee473067d3f051",
+        "local_material_id": "eba877ad5a285bc481ee473067d3f051",
+        "music_id": "eba877ad5a285bc481ee473067d3f051",
+        "name": "PP-15-in.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-15-in.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 300000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "d847b3212ff2552288809e32abf7c7f5",
+        "local_material_id": "d847b3212ff2552288809e32abf7c7f5",
+        "music_id": "d847b3212ff2552288809e32abf7c7f5",
+        "name": "PP-15-out.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-15-out.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "00aab39c5fba5a99bb7cad815af4c3d2",
+        "local_material_id": "00aab39c5fba5a99bb7cad815af4c3d2",
+        "music_id": "00aab39c5fba5a99bb7cad815af4c3d2",
+        "name": "PP-03-tap-1.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-03-tap-1.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      },
+      {
+        "app_id": 0,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 3,
+        "copyright_limit_type": "none",
+        "duration": 480000,
+        "effect_id": "",
+        "formula_id": "",
+        "id": "ab200077a68a5053899725b31a202054",
+        "local_material_id": "ab200077a68a5053899725b31a202054",
+        "music_id": "ab200077a68a5053899725b31a202054",
+        "name": "PP-03-tap-2.wav",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\audio\\PP-03-tap-2.wav",
+        "source_platform": 0,
+        "type": "extract_music",
+        "wave_points": []
+      }
+    ],
+    "beats": [],
+    "canvases": [],
+    "chromas": [],
+    "color_curves": [],
+    "digital_humans": [],
+    "drafts": [],
+    "effects": [],
+    "flowers": [],
+    "green_screens": [],
+    "handwrites": [],
+    "hsl": [],
+    "images": [],
+    "log_color_wheels": [],
+    "loudnesses": [],
+    "manual_deformations": [],
+    "masks": [],
+    "material_animations": [],
+    "material_colors": [],
+    "multi_language_refs": [],
+    "placeholders": [],
+    "plugin_effects": [],
+    "primary_color_wheels": [],
+    "realtime_denoises": [],
+    "shapes": [],
+    "smart_crops": [],
+    "smart_relights": [],
+    "sound_channel_mappings": [],
+    "speeds": [
+      {
+        "curve_speed": null,
+        "id": "d6fa3baf1bee4eca855872ad5b3dad43",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "f77386156d134742a6f1a3dc1fcc7822",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "67ca434f3b784edabda6296c1b7dfc1f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c20cfb6c38d6485cbf6c61bd278b64d2",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "d2b763aa817445b8bb8404fccc7836d5",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "f3f972c3c5e049df86f5edd0d80bd2b7",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "aa69b62108414634a6e563a657c85086",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "37087740560541f2b67f74651d1f2280",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7bfd90018f5449779ca812107f7de045",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "56b71d8acd7c4ac0b60510a59221b234",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "a0803a4ed1ea45d895a15a50c708d1d0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "35f6e182cff040e2a0b70628d6ffe0a1",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "5dcc2a84428342268fe2641318d3136a",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "5851fa9d43254d9db69d5f776831fbf0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "e5f3ae91f30d4b5fac3cb330211f9014",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "8a26817631f94d47a3692da12480aa0c",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "d4671a11cb514e85a6444a8b5ac4f894",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "8c3a2751c9214bd887b2a86f500311e0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "3e24c501bd6242a3ac86cb74af2c38da",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "3a5d3a6cdc9e4a35840fdfc3495b1603",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "6da0a5a6319144a0be5fa90c143a026f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "62b58706eeda434ab0c90b7aa26d63d6",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1e4e79a1c45e4d3bb685c79c8509d2e6",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "191d676f9ac444f9b82a009d9416d2f5",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c4ea8cc21a694dba8cefc99160e383e1",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "18646fe65d7c4b88979ea0aa5f7708dd",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "51671bf8fb264f8dad9b79f9bd56e8af",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "712e7fadf452486998b6a47f04475f9d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "2048f420cf904832adcde11f9b3442e8",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "b6a67c0225d94a6db12be7a4d845b83b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1163925fea8f403db747b8511edd9e2a",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "e4a4a9d41cc04ccaaaa710ab3aebf7d5",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "cae29f4ee68a401c8a1aee417be87146",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "99caf2b208c24c9c96db6e74acbd952d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "14269edef6f142dc8802018845b1e885",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "db39f8703e7643069e318a776a1dd175",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "e798cf20c31b40128fcad75b5e291157",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7b16eb3b7fbb410e9fdcc8a9a47ad999",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c6b3e2b5cd224d4d9908c611bece90ad",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "ba65b5cc45474fe8bd55001be86b70fc",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "16360c63092441c3821d55df3bccca6a",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "83d810349fd5405aa3823a69fbbcd071",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "e125fa4694be4f538e419b60022dfadc",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "deae04ef3dca451ca58bc8564c5ba002",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "555a9da643824483b0cab06e397cbc98",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "8dfd05d942874f08b66c5627211ee74d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "b01e1de4038545c09291881ca401cd3b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "45965d94e05b4d07b5cda2bd75be4512",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "6f533ff3044a48ebb4e6883ac613eaa4",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "848961a5789d4f07844003fa5a4b497d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "825d4b0f4ba94d548ad79c3505914b72",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "da5e94fd02264a919e5101fc092092e7",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "bc19a15da28048328995592ed2538f63",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "607bfe5d60774ef3bb6958a2641ac5d3",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "cf5e9a564aeb4de88600ccf3bda03847",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "fd86a044520e463882dbf17414a7b0f0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "af7dd35ec22e44c597343ec9e175fe78",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1c85eca0bcfa4c3bacf8024ac55bf12d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "dd42cbd7c676434f9e019ed3403629c2",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "514cee06ea474e1eb63cafdf86494274",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "0b7580f4d28f4f1b92c2123fdb9b7a1f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "8f04eb4bc3024dc5afa4a2fc29fa46cc",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c64f6ba68adf45749df64b17d62abbe6",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "cdcf9dab69bd435cabc65b85b236274a",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "d9223066af2d4f1b8bd2e3b211cdeca5",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "540263e9718c4b3581f06ca3fcda4667",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "20b1b10e25974a98a2ac1c4403de7411",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "00abd2281c704e74a195cca15f867612",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c851a4f4036d4d82a141870b4bc0a89b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "8d85216a232f404c9ec34b3e4c580972",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "65e4deae9ddf4d00861617549ebec3ff",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "bf9a6df7c939404da46adaaf371cf36f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "2dace3a1745e4bf3bc9736ae21b790a0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7ceded3f2ea74a3ea4006a32d0691784",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c25558238c6846ef920b7d29fb117c82",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1830b53a9be4461f9dc20bdebba0273c",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "0db5a2041e4141aba82997f44bae2ee2",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "cfe57bb037514c5594f277627715016f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "9fbddc090f2549b2ba930b31a342fa9d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "451529386e0f4b0ca295441e1afb8e16",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "bec0f614a7db47caba18bccd1eae2cfd",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "a1f91604aef4465ba6e63dcef7ec3596",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7658aeb42d154777bdd5820a9db142fe",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "5f75658cf26c4302bf4946f3f4fd8d51",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "fa3c905462394858ae895c67809cd3a4",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "6fedf8b00b4c4f858ea8de57992f2c3d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "f7cd35b021344bb28c2281df9ed32d91",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c532466fa790488b8ad6ebacfd6391c6",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "3664e13bf6104b4da8491d6b608e5026",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "75b3c372e6644a72b2401267c9cee61c",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "dc3495535083457694e6ce3e079b7194",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "3f124da7459c451299e8e992ed301c3f",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "57746f9b40dc4ed6a8aa378cd438979d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "ae19f61339534c7cb59192c3584aa240",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "88551ce6cf7241fba2bdaa47278bf181",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "10eb187e19a142298e9b9b93c8d688b4",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "381ad654e981479984d58cf570afb895",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "299971814f384f7c98653a8660fda093",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "fcf28949ab494a80af2ab22777ddf126",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "ea65687d8ee348df9c9be2ab67c33945",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "0738d17be760441c8ee1b19ac139bb0d",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "ef8442d24c0b413a99e2d191ac6bdc86",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "60e2870426bc4410bfa519a11836029c",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "36717cf315824853858b03be6e3481df",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "929229f5b7ca4d8f80b8bd3195a0d854",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "25c14ca0ec094b6b9f7a42fd0cbb534b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "fb9de8560ed241f4aa82ac8f746b2380",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "f07654c9ef4c4a24a2fc4cd5904b24b6",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "44a6ec78e95b4dcc953772dca943ab7c",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7282c983b15342938360f00a8f04b8f3",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "9a25df9fbccf4fb2a022df5efc8aaf0b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "643c8319ffb84a6b961eb9b84c0907a5",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "a053e66482844623b583a77aa5ca335e",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "cf7a9c0c4daf4c3291d671f613b4b066",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c8905e0f97484a8fa6ad1f4a1a02cdc0",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "2ff800185bfd4785a0caa8dc7245f21a",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "2f973250c61a4fc29af2da0dcf01f402",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "a8d83a95f1214a9cbb6ee6e7f55be3ac",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "95e8acdcb16d429dab96bd11b31b4849",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1786c9136ef245d3bab02ca9a5a051d8",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1701a36703ae49bb82d934cbb6a968b3",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "b9a0fc18a77740ed8d6c15849cb0571e",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "eb86318bd5cb4ddaae4223b5d9a462bd",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "c8865108280d4b36ae99fac62eb8463b",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "1d2591be5a9b4ea6882d40f7f66c90e3",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "7e026afd0a994e178061dab4901e8503",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "f9881f2f7c324c079320cb407fa48517",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      },
+      {
+        "curve_speed": null,
+        "id": "a4c6d46301b84ddb934c178c4b2ac016",
+        "mode": 0,
+        "speed": 1.0,
+        "type": "speed"
+      }
+    ],
+    "stickers": [],
+    "tail_leaders": [],
+    "text_templates": [],
+    "texts": [],
+    "time_marks": [],
+    "transitions": [],
+    "video_effects": [],
+    "video_trackings": [],
+    "videos": [
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "4fbce0468fbb5319b9bfcb6984682f0a",
+        "local_material_id": "",
+        "material_id": "4fbce0468fbb5319b9bfcb6984682f0a",
+        "material_name": "PP-01 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-01-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 4000000,
+        "height": 1920,
+        "id": "2671acb93ac055bd987f610eab714890",
+        "local_material_id": "",
+        "material_id": "2671acb93ac055bd987f610eab714890",
+        "material_name": "PP-02 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-02-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 7000000,
+        "height": 1920,
+        "id": "dd781aed1ed15607acbc581ebeb21b56",
+        "local_material_id": "",
+        "material_id": "dd781aed1ed15607acbc581ebeb21b56",
+        "material_name": "PP-03 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-03-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "c6ad45796c0c54bcb48253923adfde6c",
+        "local_material_id": "",
+        "material_id": "c6ad45796c0c54bcb48253923adfde6c",
+        "material_name": "PP-04 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-04-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "a3d8a647e27b5136b76d7ec78f752268",
+        "local_material_id": "",
+        "material_id": "a3d8a647e27b5136b76d7ec78f752268",
+        "material_name": "PP-05 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-05-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "631c258c103b53238ddd7e31f6cc3f6d",
+        "local_material_id": "",
+        "material_id": "631c258c103b53238ddd7e31f6cc3f6d",
+        "material_name": "PP-06 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-06-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 8000000,
+        "height": 1920,
+        "id": "0fc9b54466f85f18a92303de80a75734",
+        "local_material_id": "",
+        "material_id": "0fc9b54466f85f18a92303de80a75734",
+        "material_name": "PP-07 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-07-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 4000000,
+        "height": 1920,
+        "id": "c6e6609a33805fe596e3823b5a6d54c7",
+        "local_material_id": "",
+        "material_id": "c6e6609a33805fe596e3823b5a6d54c7",
+        "material_name": "PP-08 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-08-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "6384229d4e9f5bb7937e41b7eb60297f",
+        "local_material_id": "",
+        "material_id": "6384229d4e9f5bb7937e41b7eb60297f",
+        "material_name": "PP-09 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-09-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 9000000,
+        "height": 1920,
+        "id": "2cb1ec1ab9855dae93fd06913c7c1a1e",
+        "local_material_id": "",
+        "material_id": "2cb1ec1ab9855dae93fd06913c7c1a1e",
+        "material_name": "PP-10 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-10-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 9000000,
+        "height": 1920,
+        "id": "480980d540aa50a9b7f15a9c72f31668",
+        "local_material_id": "",
+        "material_id": "480980d540aa50a9b7f15a9c72f31668",
+        "material_name": "PP-11 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-11-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 3000000,
+        "height": 1920,
+        "id": "07b63525c1a15ab0b3d7a0dcc56352de",
+        "local_material_id": "",
+        "material_id": "07b63525c1a15ab0b3d7a0dcc56352de",
+        "material_name": "PP-12 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-12-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 7000000,
+        "height": 1920,
+        "id": "acf031e7198f560bb78adf59a9170a75",
+        "local_material_id": "",
+        "material_id": "acf031e7198f560bb78adf59a9170a75",
+        "material_name": "PP-13 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-13-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "b1e80ff47c925759845aa28bc7381492",
+        "local_material_id": "",
+        "material_id": "b1e80ff47c925759845aa28bc7381492",
+        "material_name": "PP-14 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-14-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "5a0b2c5ad9c557289d83f4821b51d50b",
+        "local_material_id": "",
+        "material_id": "5a0b2c5ad9c557289d83f4821b51d50b",
+        "material_name": "PP-15 - base",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\base\\PP-15-base.mp4",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "e19aaa244b1054dc86576d901589af7a",
+        "local_material_id": "",
+        "material_id": "e19aaa244b1054dc86576d901589af7a",
+        "material_name": "PP-01 - A gift with a reason",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-01.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 4000000,
+        "height": 1920,
+        "id": "f20450fc999e5298815c21657d6201da",
+        "local_material_id": "",
+        "material_id": "f20450fc999e5298815c21657d6201da",
+        "material_name": "PP-02 - Start with a preset",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-02.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 7000000,
+        "height": 1920,
+        "id": "532bf7467490541595fb6d8530034e19",
+        "local_material_id": "",
+        "material_id": "532bf7467490541595fb6d8530034e19",
+        "material_name": "PP-03 - Flowers and quantity",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-03.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "11d199a26cc050dd88dd41cf001d78b6",
+        "local_material_id": "",
+        "material_id": "11d199a26cc050dd88dd41cf001d78b6",
+        "material_name": "PP-04 - Greenery and depth",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-04.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "aafa2c6eaa735cfe9c3f670a7685e99a",
+        "local_material_id": "",
+        "material_id": "aafa2c6eaa735cfe9c3f670a7685e99a",
+        "material_name": "PP-05 - Wrap, ribbon, color",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-05.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "c3eddd1c66e259c697cd53e6a3d0005c",
+        "local_material_id": "",
+        "material_id": "c3eddd1c66e259c697cd53e6a3d0005c",
+        "material_name": "PP-06 - Adjust all flowers",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-06.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 8000000,
+        "height": 1920,
+        "id": "ce3d5f80ac8355e99fcc89c745662f79",
+        "local_material_id": "",
+        "material_id": "ce3d5f80ac8355e99fcc89c745662f79",
+        "material_name": "PP-07 - Adjust one flower",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-07.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 4000000,
+        "height": 1920,
+        "id": "690c15a8dfb45df0be6dbf2833213692",
+        "local_material_id": "",
+        "material_id": "690c15a8dfb45df0be6dbf2833213692",
+        "material_name": "PP-08 - Explore arrangements",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-08.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "d507b124072d57648b830fdb05650475",
+        "local_material_id": "",
+        "material_id": "d507b124072d57648b830fdb05650475",
+        "material_name": "PP-09 - Place a companion",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-09.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 9000000,
+        "height": 1920,
+        "id": "5263727ef4e15f48a54673496e3eba54",
+        "local_material_id": "",
+        "material_id": "5263727ef4e15f48a54673496e3eba54",
+        "material_name": "PP-10 - Write and seal a letter",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-10.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 9000000,
+        "height": 1920,
+        "id": "99fd02b86e1b5d8f919fd0f612476498",
+        "local_material_id": "",
+        "material_id": "99fd02b86e1b5d8f919fd0f612476498",
+        "material_name": "PP-11 - Frame a memory",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-11.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 3000000,
+        "height": 1920,
+        "id": "d615019d688f5616a816a2b6c5ade165",
+        "local_material_id": "",
+        "material_id": "d615019d688f5616a816a2b6c5ade165",
+        "material_name": "PP-12 - A small celebration",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-12.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 7000000,
+        "height": 1920,
+        "id": "7f187eda414458d3a14a59371f00363e",
+        "local_material_id": "",
+        "material_id": "7f187eda414458d3a14a59371f00363e",
+        "material_name": "PP-13 - Personalize and share",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-13.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 5000000,
+        "height": 1920,
+        "id": "e20e33c8e8f451958bc5bb8f9c5ab236",
+        "local_material_id": "",
+        "material_id": "e20e33c8e8f451958bc5bb8f9c5ab236",
+        "material_name": "PP-14 - The gift opens",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-14.mov",
+        "type": "video",
+        "width": 1080
+      },
+      {
+        "audio_fade": null,
+        "category_id": "",
+        "category_name": "local",
+        "check_flag": 63487,
+        "crop": {
+          "upper_left_x": 0.0,
+          "upper_left_y": 0.0,
+          "upper_right_x": 1.0,
+          "upper_right_y": 0.0,
+          "lower_left_x": 0.0,
+          "lower_left_y": 1.0,
+          "lower_right_x": 1.0,
+          "lower_right_y": 1.0
+        },
+        "crop_ratio": "free",
+        "crop_scale": 1.0,
+        "duration": 6000000,
+        "height": 1920,
+        "id": "2faf766ab8a55d1588c3eb8a272bbf55",
+        "local_material_id": "",
+        "material_id": "2faf766ab8a55d1588c3eb8a272bbf55",
+        "material_name": "PP-15 - When to use it",
+        "media_path": "",
+        "path": "C:\\Users\\user\\Desktop\\PROGRAMMING\\Digital Boquet 3D\\project-demo\\capcut-overlay-v2\\overlays\\PP-15.mov",
+        "type": "video",
+        "width": 1080
+      }
+    ],
+    "vocal_beautifys": [],
+    "vocal_separations": []
+  },
+  "mutable_config": null,
+  "name": "PP-MUSIC",
+  "new_version": "140.0.0",
+  "path": "",
+  "platform": {
+    "app_id": 359289,
+    "app_source": "cc",
+    "app_version": "6.7.0",
+    "os": "windows"
+  },
+  "relationships": [],
+  "render_index_track_mode_on": false,
+  "retouch_cover": null,
+  "source": "default",
+  "static_cover_image_path": "",
+  "time_marks": null,
+  "tracks": [
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "2b49559e95074a2e9a31b7bb7a2f3804",
+      "is_default_name": false,
+      "name": "PP-BASE",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "edcb5af935c45305807ce1444f923926",
+          "material_id": "4fbce0468fbb5319b9bfcb6984682f0a",
+          "target_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "d6fa3baf1bee4eca855872ad5b3dad43"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "ebc1bbdd79845fe9b7bd93198e5d9ca2",
+          "material_id": "2671acb93ac055bd987f610eab714890",
+          "target_timerange": {
+            "start": 5000000,
+            "duration": 4000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 4000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "f77386156d134742a6f1a3dc1fcc7822"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "bc0d19b47cc05f3cb79308ad4e8bdd82",
+          "material_id": "dd781aed1ed15607acbc581ebeb21b56",
+          "target_timerange": {
+            "start": 9000000,
+            "duration": 7000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 7000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "67ca434f3b784edabda6296c1b7dfc1f"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "ae0fc71bbb4f52a39f0d11d9a505d1e7",
+          "material_id": "c6ad45796c0c54bcb48253923adfde6c",
+          "target_timerange": {
+            "start": 16000000,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "c20cfb6c38d6485cbf6c61bd278b64d2"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "25544f4fa2ed5ebd84e9a0961110fba3",
+          "material_id": "a3d8a647e27b5136b76d7ec78f752268",
+          "target_timerange": {
+            "start": 21000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "d2b763aa817445b8bb8404fccc7836d5"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "3fed14898e565547822b794a4610a620",
+          "material_id": "631c258c103b53238ddd7e31f6cc3f6d",
+          "target_timerange": {
+            "start": 27000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "f3f972c3c5e049df86f5edd0d80bd2b7"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "1638ab30dc095759a626f63061777836",
+          "material_id": "0fc9b54466f85f18a92303de80a75734",
+          "target_timerange": {
+            "start": 33000000,
+            "duration": 8000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 8000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "aa69b62108414634a6e563a657c85086"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "cfe12279c11a55399be538d1dc8a264d",
+          "material_id": "c6e6609a33805fe596e3823b5a6d54c7",
+          "target_timerange": {
+            "start": 41000000,
+            "duration": 4000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 4000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "37087740560541f2b67f74651d1f2280"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "2c52ec912a6d554cb724219eaf648804",
+          "material_id": "6384229d4e9f5bb7937e41b7eb60297f",
+          "target_timerange": {
+            "start": 45000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "7bfd90018f5449779ca812107f7de045"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "71cefa4a45165b27b7657942f1cd2813",
+          "material_id": "2cb1ec1ab9855dae93fd06913c7c1a1e",
+          "target_timerange": {
+            "start": 51000000,
+            "duration": 9000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 9000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "56b71d8acd7c4ac0b60510a59221b234"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "46c884bb4e2356e082f657c30d19ac3b",
+          "material_id": "480980d540aa50a9b7f15a9c72f31668",
+          "target_timerange": {
+            "start": 60000000,
+            "duration": 9000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 9000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "a0803a4ed1ea45d895a15a50c708d1d0"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "fb9890a1da0b5cc79ab12f29ce6f8ad6",
+          "material_id": "07b63525c1a15ab0b3d7a0dcc56352de",
+          "target_timerange": {
+            "start": 69000000,
+            "duration": 3000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 3000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "35f6e182cff040e2a0b70628d6ffe0a1"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e714ebb3502e5688ac21af4581f1b203",
+          "material_id": "acf031e7198f560bb78adf59a9170a75",
+          "target_timerange": {
+            "start": 72000000,
+            "duration": 7000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 7000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "5dcc2a84428342268fe2641318d3136a"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "f46c4d0a1ff95f32ae581fd53dd5e171",
+          "material_id": "b1e80ff47c925759845aa28bc7381492",
+          "target_timerange": {
+            "start": 79000000,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "5851fa9d43254d9db69d5f776831fbf0"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "a298596f46df5422b7b3d432870cfd03",
+          "material_id": "5a0b2c5ad9c557289d83f4821b51d50b",
+          "target_timerange": {
+            "start": 84000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "e5f3ae91f30d4b5fac3cb330211f9014"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 0
+        }
+      ],
+      "type": "video"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "db17764d744b4818a51285dc731c82b1",
+      "is_default_name": false,
+      "name": "PP-NARRATION",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "4c696007ff5159b1a02ff1dc75de4c66",
+          "material_id": "60f79a72bf1159b7be0b0c3ba658841d",
+          "target_timerange": {
+            "start": 0,
+            "duration": 90000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 90000000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "88551ce6cf7241fba2bdaa47278bf181"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 0
+        }
+      ],
+      "type": "audio"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "b03e3d5a663244ebadd6eb702f36e9f4",
+      "is_default_name": false,
+      "name": "PP-OVERLAYS",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "4e43cb6701ec5f39a9ac80cdde5bea87",
+          "material_id": "e19aaa244b1054dc86576d901589af7a",
+          "target_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "451529386e0f4b0ca295441e1afb8e16"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "400d585e04255607b5d6a7883bbcc244",
+          "material_id": "f20450fc999e5298815c21657d6201da",
+          "target_timerange": {
+            "start": 5000000,
+            "duration": 4000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 4000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "bec0f614a7db47caba18bccd1eae2cfd"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "b081abd622d35ee4b36c9809e829f4da",
+          "material_id": "532bf7467490541595fb6d8530034e19",
+          "target_timerange": {
+            "start": 9000000,
+            "duration": 7000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 7000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "a1f91604aef4465ba6e63dcef7ec3596"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "c84f726975605a4e85a65d12752af9a7",
+          "material_id": "11d199a26cc050dd88dd41cf001d78b6",
+          "target_timerange": {
+            "start": 16000000,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "7658aeb42d154777bdd5820a9db142fe"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "47d6564c8e5b50b4ba77ca7c1b36d7e2",
+          "material_id": "aafa2c6eaa735cfe9c3f670a7685e99a",
+          "target_timerange": {
+            "start": 21000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "5f75658cf26c4302bf4946f3f4fd8d51"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "5c0b0966ef70535b948f583a480a6140",
+          "material_id": "c3eddd1c66e259c697cd53e6a3d0005c",
+          "target_timerange": {
+            "start": 27000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "fa3c905462394858ae895c67809cd3a4"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "8eb76306cee757eda20af85b3fe84951",
+          "material_id": "ce3d5f80ac8355e99fcc89c745662f79",
+          "target_timerange": {
+            "start": 33000000,
+            "duration": 8000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 8000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "6fedf8b00b4c4f858ea8de57992f2c3d"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e2bba3f6eb205700996b7c0920d491dd",
+          "material_id": "690c15a8dfb45df0be6dbf2833213692",
+          "target_timerange": {
+            "start": 41000000,
+            "duration": 4000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 4000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "f7cd35b021344bb28c2281df9ed32d91"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "75a9e2d61bdb56ac8c1418db3ca33dd8",
+          "material_id": "d507b124072d57648b830fdb05650475",
+          "target_timerange": {
+            "start": 45000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "c532466fa790488b8ad6ebacfd6391c6"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "b5c450a8e8a75067904a5fca3a00cc14",
+          "material_id": "5263727ef4e15f48a54673496e3eba54",
+          "target_timerange": {
+            "start": 51000000,
+            "duration": 9000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 9000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "3664e13bf6104b4da8491d6b608e5026"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e83e78bc8c4a5ada83a2812374d4fea9",
+          "material_id": "99fd02b86e1b5d8f919fd0f612476498",
+          "target_timerange": {
+            "start": 60000000,
+            "duration": 9000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 9000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "75b3c372e6644a72b2401267c9cee61c"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "8df29e3af135577d9f3b045a9dd3a403",
+          "material_id": "d615019d688f5616a816a2b6c5ade165",
+          "target_timerange": {
+            "start": 69000000,
+            "duration": 3000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 3000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "dc3495535083457694e6ce3e079b7194"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "ea1ad965140a58f2869adf96a055e5cb",
+          "material_id": "7f187eda414458d3a14a59371f00363e",
+          "target_timerange": {
+            "start": 72000000,
+            "duration": 7000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 7000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "3f124da7459c451299e8e992ed301c3f"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "2ff83fba653656ffb54e3a08ee8e4ccd",
+          "material_id": "e20e33c8e8f451958bc5bb8f9c5ab236",
+          "target_timerange": {
+            "start": 79000000,
+            "duration": 5000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 5000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "57746f9b40dc4ed6a8aa378cd438979d"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "c2902f3db23457609cb74eba70c7c40f",
+          "material_id": "2faf766ab8a55d1588c3eb8a272bbf55",
+          "target_timerange": {
+            "start": 84000000,
+            "duration": 6000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 6000000
+          },
+          "speed": 1.0,
+          "volume": 1.0,
+          "extra_material_refs": [
+            "ae19f61339534c7cb59192c3584aa240"
+          ],
+          "clip": {
+            "alpha": 1.0,
+            "flip": {
+              "horizontal": false,
+              "vertical": false
+            },
+            "rotation": 0.0,
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "transform": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "uniform_scale": {
+            "on": true,
+            "value": 1.0
+          },
+          "hdr_settings": {
+            "intensity": 1.0,
+            "mode": 1,
+            "nits": 1000
+          },
+          "render_index": 1
+        }
+      ],
+      "type": "video"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "e9ef0d74e7d1496bb6c4b4a17cac0494",
+      "is_default_name": false,
+      "name": "PP-MUSIC",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "f111c0d3912656acb37fbb46ac7091de",
+          "material_id": "f6f50e3c8f845eb6bfa5ac25743e303e",
+          "target_timerange": {
+            "start": 0,
+            "duration": 90000000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 90000000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "10eb187e19a142298e9b9b93c8d688b4"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 1
+        }
+      ],
+      "type": "audio"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "6afd72476b5b4d5492f27852844b2a24",
+      "is_default_name": false,
+      "name": "PP-SFX-IN",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "591e4923758e575ea3abaf987b2a50f1",
+          "material_id": "cd63eb4892605d3f80fe3d2f65bb242e",
+          "target_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "381ad654e981479984d58cf570afb895"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "9738f0b3d2a150c58cfeef3bebc5a268",
+          "material_id": "18c2e67b93d9596cb06e9902a86ea5b3",
+          "target_timerange": {
+            "start": 5000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "fcf28949ab494a80af2ab22777ddf126"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "865cac165ff755259402fbea3a578e40",
+          "material_id": "cbbdbc4df8a95b119386668d2a10b446",
+          "target_timerange": {
+            "start": 9000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "0738d17be760441c8ee1b19ac139bb0d"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "1f4aaf15e19c54dfaa2e21bf6bacaf53",
+          "material_id": "13d4e5e056215dc2974fe4ced25273db",
+          "target_timerange": {
+            "start": 16000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "60e2870426bc4410bfa519a11836029c"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "8677ee30cd6a5c869646040e4d9cadda",
+          "material_id": "d1f01a3bfc2252498af973b67b88d156",
+          "target_timerange": {
+            "start": 21000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "929229f5b7ca4d8f80b8bd3195a0d854"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "ab4e5527e016543f90f913bfc517c4d1",
+          "material_id": "8efbf9cc3b845aa9a186c50695c1cd72",
+          "target_timerange": {
+            "start": 27000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "fb9de8560ed241f4aa82ac8f746b2380"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "fb9172d8a0bc519d9bc67160572035d3",
+          "material_id": "23ca2a8cc7e154d688a33597b16cc2b5",
+          "target_timerange": {
+            "start": 33000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "44a6ec78e95b4dcc953772dca943ab7c"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "1459ddedd70f5615a89f49ebe241752f",
+          "material_id": "3ba9bc2d76eb5b00801a3c2f55f1b298",
+          "target_timerange": {
+            "start": 41000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "9a25df9fbccf4fb2a022df5efc8aaf0b"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "6a319d6918b050b6a17ed25f47eea375",
+          "material_id": "208cfd6f130059479979fbe4efbfcc1e",
+          "target_timerange": {
+            "start": 45000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "a053e66482844623b583a77aa5ca335e"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e962634f23b85db699b7e0ff8e892f20",
+          "material_id": "f176fd561a12540f86de5d5bd6704c67",
+          "target_timerange": {
+            "start": 51000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "c8905e0f97484a8fa6ad1f4a1a02cdc0"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e90c490538205d418f2fb14287f01a3d",
+          "material_id": "2ae90d9295995c93b1972c05e328d04f",
+          "target_timerange": {
+            "start": 60000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "2f973250c61a4fc29af2da0dcf01f402"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "9ed8ac418d8758a18379efdb64c69ca8",
+          "material_id": "1bb0c96400b65cb6bbf18e337a082530",
+          "target_timerange": {
+            "start": 69000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "95e8acdcb16d429dab96bd11b31b4849"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "6cea33fef47c573abb4089c4e38d193a",
+          "material_id": "32bfb8651e5652d4b3ff34153c9afe8f",
+          "target_timerange": {
+            "start": 72000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "1701a36703ae49bb82d934cbb6a968b3"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "60221847b744507ebef3e7eb2c28cd9f",
+          "material_id": "9cb935b4cb4b5e3db9840e92f7b969e8",
+          "target_timerange": {
+            "start": 79000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "eb86318bd5cb4ddaae4223b5d9a462bd"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "c9a036ded2345576a8364636467cdd76",
+          "material_id": "eba877ad5a285bc481ee473067d3f051",
+          "target_timerange": {
+            "start": 84000000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "1d2591be5a9b4ea6882d40f7f66c90e3"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 2
+        }
+      ],
+      "type": "audio"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "6bd769163dbe44319a64b5b4be9bd36e",
+      "is_default_name": false,
+      "name": "PP-SFX-OUT",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "40a854ec95bf58c1ab0378edd2938055",
+          "material_id": "5671f9f94db454c48ab701af81fa9880",
+          "target_timerange": {
+            "start": 4700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "299971814f384f7c98653a8660fda093"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "dd313ede0b175a00bbeae1380974f48a",
+          "material_id": "f2822bc7e33a5f26ab8b86fb6a48d470",
+          "target_timerange": {
+            "start": 8700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "ea65687d8ee348df9c9be2ab67c33945"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "abc37a608642517ab95961b3c13a4750",
+          "material_id": "50bc4b44055a58c188cefd8649e4365c",
+          "target_timerange": {
+            "start": 15700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "ef8442d24c0b413a99e2d191ac6bdc86"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "1bc0dba3fe5d5f19bca1d50d15f652fb",
+          "material_id": "6b493cc4ff04559b906d21b4b353baf4",
+          "target_timerange": {
+            "start": 20700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "36717cf315824853858b03be6e3481df"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "f93b9eb7f89b56a9ad52795310505619",
+          "material_id": "9de698dfcbba529599f5a5c1c3ce0f11",
+          "target_timerange": {
+            "start": 26700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "25c14ca0ec094b6b9f7a42fd0cbb534b"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "8392fbab3554538daf8b91cfd202bcf9",
+          "material_id": "20f251f48de6556ebfb0a63c589be4ec",
+          "target_timerange": {
+            "start": 32700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "f07654c9ef4c4a24a2fc4cd5904b24b6"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "f7c71b5d6be3521eaa76863c947030cf",
+          "material_id": "82af751c190e5696a3dc20df609194fe",
+          "target_timerange": {
+            "start": 40700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "7282c983b15342938360f00a8f04b8f3"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "3369ebb181e15152bb064a689b3d09a3",
+          "material_id": "c552230469c652ccb5394db5739fd34e",
+          "target_timerange": {
+            "start": 44700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "643c8319ffb84a6b961eb9b84c0907a5"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "7bba93fa25205f0b90ddc3da5e9f0538",
+          "material_id": "684fc514e608549a958b70825280d2ea",
+          "target_timerange": {
+            "start": 50700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "cf7a9c0c4daf4c3291d671f613b4b066"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "604ee3b587d45a508b20e3ef68e706dd",
+          "material_id": "7e1e9edbc64f564abd2d6d7d3954cb27",
+          "target_timerange": {
+            "start": 59700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "2ff800185bfd4785a0caa8dc7245f21a"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "4a0d4aa00805586f93a6ff67fc1baa7c",
+          "material_id": "c7da256be7c3523a880d1af02f857478",
+          "target_timerange": {
+            "start": 68700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "a8d83a95f1214a9cbb6ee6e7f55be3ac"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "23b0129bd8455f91a9442f5011074375",
+          "material_id": "b0e0abcbf8ff5fce9cfea3f2f2f26717",
+          "target_timerange": {
+            "start": 71700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "1786c9136ef245d3bab02ca9a5a051d8"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e207e183310e5a52850286758e102671",
+          "material_id": "014e841081025a3b800ec7437c0128f5",
+          "target_timerange": {
+            "start": 78700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "b9a0fc18a77740ed8d6c15849cb0571e"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "e04ed715f44457ff87a789b6348728a7",
+          "material_id": "e41550119044503593d44210aee9b5fd",
+          "target_timerange": {
+            "start": 83700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "c8865108280d4b36ae99fac62eb8463b"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "51680ad4879655619fdc282dbb8dc90e",
+          "material_id": "d847b3212ff2552288809e32abf7c7f5",
+          "target_timerange": {
+            "start": 89700000,
+            "duration": 300000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 300000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "7e026afd0a994e178061dab4901e8503"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 3
+        }
+      ],
+      "type": "audio"
+    },
+    {
+      "attribute": 0,
+      "flag": 0,
+      "id": "5b8266bad51043239543ac66155a037f",
+      "is_default_name": false,
+      "name": "PP-TAP-SFX",
+      "segments": [
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "723805fd72bf5bf181fa14f70104b911",
+          "material_id": "00aab39c5fba5a99bb7cad815af4c3d2",
+          "target_timerange": {
+            "start": 12266667,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "f9881f2f7c324c079320cb407fa48517"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 4
+        },
+        {
+          "enable_adjust": true,
+          "enable_color_correct_adjust": false,
+          "enable_color_curves": true,
+          "enable_color_match_adjust": false,
+          "enable_color_wheels": true,
+          "enable_lut": true,
+          "enable_smart_color_adjust": false,
+          "last_nonzero_volume": 1.0,
+          "reverse": false,
+          "track_attribute": 0,
+          "track_render_index": 0,
+          "visible": true,
+          "id": "33f06cfb19865d2a815904e0458e6e08",
+          "material_id": "ab200077a68a5053899725b31a202054",
+          "target_timerange": {
+            "start": 13200000,
+            "duration": 480000
+          },
+          "common_keyframes": [],
+          "keyframe_refs": [],
+          "source_timerange": {
+            "start": 0,
+            "duration": 480000
+          },
+          "speed": 1.0,
+          "volume": 0.9885530946569389,
+          "extra_material_refs": [
+            "a4c6d46301b84ddb934c178c4b2ac016"
+          ],
+          "clip": null,
+          "hdr_settings": null,
+          "render_index": 4
+        }
+      ],
+      "type": "audio"
+    }
+  ],
+  "update_time": 0,
+  "version": 360000
+}

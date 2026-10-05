@@ -86,15 +86,15 @@ test('mobile controls fit, keyboard edits and resets work, and removed flowers l
   await page.screenshot({ path: 'artifacts/arrangement/editor-mobile.png', fullPage: true });
   await expect.poll(async () => (await draft(page)).arrangement?.profile).toBe('stepped');
   await page.getByRole('navigation', { name: 'Studio navigation' }).getByRole('button', { name: 'Bouquet', exact: true }).click(); await page.getByRole('button', { name: 'Reset bouquet', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement).toBeUndefined();
-  await expect(height).toHaveValue('0'); await expect(page.getByRole('button', { name: 'Natural dome arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); await expect(page.getByLabel('Show bottom stems', { exact: true })).not.toBeChecked();
+  await expect(height).toHaveValue('0'); await expect(page.getByRole('button', { name: 'Stepped bouquet arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); await expect(page.getByLabel('Show bottom stems', { exact: true })).not.toBeChecked();
 });
 
 test('fillers have independent stepped heights with undo, shuffle, reload, sharing, mobile remix and PNG', async ({ page, browser }) => {
   await mkdir('artifacts/arrangement', { recursive: true }); const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
-  const c = clone(starter); c.fillers = [{ id: 'eucalyptus', count: 6, color: '#89aaa0' }, { id: 'wheat', count: 6, color: '#d5b475' }];
+  const c = clone(starter); c.arrangement = { profile: 'natural', fillerProfile: 'natural', edits: [], showStems: false }; c.fillers = [{ id: 'eucalyptus', count: 6, color: '#89aaa0' }, { id: 'wheat', count: 6, color: '#d5b475' }];
   await page.addInitScript(({ key, c }) => { if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify(c)); }, { key: DRAFT_KEY, c });
   await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); const builds = (await metrics(page)).modelBuilds;
-  await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await expect(page.getByRole('button', { name: 'Natural filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange fillers', exact: true }).click(); await expect(page.getByRole('button', { name: 'Natural filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Stepped filler arrangement', exact: true }).click(); await expect.poll(async () => (await draft(page)).arrangement?.fillerProfile).toBe('stepped');
   expect((await draft(page)).arrangement?.profile).toBe('natural'); expect((await metrics(page)).modelBuilds).toBe(builds);
   await page.getByRole('button', { name: 'Undo', exact: true }).click(); await expect(page.getByRole('button', { name: 'Natural filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
@@ -104,12 +104,12 @@ test('fillers have independent stepped heights with undo, shuffle, reload, shari
   await page.getByRole('button', { name: 'Stepped filler arrangement', exact: true }).click(); await page.getByRole('button', { name: 'Shuffle', exact: true }).click(); await expect.poll(async () => (await draft(page)).seed).not.toBe(c.seed);
   await expect.poll(async () => (await draft(page)).arrangement?.fillerProfile).toBe('stepped'); await page.getByRole('button', { name: 'Show front view', exact: true }).click();
   await page.locator('.tab-panel').evaluate(n => { n.scrollTop = 0; }); await page.screenshot({ path: 'artifacts/arrangement/fillers-desktop.png', fullPage: true });
-  const saved = await draft(page); await page.reload(); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await expect(page.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  const saved = await draft(page); await page.reload(); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); await page.getByRole('tab', { name: 'Fillers', exact: true }).click(); await page.getByRole('button', { name: 'Arrange fillers', exact: true }).click(); await expect(page.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); const url = await readyLink(page); expect((await sharedDesign(page, url)).arrangement).toEqual(saved.arrangement);
   const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 }, hasTouch: true }), receiver = await context.newPage(); receiver.on('pageerror', e => errors.push(e.message));
   await receiver.goto(url); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled(); expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
   const pending = receiver.waitForEvent('download'); await receiver.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); await (await pending).saveAs('artifacts/arrangement/fillers-card.png');
   await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.arrangement).toEqual(saved.arrangement);
-  await receiver.getByRole('tab', { name: 'Fillers', exact: true }).click(); for (const width of [320, 390]) { await receiver.setViewportSize({ width, height: 844 }); await expect(receiver.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); expect(await receiver.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
+  await receiver.getByRole('tab', { name: 'Fillers', exact: true }).click(); await receiver.getByRole('button', { name: 'Arrange fillers', exact: true }).click(); for (const width of [320, 390]) { await receiver.setViewportSize({ width, height: 844 }); await expect(receiver.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); expect(await receiver.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
   await receiver.screenshot({ path: 'artifacts/arrangement/fillers-mobile.png', fullPage: true }); expect(errors).toEqual([]); await context.close();
 });

@@ -52,6 +52,7 @@ describe('individual flower arrangement', () => {
   });
   it('lowers front flowers and elevates back flowers while preserving the center and arrangement seed', () => {
     const config = clone(starter); config.flowers = [{ id: 'rose', color: '#e886a3', count: 24 }];
+    config.arrangement = { ...DEFAULT_ARRANGEMENT, profile: 'natural' };
     const before = layout(config).flowers; config.arrangement = { ...DEFAULT_ARRANGEMENT, profile: 'stepped' }; const after = layout(config).flowers;
     for (const [i, p] of after.entries()) {
       expect(p.key).toBe(before[i].key); expect(p.position[0]).toBe(before[i].position[0]); expect(p.position[2]).toBe(before[i].position[2]); expect(p.scale).toBe(before[i].scale);
@@ -63,9 +64,9 @@ describe('individual flower arrangement', () => {
     expect(mean(after.filter(p => p.position[2] < -.3)) - mean(after.filter(p => p.position[2] > .3))).toBeGreaterThan(.4);
   });
   it('targets one stable flower identity, keeps settings through shuffle, and prunes removed flowers', () => {
-    const config = clone(starter); config.arrangement = { ...DEFAULT_ARRANGEMENT, edits: [{ ...defaultFlowerEdit('rose:1'), height: .35, size: 1.4, x: .2, z: -.3 }] };
+    const config = clone(starter); config.arrangement = { ...DEFAULT_ARRANGEMENT, profile: 'natural', edits: [{ ...defaultFlowerEdit('rose:1'), height: .35, size: 1.4, x: .2, z: -.3 }] };
     for (const seed of [72631, 7, 12345]) {
-      config.seed = seed; const baseline = layout({ ...config, arrangement: undefined }).flowers, actual = layout(config).flowers;
+      config.seed = seed; const baseline = layout({ ...config, arrangement: { ...config.arrangement, edits: [] } }).flowers, actual = layout(config).flowers;
       for (const p of actual) { const old = baseline.find(f => f.key === p.key)!; if (p.key === 'rose:1') { expect(p.position[1] - old.position[1]).toBeCloseTo(.35); expect(p.scale / old.scale).toBeCloseTo(1.4); expect(p.position[0] - old.position[0]).toBeCloseTo(.2); expect(p.position[2] - old.position[2]).toBeCloseTo(-.3); } else expect(p).toEqual(old); }
     }
     config.flowers[0].count = 1; expect(pruneArrangement(config).arrangement!.edits).toEqual([]);
@@ -93,8 +94,9 @@ describe('individual flower arrangement', () => {
   it('rejects unbounded edits, duplicate identities, unknown flowers and malformed settings', () => {
     for (const arrangement of [null, { ...DEFAULT_ARRANGEMENT, profile: 'unknown' }, { ...DEFAULT_ARRANGEMENT, showStems: 'yes' }, { ...DEFAULT_ARRANGEMENT, edits: [{ ...defaultFlowerEdit('rose:0'), size: Infinity }] }, { ...DEFAULT_ARRANGEMENT, edits: [{ ...defaultFlowerEdit('rose:0'), height: .71 }] }, { ...DEFAULT_ARRANGEMENT, edits: [{ ...defaultFlowerEdit('rose:0'), x: -.46 }] }, { ...DEFAULT_ARRANGEMENT, edits: [defaultFlowerEdit('rose:0'), defaultFlowerEdit('rose:0')] }, { ...DEFAULT_ARRANGEMENT, edits: [defaultFlowerEdit('evil:0')] }, { ...DEFAULT_ARRANGEMENT, edits: [defaultFlowerEdit('rose:24')] }]) expect(() => validate({ ...starter, arrangement })).toThrow();
   });
-  it('steps fillers independently, keeps their seed and cached models, and retains natural legacy layouts', () => {
+  it('steps fillers independently and keeps their seed and cached models', () => {
     const config = clone(starter); config.fillers = [{ id: 'eucalyptus', count: 6, color: '#89aaa0' }, { id: 'wheat', count: 6, color: '#d5b475' }];
+    config.arrangement = { ...DEFAULT_ARRANGEMENT, fillerProfile: 'natural' };
     const natural = layout(config), engine = new AnimatedBouquet(); engine.sync(config, false); const builds = engine.stats.modelBuilds;
     config.arrangement = { ...DEFAULT_ARRANGEMENT, fillerProfile: 'natural' }; expect(layout(config)).toEqual(natural);
     config.arrangement.fillerProfile = 'stepped'; const stepped = layout(config); expect(stepped.flowers).toEqual(natural.flowers);

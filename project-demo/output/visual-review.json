@@ -1,0 +1,19 @@
+{
+  "composition": "PetalPopAd",
+  "reviewedFrames": [72, 195, 375, 555, 720, 900, 1110, 1290, 1440, 1645, 1910, 2100, 2295, 2475, 2655],
+  "deliveryFramesReviewedAtSeconds": [56.8, 78.3, 83.6],
+  "deliveryStateChecks": {"letterWritingVisible": true, "actualLinkCopiedVisible": true, "completeRecipientNoteVisible": true},
+  "reviewMethod": "Direct inspection of rendered 1080x1920 scene frames, with additional source-timeline inspection for letter and sharing actions",
+  "theme": "Cream, blush, berry, rounded Trebuchet/Georgia typography and actual PetalPop 3D assets",
+  "corrections": [
+    "Separated teaching labels from subtitles",
+    "Used a front-facing gift view so the photo, sealed letter and companions remain visible",
+    "Synchronized source frames and included delayed recorder tails for completed actions",
+    "Retained the complete native envelope reveal and retimed stretched capture to designed motion",
+    "Used a dedicated close-up of Copy link and its real copied state",
+    "Added a brief editorial confetti layer in the brand palette"
+  ],
+  "coverage": ["preset", "flowers and quantities", "fillers", "wrap and ribbon", "all blooms", "one bloom", "shuffle and history", "companions", "letter", "photo cropping", "confetti", "gift fields and share", "recipient opening", "occasions"],
+  "visualChecks": {"headlinesReadable": true, "subtitlesReadable": true, "primaryControlsVisible": true, "heroGiftVisible": true},
+  "limitations": "Representative frame review is not a human listening review. Technical and browser-playback checks are recorded separately. Source footage uses the local app and a fictional gift."
+}

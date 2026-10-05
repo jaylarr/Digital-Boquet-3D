@@ -1,13 +1,14 @@
 {
   "lifted": 0.36,
   "scenePosition": {
-    "x": 15,
-    "y": 69,
-    "width": 360,
-    "height": 242.75
+    "x": 14,
+    "y": 72,
+    "width": 362,
+    "height": 244.75
   },
   "sameCanvas": true,
   "livePixelsChangedBeforeRelease": true,
   "undoGroupedGesture": true,
+  "modelBuilds": 4,
   "errors": []
 }

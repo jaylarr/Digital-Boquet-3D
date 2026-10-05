@@ -1,0 +1,75 @@
+{
+  "sha256": "babf684a4625b3ae54a198344ee892585b29453baa8507b97818fc64551dab14",
+  "bytes": 17389006,
+  "duration": 90,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "codec": "h264",
+  "pixelFormat": "yuv420p",
+  "audioCodec": "aac",
+  "fullDecode": true,
+  "integratedLufs": -18.3,
+  "truePeakDb": -1.1,
+  "browserViews": [
+    {
+      "viewport": {
+        "width": 1360,
+        "height": 980
+      },
+      "metadata": {
+        "duration": 90,
+        "width": 1080,
+        "height": 1920
+      },
+      "playback": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metadata": {
+        "duration": 90,
+        "width": 1080,
+        "height": 1920
+      },
+      "playback": true,
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "frameSamples": [
+    2.3,
+    7.4,
+    12.4,
+    18.5,
+    24.5,
+    30.7,
+    37,
+    43.5,
+    48.7,
+    57,
+    64,
+    70,
+    78.2,
+    83.5,
+    88.7
+  ],
+  "capcutUiVerified": false,
+  "publication": false,
+  "visualFrameInspection": {
+    "all15SceneSamplesInspected": true,
+    "selectedFullResolutionScenes": [
+      "02",
+      "06",
+      "07",
+      "10",
+      "11",
+      "13"
+    ],
+    "source": "Final encoded output frames"
+  }
+}

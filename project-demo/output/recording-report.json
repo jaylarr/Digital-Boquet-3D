@@ -1,0 +1,224 @@
+{
+  "recordedAt": "2026-10-04T07:05:18.238Z",
+  "app": "http://127.0.0.1:5206/",
+  "viewport": [
+    1440,
+    1040
+  ],
+  "source": "Actual PetalPop React/Three.js app; isolated browser contexts and fictional gift",
+  "captures": [
+    {
+      "id": "02",
+      "rawSource": "recordings/raw/page@1b2b15bdaa5def975e07845d73c993c4.webm",
+      "trimStart": 4.633333333333334,
+      "sourceSeconds": 4.733333333333333,
+      "wallSeconds": 4.001,
+      "screenshotSeconds": 2.6,
+      "outputSeconds": 4,
+      "speed": 1.1833333333333333,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "03",
+      "rawSource": "recordings/raw/page@e35791253306949e6d0e4b163205e82c.webm",
+      "trimStart": 4.766666666666667,
+      "sourceSeconds": 7.366666666666666,
+      "wallSeconds": 7.008,
+      "screenshotSeconds": 2.376,
+      "outputSeconds": 7,
+      "speed": 1.0523809523809524,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "04",
+      "rawSource": "recordings/raw/page@462a2468f948026888e285874c1d5cb8.webm",
+      "trimStart": 6.266666666666667,
+      "sourceSeconds": 5.766666666666667,
+      "wallSeconds": 5.964,
+      "screenshotSeconds": 2.363,
+      "outputSeconds": 5,
+      "speed": 1.1533333333333333,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "05",
+      "rawSource": "recordings/raw/page@eb5049af17ef4d71e4752efc9316e6a5.webm",
+      "trimStart": 6.066666666666666,
+      "sourceSeconds": 12.133333333333333,
+      "wallSeconds": 11.614,
+      "screenshotSeconds": 2.635,
+      "outputSeconds": 6,
+      "speed": 2.022222222222222,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "06",
+      "rawSource": "recordings/raw/page@89e166158e5dd1f59bc48d20747daedf.webm",
+      "trimStart": 6.733333333333333,
+      "sourceSeconds": 10.533333333333331,
+      "wallSeconds": 9.963,
+      "screenshotSeconds": 2.887,
+      "outputSeconds": 6,
+      "speed": 1.7555555555555553,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "07",
+      "rawSource": "recordings/raw/page@05753d52a20fc15aa24663bbf5e3cec6.webm",
+      "trimStart": 7.233333333333333,
+      "sourceSeconds": 12.766666666666666,
+      "wallSeconds": 12.82,
+      "screenshotSeconds": 2.919,
+      "outputSeconds": 8,
+      "speed": 1.5958333333333332,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "08",
+      "rawSource": "recordings/raw/page@df3900f84520abb1ad65f7d7e0e9d536.webm",
+      "trimStart": 7,
+      "sourceSeconds": 6.2666666666666675,
+      "wallSeconds": 6.533,
+      "screenshotSeconds": 2.748,
+      "outputSeconds": 4,
+      "speed": 1.5666666666666669,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "09",
+      "rawSource": "recordings/raw/page@cb14f293d6713f932d26ecebe3c8c80b.webm",
+      "trimStart": 8.066666666666666,
+      "sourceSeconds": 22.933333333333334,
+      "wallSeconds": 21.443,
+      "screenshotSeconds": 5.196,
+      "outputSeconds": 6,
+      "speed": 3.8222222222222224,
+      "marks": [],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "10",
+      "rawSource": "recordings/raw/page@931c3c13c781a3b575e415886c019c1b.webm",
+      "trimStart": 11.8,
+      "sourceSeconds": 19.633333333333333,
+      "wallSeconds": 17.247,
+      "screenshotSeconds": 6.326,
+      "outputSeconds": 9,
+      "speed": 2.1814814814814816,
+      "marks": [
+        {
+          "label": "open",
+          "time": 2.802
+        },
+        {
+          "label": "letter-revealed",
+          "time": 6.559
+        }
+      ],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "11",
+      "rawSource": "recordings/raw/page@808d1d36730c3e140a529a27fcfe8d8c.webm",
+      "trimStart": 11.933333333333334,
+      "sourceSeconds": 43.233333333333334,
+      "wallSeconds": 42.502,
+      "screenshotSeconds": 3.931,
+      "outputSeconds": 9,
+      "speed": 4.803703703703704,
+      "marks": [
+        {
+          "label": "upload",
+          "time": 3.294
+        }
+      ],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": false
+    },
+    {
+      "id": "12",
+      "rawSource": "recordings/raw/page@610fe2a702130b2f773131a52a14b4a4.webm",
+      "trimStart": 2,
+      "sourceSeconds": 12.233333333333333,
+      "wallSeconds": 5.446,
+      "screenshotSeconds": 3.8,
+      "outputSeconds": 3,
+      "speed": 4.0777777777777775,
+      "marks": [
+        {
+          "label": "burst",
+          "time": 2.456
+        }
+      ],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "13",
+      "rawSource": "recordings/raw/page@f09b467dee9e3fa62d211653e630268c.webm",
+      "trimStart": 10.433333333333334,
+      "sourceSeconds": 9.7,
+      "wallSeconds": 7.195,
+      "screenshotSeconds": 6.348,
+      "outputSeconds": 7,
+      "speed": 1.3857142857142857,
+      "marks": [
+        {
+          "label": "copied",
+          "time": 6.99
+        }
+      ],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    },
+    {
+      "id": "14",
+      "rawSource": "recordings/raw/page@0a5c5074d2004b01edb249b96ae1480f.webm",
+      "trimStart": 1.4666666666666666,
+      "sourceSeconds": 13.733333333333333,
+      "wallSeconds": 6.416,
+      "screenshotSeconds": 7.531,
+      "outputSeconds": 5,
+      "speed": 2.7466666666666666,
+      "marks": [
+        {
+          "label": "gift-ready",
+          "time": 1.461
+        },
+        {
+          "label": "letter-revealed",
+          "time": 5.823
+        }
+      ],
+      "synchronization": "Recorded chromatic start marker and end marker or final recorded frame; frame-accurate decoded trim",
+      "endMarkerDetected": true
+    }
+  ],
+  "errors": [],
+  "giftUrl": "http://127.0.0.1:5206/#s=I0JD8z-j9Q3vK7Qp",
+  "photo": "AI-generated fictional memory photo",
+  "nativeAnimations": [
+    "Flower additions",
+    "Flower sway",
+    "Envelope flight, seal, flap and paper",
+    "Confetti Pop",
+    "Gift reveal"
+  ],
+  "publication": false
+}

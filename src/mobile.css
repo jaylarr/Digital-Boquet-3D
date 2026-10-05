@@ -108,7 +108,6 @@
   .modal { max-height: calc(100dvh - 28px); overscroll-behavior: contain; }
   .note-tool-group button { min-width: 44px; width: 44px; }
   .note-content { scroll-margin: 20px; }
-  .app:has(.gift-fields input:focus, .gift-fields textarea:focus) .mobile-studio-nav { display: none; }
 }
 
 @media (max-width: 359px) {
@@ -125,46 +124,60 @@
   .gift-mode .header-actions .quiet-button { font-size: 12px; padding: 5px; }
 }
 
-/* Adjusting blooms is a split workspace: one live canvas, one scrolling editor. */
-@media (max-width: 760px) {
-  .app.flower-workspace { --flower-preview-height: clamp(155px, 29dvh, 260px); height: 100dvh; min-height: 100dvh; overflow: hidden; }
-  .flower-workspace .site-header { position: fixed; top: 0; left: 14px; right: 14px; }
-  .flower-workspace .workspace { display: block; flex: none; padding: 0; min-height: 0; }
-  .flower-workspace .preview-column { position: fixed; top: var(--mobile-header); left: 14px; right: 14px; width: auto; z-index: 10; }
-  .flower-workspace .preview-card { height: var(--flower-preview-height); border-radius: 16px; }
-  .flower-workspace .scene-wrap { height: 100%; }
-  .flower-workspace .front-guide { top: 5px; right: 5px; }
-  .flower-workspace .front-guide > span { display: none; }
-  .flower-workspace .front-guide button { padding: 3px 7px; }
-  .flower-workspace .scene-hint { font-size: 11px; bottom: 5px; }
-  .flower-workspace .preview-presets, .flower-workspace .preview-top, .flower-workspace .scene-toolbar,
-  .flower-workspace .palette-section, .flower-workspace .surprise-row, .flower-workspace .mobile-selection,
-  .flower-workspace .builder-heading, .flower-workspace .builder-navigation, .flower-workspace .panel-heading,
-  .flower-workspace .flower-edit-switch, .flower-workspace .arrangement-controls, .flower-workspace .builder-footer,
-  .flower-workspace .site-footer, .flower-workspace .flower-arranger-heading { display: none; }
-  .flower-workspace .builder-card { position: fixed; top: calc(var(--mobile-header) + var(--flower-preview-height) + 10px); bottom: calc(70px + env(safe-area-inset-bottom)); left: 14px; right: 14px; width: auto; margin: 0; display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; }
-  .flower-workspace .mobile-flower-heading { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; min-height: 48px; padding: 2px 7px; gap: 5px; border-bottom: 1px solid var(--line); }
-  .mobile-flower-heading .quiet-button { font-size: 13px; padding: 4px; gap: 4px; }
-  .mobile-flower-heading > strong { font-size: 13px; color: #805b71; font-weight: 600; }
-  .mobile-flower-heading > div { display: flex; }
-  .flower-workspace .tab-panel { flex: 1; min-height: 0; height: auto; padding: 12px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-width: thin; }
-  .flower-workspace .flower-scope-controls { margin-bottom: 12px; }
-  .flower-workspace .flower-profile-art { display: none; }
-  .flower-workspace .flower-profile-options { margin-bottom: 12px; }
-  .flower-workspace .flower-profile-options button { min-height: 54px; padding: 8px 4px; }
-  .flower-workspace .individual-flower-select { font-size: 13px; }
-  .flower-workspace .flower-arranger-help { font-size: 12px; line-height: 1.5; }
-  .flower-workspace .all-flower-controls input, .flower-workspace .individual-flower-controls input { height: 48px; margin: 3px 0 0; }
-  .flower-workspace input[type=range] { appearance: none; -webkit-appearance: none; background: transparent; cursor: pointer; }
-  .flower-workspace input[type=range]::-webkit-slider-runnable-track { height: 6px; background: #e4ccd9; border-radius: 6px; }
-  .flower-workspace input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -9px; border-radius: 50%; background: #a77390; border: 3px solid #fffafc; box-shadow: 0 1px 6px #80516d35; }
-  .flower-workspace input[type=range]::-moz-range-track { height: 6px; background: #e4ccd9; border-radius: 6px; }
-  .flower-workspace input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #a77390; border: 3px solid #fffafc; box-shadow: 0 1px 6px #80516d35; }
-  .flower-workspace .individual-flower-controls { gap: 9px; }
-  .flower-workspace .all-flower-controls label > span, .flower-workspace .individual-flower-controls label > span { font-size: 14px; }
-  .flower-workspace .toast { pointer-events: none; }
-}
-@media (max-width: 760px) and (max-height: 620px) {
-  .app.flower-workspace { --mobile-header: 56px; --flower-preview-height: 155px; }
-  .flower-workspace .brand small { display: none; }
+/* All mobile editing shares one pinned canvas and one controls scroller. */
+.app.mobile-workspace { --mobile-header: 68px; --studio-nav-height: calc(78px + env(safe-area-inset-bottom)); position: fixed; top: var(--studio-top, 0px); left: 0; right: 0; height: var(--studio-height, 100dvh); min-height: 0; max-width: none; padding: 0 14px var(--studio-nav-height); overflow: hidden; }
+.mobile-workspace .site-header { position: relative; top: 0; flex: none; height: var(--mobile-header); padding: 10px 0; z-index: 20; background: var(--cream); }
+.mobile-workspace .brand { font-size: 23px; }
+.mobile-workspace .brand-mark { width: 38px; height: 38px; }
+.mobile-workspace .brand small { font-size: 10px; }
+.mobile-workspace .header-actions { gap: 5px; }
+.mobile-workspace .workspace { display: block; flex: 1; min-height: 0; width: 100%; margin-top: calc(var(--studio-preview-height, 29dvh) + 12px); padding: 0 0 16px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-width: thin; scroll-padding-top: 110px; scroll-padding-bottom: 8px; }
+.mobile-workspace .preview-column { position: static; width: 100%; }
+.mobile-workspace .preview-card { display: contents; }
+.mobile-workspace .scene-wrap { position: fixed; z-index: 10; top: calc(var(--studio-top, 0px) + var(--mobile-header) + 4px); left: 14px; right: 14px; width: auto; height: var(--studio-preview-height, 29dvh); border: 1px solid var(--line); border-radius: 16px; background: var(--scene-color); overflow: hidden; }
+.mobile-workspace .front-guide { top: 4px; right: 4px; }
+.mobile-workspace .front-guide > span { display: none; }
+.mobile-workspace .front-guide button { padding: 3px 7px; min-height: 44px; font-size: 11px; }
+.mobile-workspace .scene-hint { font-size: 11px; bottom: 6px; }
+.mobile-workspace .preview-top { padding: 8px 4px; }
+.mobile-workspace .preview-presets { margin: 0; padding: 0; }
+.mobile-workspace .scene-toolbar { padding: 4px 0; }
+.mobile-workspace .palette-section { margin-top: 8px; }
+.mobile-workspace .surprise-row { margin: 4px 0 12px; }
+.mobile-workspace .builder-card { position: static; width: 100%; margin: 0; overflow: visible; border-radius: 16px; }
+.mobile-workspace .builder-heading { padding: 12px; }
+.mobile-workspace .builder-navigation { position: sticky; top: 0; z-index: 15; background: #fffdfb; border-bottom: 1px solid var(--line); }
+.mobile-workspace .history-controls { height: 44px; padding: 0 6px; }
+.mobile-workspace .history-controls > span { display: none; }
+.mobile-workspace .tabs { display: flex; gap: 3px; padding: 4px; overflow-x: auto; scrollbar-width: thin; }
+.mobile-workspace .tabs button { flex: none; flex-direction: column; justify-content: center; gap: 3px; min-width: 56px; min-height: 50px; padding: 5px; border-radius: 10px; font-size: 11px; }
+.mobile-workspace .tabs button svg { width: 16px; height: 16px; }
+.mobile-workspace .tabs button.active::after { display: none; }
+.mobile-workspace .tab-panel { height: auto; max-height: none; padding: 16px 12px; overflow: visible; scroll-margin: 0; }
+.mobile-workspace .panel-heading h3 { font-size: 20px; }
+.mobile-workspace .panel-heading p { font-size: 12px; }
+.mobile-workspace .arrangement-controls { padding: 12px; }
+.mobile-workspace .mobile-studio-nav { position: fixed; top: calc(var(--studio-top, 0px) + var(--studio-height, 100dvh) - var(--studio-nav-height)); bottom: auto; left: 0; right: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: var(--studio-nav-height); z-index: 25; gap: 6px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #fffcfaf5; border-top: 1px solid var(--line); }
+.mobile-workspace .mobile-studio-nav button { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; min-height: 54px; font-size: 12px; }
+.mobile-workspace .mobile-studio-nav button[aria-current] { background: #f1e0e9; color: #804761; }
+.mobile-workspace .site-footer { display: none; }
+.mobile-workspace .toast { position: fixed; top: auto; bottom: calc(100dvh - var(--studio-top, 0px) - var(--studio-height, 100dvh) + var(--studio-nav-height) + 8px); pointer-events: none; }
+.mobile-workspace.flower-workspace .mobile-flower-heading { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 2px 12px; border-bottom: 1px solid var(--line); }
+.mobile-flower-heading .quiet-button { font-size: 13px; padding: 4px; gap: 4px; }
+.mobile-flower-heading > strong { font-size: 13px; color: #805b71; font-weight: 600; }
+.mobile-workspace .flower-profile-art { display: none; }
+.mobile-workspace .flower-profile-options button { min-height: 54px; }
+.mobile-workspace input[type=range] { height: 48px; appearance: none; -webkit-appearance: none; background: transparent; cursor: pointer; }
+.mobile-workspace input[type=range]::-webkit-slider-runnable-track { height: 6px; background: #e4ccd9; border-radius: 6px; }
+.mobile-workspace input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -9px; border-radius: 50%; background: #a77390; border: 3px solid #fffafc; box-shadow: 0 1px 6px #80516d35; }
+.mobile-workspace input[type=range]::-moz-range-track { height: 6px; background: #e4ccd9; border-radius: 6px; }
+.mobile-workspace input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #a77390; border: 3px solid #fffafc; }
+.mobile-workspace .gift-fields input, .mobile-workspace .gift-fields textarea { font-size: 16px; }
+@media (max-height: 620px) { .app.mobile-workspace { --mobile-header: 56px; } .mobile-workspace .brand small { display: none; } }
+@media (max-height: 480px) and (orientation: landscape) {
+  .app.mobile-workspace { --mobile-header: 56px; }
+  .mobile-workspace .workspace { margin-top: 8px; margin-left: 43%; width: 57%; }
+  .mobile-workspace .scene-wrap { width: calc(43% - 24px); right: auto; height: calc(var(--studio-height, 100dvh) - var(--mobile-header) - var(--studio-nav-height) - 14px); }
+  .mobile-workspace .tabs button { min-width: 52px; }
+  .mobile-workspace .preview-button { display: none; }
 }

@@ -9,3 +9,13 @@ playwright-report/
 browser-install.log
 browser-focused.log
 .DS_Store
+project-demo/.cache/
+project-demo/recordings/
+project-demo/public/media/
+project-demo/public/assets/*.wav
+project-demo/output/*.mp4
+project-demo/output/*.wav
+project-demo/capcut-overlay-v2/**/*.mp4
+project-demo/capcut-overlay-v2/**/*.mov
+project-demo/capcut-overlay-v2/**/*.wav
+project-demo/delivery/

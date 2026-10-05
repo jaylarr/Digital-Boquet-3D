@@ -1,0 +1,509 @@
+{
+  "version": 2,
+  "project": "PetalPop 3D",
+  "fps": 30,
+  "durationFrames": 2700,
+  "requestedCanvas": {
+    "width": 1080,
+    "height": 1920
+  },
+  "sourceCut": "Existing independently captured app clips, before the rejected V1 card composition",
+  "timelineAuthority": "Frame-based cut manifest; never wall-clock capture timings",
+  "reviewStatus": "Production adaptation under user rebuild request; no new per-moment keep/drop approval recorded",
+  "discovery": {
+    "method": "Single editorial pass from the existing feature script and real footage",
+    "independentAgentPasses": 0,
+    "blueprintTwoIndependentPassesImplemented": false
+  },
+  "trackOwnership": {
+    "base": "Read only after the cut is frozen",
+    "overlay": "PP-OVERLAYS",
+    "sound": [
+      "PP-SFX-IN",
+      "PP-SFX-OUT",
+      "PP-TAP-SFX"
+    ],
+    "music": "PP-MUSIC",
+    "narration": "PP-NARRATION"
+  },
+  "moments": [
+    {
+      "id": "PP-01",
+      "startFrame": 0,
+      "durationFrames": 150,
+      "title": "A gift with a reason",
+      "brief": "Birthday reminder transforms into a bouquet reveal. Use a short petal trail; keep the photo and note uncovered.",
+      "narration": "It's their day. Make it personal.",
+      "source": "../public/media/hero.mp4",
+      "sourceSha256": "3375cc6f222712062a916021c47663ef09867865156981f1c202fc2b0ed62c64",
+      "sourceWidth": 1000,
+      "sourceHeight": 612,
+      "sourceDurationSeconds": 6,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/01-1.png"
+        },
+        {
+          "sourceSeconds": 3.3000000000000003,
+          "path": "reference-frames/01-2.png"
+        },
+        {
+          "sourceSeconds": 5.65,
+          "path": "reference-frames/01-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-01.mov"
+    },
+    {
+      "id": "PP-02",
+      "startFrame": 150,
+      "durationFrames": 120,
+      "title": "Start with a preset",
+      "brief": "Short leader and tap pulse on the selected Sweetheart preset, then clear the graphic.",
+      "narration": "Meet PetalPop 3D. Your own little bouquet studio.",
+      "source": "../public/media/02.mp4",
+      "sourceSha256": "7883a398810b26305691b3aecc203b38310a4d74a222f01e8f7687eaf51f3c5e",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 4,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/02-1.png"
+        },
+        {
+          "sourceSeconds": 2.2,
+          "path": "reference-frames/02-2.png"
+        },
+        {
+          "sourceSeconds": 3.65,
+          "path": "reference-frames/02-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-02.mov"
+    },
+    {
+      "id": "PP-03",
+      "startFrame": 270,
+      "durationFrames": 210,
+      "title": "Flowers and quantity",
+      "brief": "Track the actual selected flower and plus button. Roll the quantity only on observed taps; no decorative catalog covering the real catalog.",
+      "narration": "Pick their favorite flowers. Add a few, or a few more.",
+      "source": "../public/media/03.mp4",
+      "sourceSha256": "eb2ee104d70609785a08c9391fa14200f2515866da075b4811d7aeb29c93222d",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 7,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/03-1.png"
+        },
+        {
+          "sourceSeconds": 3.8500000000000005,
+          "path": "reference-frames/03-2.png"
+        },
+        {
+          "sourceSeconds": 6.65,
+          "path": "reference-frames/03-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-03.mov"
+    },
+    {
+      "id": "PP-04",
+      "startFrame": 480,
+      "durationFrames": 150,
+      "title": "Greenery and depth",
+      "brief": "A drawn depth bracket connects lower front and higher back after the layout changes.",
+      "narration": "Add greenery and little finishing touches.",
+      "source": "../public/media/04.mp4",
+      "sourceSha256": "466ece57cfdd0cddfd079d5632aed5e8d940e84c3981f16cf09522e05a63ee16",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 5,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/04-1.png"
+        },
+        {
+          "sourceSeconds": 2.75,
+          "path": "reference-frames/04-2.png"
+        },
+        {
+          "sourceSeconds": 4.65,
+          "path": "reference-frames/04-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-04.mov"
+    },
+    {
+      "id": "PP-05",
+      "startFrame": 630,
+      "durationFrames": 180,
+      "title": "Wrap, ribbon, color",
+      "brief": "Three distinct paper, ribbon and color accents, placed outside active tap targets.",
+      "narration": "Choose your wrap, tie a ribbon, and make the colors yours.",
+      "source": "../public/media/05.mp4",
+      "sourceSha256": "73e6bac04f489a3adf82074d04a67f2c03fdbd3e17a06b530425a542c14dc423",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 6,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/05-1.png"
+        },
+        {
+          "sourceSeconds": 3.3000000000000003,
+          "path": "reference-frames/05-2.png"
+        },
+        {
+          "sourceSeconds": 5.65,
+          "path": "reference-frames/05-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-05.mov"
+    },
+    {
+      "id": "PP-06",
+      "startFrame": 810,
+      "durationFrames": 180,
+      "title": "Adjust all flowers",
+      "brief": "One measurement graphic at a time: height arrow, size ring, spread bracket. Keep the slider and bouquet visible together.",
+      "narration": "Shape the whole bouquet: height, size, and spread.",
+      "source": "../public/media/06.mp4",
+      "sourceSha256": "ed33f48b58711381406ddddab3bff18c82f9af1ba187f3346338d55b075a8237",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 6,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/06-1.png"
+        },
+        {
+          "sourceSeconds": 3.3000000000000003,
+          "path": "reference-frames/06-2.png"
+        },
+        {
+          "sourceSeconds": 5.65,
+          "path": "reference-frames/06-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-06.mov"
+    },
+    {
+      "id": "PP-07",
+      "startFrame": 990,
+      "durationFrames": 240,
+      "title": "Adjust one flower",
+      "brief": "Call out the real selected rose, then map height, size, horizontal position and depth to separate directional graphics.",
+      "narration": "Or tap one bloom. Lift it, resize it, and find its perfect spot.",
+      "source": "../public/media/07.mp4",
+      "sourceSha256": "236d77d1fc31a12f3e6b52ccbad76fb6cc023184159dbf7e09862a3944e083aa",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 8,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/07-1.png"
+        },
+        {
+          "sourceSeconds": 4.4,
+          "path": "reference-frames/07-2.png"
+        },
+        {
+          "sourceSeconds": 7.65,
+          "path": "reference-frames/07-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-07.mov"
+    },
+    {
+      "id": "PP-08",
+      "startFrame": 1230,
+      "durationFrames": 120,
+      "title": "Explore arrangements",
+      "brief": "A reversible curved arrow lands with Undo and reverses with Redo; no repeating instructions already visible on the button.",
+      "narration": "Shuffle, undo, redo. Keep exploring.",
+      "source": "../public/media/08.mp4",
+      "sourceSha256": "d6e4728c6a38c2842a149d3fab14dfa5e057f8b2b60e283b3df729a4eb0698f5",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 4,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/08-1.png"
+        },
+        {
+          "sourceSeconds": 2.2,
+          "path": "reference-frames/08-2.png"
+        },
+        {
+          "sourceSeconds": 3.65,
+          "path": "reference-frames/08-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-08.mov"
+    },
+    {
+      "id": "PP-09",
+      "startFrame": 1350,
+      "durationFrames": 180,
+      "title": "Place a companion",
+      "brief": "An outlined placement ring and rotation arc follows the teddy. Clear them once the object settles.",
+      "narration": "Add a little companion. Move, turn, and resize it.",
+      "source": "../public/media/09.mp4",
+      "sourceSha256": "21f29c5dcfb09b12afd14493d3929320af71a7d3953ea244a83536b54a63768c",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 6,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/09-1.png"
+        },
+        {
+          "sourceSeconds": 3.3000000000000003,
+          "path": "reference-frames/09-2.png"
+        },
+        {
+          "sourceSeconds": 5.65,
+          "path": "reference-frames/09-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-09.mov"
+    },
+    {
+      "id": "PP-10",
+      "startFrame": 1530,
+      "durationFrames": 270,
+      "title": "Write and seal a letter",
+      "brief": "An ink flourish at the letter entrance, a brief handwriting cue at editing, and a wax-seal accent after Save & seal. Never cover the native reveal.",
+      "narration": "Write something only you would say. Style your letter, then save and seal.",
+      "source": "../public/media/10.mp4",
+      "sourceSha256": "ab4687485146e958e32ede16dcf220126cab64f866b61842ee47f606ac6e6c00",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 9,
+      "nativeTiming": {
+        "nativeAnimationComplete": true,
+        "sourceRevealSeconds": 3.3666666666666663,
+        "editedRevealSeconds": 2.2,
+        "intendedCSSAnimationSeconds": 2.1,
+        "recordingTimingAdjusted": true,
+        "recordedTailIncludedSeconds": 1.3266666666666644,
+        "openAt": 2.5638499431602884,
+        "afterRevealAt": 4.763849943160288,
+        "closeAt": 8.345509662751043
+      },
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/10-1.png"
+        },
+        {
+          "sourceSeconds": 4.95,
+          "path": "reference-frames/10-2.png"
+        },
+        {
+          "sourceSeconds": 8.65,
+          "path": "reference-frames/10-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-10.mov"
+    },
+    {
+      "id": "PP-11",
+      "startFrame": 1800,
+      "durationFrames": 270,
+      "title": "Frame a memory",
+      "brief": "A corner crop guide and portrait-to-landscape diagram, each synchronized to the real action and clear of the photo.",
+      "narration": "Add a favorite photo. Choose the frame, crop the moment, and make it fit.",
+      "source": "../public/media/11.mp4",
+      "sourceSha256": "c1d87790e9fe3581ea3ada0e5db9bb0218437d70822e4ca7ceb20c5ede8cae05",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 9,
+      "nativeTiming": {
+        "uploadAt": 0.6857208943716269,
+        "openAt": 0.9,
+        "closeAt": 7.1
+      },
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/11-1.png"
+        },
+        {
+          "sourceSeconds": 4.95,
+          "path": "reference-frames/11-2.png"
+        },
+        {
+          "sourceSeconds": 8.65,
+          "path": "reference-frames/11-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-11.mov"
+    },
+    {
+      "id": "PP-12",
+      "startFrame": 2070,
+      "durationFrames": 90,
+      "title": "A small celebration",
+      "brief": "Keep this to three seconds. Let the native burst carry the scene, with a single short editorial spark accent.",
+      "narration": "And a little celebration.",
+      "source": "../public/media/confetti.mp4",
+      "sourceSha256": "409665a4dbb0881fa8acaff384c1a9afda1e32cb82f333c203b637ecd2956c95",
+      "sourceWidth": 1000,
+      "sourceHeight": 612,
+      "sourceDurationSeconds": 3,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/12-1.png"
+        },
+        {
+          "sourceSeconds": 1.6500000000000001,
+          "path": "reference-frames/12-2.png"
+        },
+        {
+          "sourceSeconds": 2.65,
+          "path": "reference-frames/12-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-12.mov"
+    },
+    {
+      "id": "PP-13",
+      "startFrame": 2160,
+      "durationFrames": 210,
+      "title": "Personalize and share",
+      "brief": "A small name-to-gift connection, then a checkmark after the copied state. Show the actual exported card as a separate item.",
+      "narration": "Add their name and your message. Copy a gift link, or save a card.",
+      "source": "../public/media/13.mp4",
+      "sourceSha256": "d72fa9031da76f450995430eb111940cd9ea0fa4dba0bbd7ca1e510f090d3686",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 7,
+      "nativeTiming": {
+        "openAt": 3,
+        "copiedStateHoldSeconds": 1,
+        "completeActionSequence": true
+      },
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/13-1.png"
+        },
+        {
+          "sourceSeconds": 3.8500000000000005,
+          "path": "reference-frames/13-2.png"
+        },
+        {
+          "sourceSeconds": 6.65,
+          "path": "reference-frames/13-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-13.mov"
+    },
+    {
+      "id": "PP-14",
+      "startFrame": 2370,
+      "durationFrames": 150,
+      "title": "The gift opens",
+      "brief": "Tap ripple, then withdraw. Leave the recipient view and complete native letter animation unobstructed.",
+      "narration": "They tap to open. Your flowers, your photo, your words.",
+      "source": "../public/media/14.mp4",
+      "sourceSha256": "7d20fdca84679962ebf852feadae678ec02032a1d84fc2d81666d5ed8ce4a2d1",
+      "sourceWidth": 1440,
+      "sourceHeight": 1040,
+      "sourceDurationSeconds": 5,
+      "nativeTiming": {
+        "nativeAnimationComplete": true,
+        "sourceRevealSeconds": 5.699999999999999,
+        "editedRevealSeconds": 2.2,
+        "intendedCSSAnimationSeconds": 2.1,
+        "recordingTimingAdjusted": true,
+        "recordedTailIncludedSeconds": 1.9600000000000009,
+        "openAt": 2,
+        "afterRevealAt": 4.2,
+        "closeAt": 5
+      },
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/14-1.png"
+        },
+        {
+          "sourceSeconds": 2.75,
+          "path": "reference-frames/14-2.png"
+        },
+        {
+          "sourceSeconds": 4.65,
+          "path": "reference-frames/14-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-14.mov"
+    },
+    {
+      "id": "PP-15",
+      "startFrame": 2520,
+      "durationFrames": 180,
+      "title": "When to use it",
+      "brief": "Three occasion labels follow the matching bouquets, then a clear end card with a restrained animated flower mark.",
+      "narration": "Birthdays. Anniversaries. Thank-yous. Just because. PetalPop 3D. Little blooms. Big feelings.",
+      "source": "../public/media/hero.mp4",
+      "sourceSha256": "3375cc6f222712062a916021c47663ef09867865156981f1c202fc2b0ed62c64",
+      "sourceWidth": 1000,
+      "sourceHeight": 612,
+      "sourceDurationSeconds": 6,
+      "nativeTiming": null,
+      "referenceFrames": [
+        {
+          "sourceSeconds": 0.6,
+          "path": "reference-frames/15-1.png"
+        },
+        {
+          "sourceSeconds": 3.3000000000000003,
+          "path": "reference-frames/15-2.png"
+        },
+        {
+          "sourceSeconds": 5.65,
+          "path": "reference-frames/15-3.png"
+        }
+      ],
+      "status": "candidate",
+      "overlay": "overlays/PP-15.mov"
+    }
+  ]
+}

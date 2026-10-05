@@ -2,6 +2,7 @@ import LZString from 'lz-string';
 import { catalog, palettes } from './catalog.ts';
 import { validateGiftObjects, type GiftObject } from './giftCatalog.ts';
 import { pruneArrangement, validateArrangement, type FlowerArrangement } from './flowerArrangement.ts';
+import { arrangeSurpriseObjects } from './surprisePlacement.ts';
 export interface Selection { id: string; count: number; color: string; }
 export interface BouquetConfigV1 {
   version: 1; seed: number; flowers: Selection[]; fillers: Selection[];
@@ -53,7 +54,7 @@ export function validate(value: unknown): BouquetConfigV1 {
   if (!record(value.gift)) throw new Error('This bouquet has an invalid message.');
   const text = (entry: unknown, max: number) => { if (typeof entry !== 'string' || Array.from(entry).length > max) throw new Error('This bouquet’s message is too long.'); return entry; };
   // Missing titles are valid in existing version-one links and drafts; their note remains the body.
-  return { version: 1, seed: value.seed as number, flowers, fillers, wrapper: decor(value.wrapper, 'wrappers'), ribbon: decor(value.ribbon, 'ribbons'), effects: value.effects as string[], palette: value.palette as string, size: value.size, spread: value.spread, gift: { to: text(value.gift.to, 50), from: text(value.gift.from, 50), title: value.gift.title === undefined ? '' : text(value.gift.title, GIFT_TITLE_LIMIT), message: text(value.gift.message, GIFT_BODY_LIMIT) }, objects: validateGiftObjects(value.objects), ...(value.arrangement !== undefined ? { arrangement: validateArrangement(value.arrangement, flowers) } : {}) };
+  return { version: 1, seed: value.seed as number, flowers, fillers, wrapper: decor(value.wrapper, 'wrappers'), ribbon: decor(value.ribbon, 'ribbons'), effects: value.effects as string[], palette: value.palette as string, size: value.size, spread: value.spread, gift: { to: text(value.gift.to, 50), from: text(value.gift.from, 50), title: value.gift.title === undefined ? '' : text(value.gift.title, GIFT_TITLE_LIMIT), message: text(value.gift.message, GIFT_BODY_LIMIT) }, objects: validateGiftObjects(value.objects), ...(value.arrangement !== undefined ? { arrangement: validateArrangement(value.arrangement, flowers, fillers) } : {}) };
 }
 export function encode(config: BouquetConfigV1) {
   const c = validate(config), stems = (entries: Selection[]) => entries.map(s => [s.id, s.count, s.color.slice(1)]);
@@ -96,5 +97,6 @@ export function surprise(config: BouquetConfigV1, nextSeed = seed()) {
   const flowers = [...catalog.flowers];
   for (let i = flowers.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [flowers[i], flowers[j]] = [flowers[j], flowers[i]]; }
   const result = { ...config, seed: nextSeed, flowers: flowers.slice(0, 2 + Math.floor(rng() * 3)).map(f => ({ id: f.id, count: 2 + Math.floor(rng() * 3), color: f.color })), fillers: [{ id: pick(catalog.fillers).id, count: 2 + Math.floor(rng() * 4), color: '#89aaa0' }], wrapper: { id: pick(catalog.wrappers).id, color: '#ffffff' }, ribbon: { id: pick(catalog.ribbons).id, color: '#ffffff' }, effects: rng() > .5 ? [pick(catalog.effects).id] : [] };
-  return applyPalette(pruneArrangement(result), pick(palettes).id);
+  const bouquet = applyPalette(pruneArrangement(result), pick(palettes).id);
+  return { ...bouquet, objects: arrangeSurpriseObjects(bouquet, nextSeed) };
 }

@@ -11,14 +11,15 @@ import { type ObjectScene } from './objectScene';
 import { objectSize } from './giftCatalog';
 import type { NoteOrigin } from './EnvelopeNote';
 import { layout } from './layout';
+
 import { bouquetGround, objectGroundOffset } from './sceneGround';
 
 export interface ViewerMetrics { calls: number; triangles: number; fps: number; frames: number; pixelRatio: number; economy: boolean; modelBuilds: number; updateMs: number; updateMaxMs: number; updates: number; contacts: number; transitioning: number; active: number; cachedModels: number; visibleStems: number; objects: number; objectBuilds: number; groundY: number; editGrid: boolean; }
-export interface ViewerHandle { reset: () => void; front: () => void; capture: () => Promise<HTMLCanvasElement>; metrics: () => ViewerMetrics; objectPoints: () => Record<string, [number, number]>; flowerPoints: () => Record<string, [number, number]>; }
+export interface ViewerHandle { reset: () => void; front: () => void; capture: () => Promise<HTMLCanvasElement>; metrics: () => ViewerMetrics; objectPoints: () => Record<string, [number, number]>; flowerPoints: () => Record<string, [number, number]>; fillerPoints: () => Record<string, [number, number]>; }
 export type ViewDirection = 'Front' | 'Right side' | 'Back' | 'Left side';
-interface Props { config: BouquetConfigV1; motion: boolean; replay: number; onReady: (handle: ViewerHandle | null) => void; onFailure: () => void; onDirection?: (direction: ViewDirection) => void; interaction?: ObjectInteraction; openNote?: (uid: string, origin?: NoteOrigin) => void; flowerInteraction?: { selected: string | null; select: (key: string) => void }; }
+interface Props { config: BouquetConfigV1; motion: boolean; replay: number; onReady: (handle: ViewerHandle | null) => void; onFailure: () => void; onDirection?: (direction: ViewDirection) => void; interaction?: ObjectInteraction; openNote?: (uid: string, origin?: NoteOrigin) => void; flowerInteraction?: { selected: string | null; select: (key: string) => void }; fillerInteraction?: { selected: string | null; select: (key: string) => void }; }
 
-function Scene({ config, motion, replay, onReady, onFailure, onDirection, interaction, openNote, flowerInteraction }: Props) {
+function Scene({ config, motion, replay, onReady, onFailure, onDirection, interaction, openNote, flowerInteraction, fillerInteraction }: Props) {
   const { gl, scene, camera, size, invalidate, setDpr } = useThree();
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const [design, setDesign] = useState<AnimatedBouquet | null>(null), [effects, setEffects] = useState<Effects | null>(null);
@@ -39,10 +40,10 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
   const radius = (.59 + Math.sqrt(total(config.flowers)) * .11) * config.spread;
   let width = hasRainbow || config.effects.length ? 4.5 : (radius + .46 * config.size + .2) * 2;
   let centerY = hasRainbow ? .65 : .25, height = config.effects.length ? 4.8 : 3.7, depth = 0;
-  if (config.arrangement) {
+  {
     const { flowers, fillers } = layout(config);
     const minY = ground - .05;
-    const raisedFillers = config.arrangement.fillerProfile === 'stepped' ? fillers : [];
+    const raisedFillers = fillers;
     const maxY = Math.max(centerY + height / 2, ...flowers.map(p => p.position[1] + .65 * p.scale), ...raisedFillers.map(p => p.position[1] + .8 * p.scale));
     width = Math.max(width, ...flowers.map(p => (Math.abs(p.position[0]) + .55 * p.scale) * 2), ...raisedFillers.map(p => (Math.abs(p.position[0]) + .4 * p.scale) * 2));
     centerY = (maxY + minY) / 2; height = maxY - minY + .15;
@@ -107,10 +108,11 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
     const delta = Math.min(rawDelta, .08), live = motion && !!design?.stems.length;
     if (motion) elapsed.current += delta;
     if (design && (live || transition.current)) transition.current = design.step(elapsed.current, delta, motion);
-    const selected = flowerInteraction?.selected ? design?.stems.find(s => s.key === `flowers:${flowerInteraction.selected}` && s.targetGrowth) : undefined;
+    const selectedKey = fillerInteraction?.selected ? `fillers:${fillerInteraction.selected}` : flowerInteraction?.selected ? `flowers:${flowerInteraction.selected}` : null;
+    const selected = selectedKey ? design?.stems.find(s => s.key === selectedKey && s.targetGrowth) : undefined;
     if (flowerMarker.current) {
       flowerMarker.current.visible = !!selected;
-      if (selected) { flowerMarker.current.position.copy(selected.position); flowerMarker.current.quaternion.copy(selected.rotation); flowerMarker.current.scale.setScalar(selected.scale * 1.08); }
+      if (selected) { flowerMarker.current.position.copy(selected.position); flowerMarker.current.quaternion.copy(selected.rotation); flowerMarker.current.scale.setScalar(selected.scale * (selected.category === 'fillers' ? .7 : 1.08)); }
     }
     if (effects && (motion || effectDirty.current)) { updateEffects(effects.entries, elapsed.current, !motion); effectDirty.current = false; }
     if (cameraTween.current) {
@@ -177,6 +179,7 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
       },
       metrics: () => ({ calls: gl.info.render.calls, triangles: gl.info.render.triangles, fps: fps.current.value, frames: gl.info.render.frame, pixelRatio: gl.getPixelRatio(), economy: fps.current.quality > 0, objects: objectEngine?.entries.size ?? 0, objectBuilds: objectEngine?.builds ?? 0, groundY: bouquetGround(configRef.current), editGrid: !!groundHelpers.current?.getObjectByName('edit-ground-grid')?.visible, ...design.metrics() }),
       objectPoints: () => { const result: Record<string, [number, number]> = {}; objectEngine?.group.updateMatrixWorld(true); objectEngine?.entries.forEach((entry, uid) => { const point = new T.Box3().setFromObject(entry.model).getCenter(new T.Vector3()).project(camera); result[uid] = [(point.x + 1) * size.width / 2, (1 - point.y) * size.height / 2]; }); return result; },
+      fillerPoints: () => { const result: Record<string, [number, number]> = {}; design.stems.filter(s => s.category === 'fillers' && s.targetGrowth).forEach(s => { const point = s.position.clone().project(camera); result[s.key.slice('fillers:'.length)] = [(point.x + 1) * size.width / 2, (1 - point.y) * size.height / 2]; }); return result; },
       flowerPoints: () => { const result: Record<string, [number, number]> = {}; design.stems.filter(s => s.category === 'flowers' && s.targetGrowth).forEach(s => { const point = s.position.clone().project(camera); result[s.key.slice('flowers:'.length)] = [(point.x + 1) * size.width / 2, (1 - point.y) * size.height / 2]; }); return result; },
     });
     return () => onReady(null);
@@ -185,8 +188,8 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
     <hemisphereLight args={['#fff9f2', '#817983', 1.65]} />
     <directionalLight position={[-3, 5, 4]} intensity={2.5} color="#fff5e9" />
     <directionalLight position={[4, 2, 3]} intensity={1.4} color="#e5eaff" />
-    {design && <primitive object={design.group} onClick={(event: ThreeEvent<MouseEvent>) => { if (!flowerInteraction || event.delta > 4 || event.instanceId === undefined) return; const key = event.object.userData.flowerKeys?.[event.instanceId]; if (typeof key === 'string') { event.stopPropagation(); flowerInteraction.select(key); } }} />}
-    {flowerInteraction && <mesh ref={flowerMarker} visible={false} raycast={() => {}}><torusGeometry args={[.42, .012, 6, 48]} /><meshBasicMaterial color="#b96e96" transparent opacity={.72} depthWrite={false} depthTest={false} /></mesh>}
+    {design && <primitive object={design.group} onClick={(event: ThreeEvent<MouseEvent>) => { if (event.delta > 4 || event.instanceId === undefined) return; const flowerKey = event.object.userData.flowerKeys?.[event.instanceId], fillerKey = event.object.userData.fillerKeys?.[event.instanceId]; const pick = typeof fillerKey === 'string' ? fillerInteraction : flowerInteraction, key = typeof fillerKey === 'string' ? fillerKey : flowerKey; if (pick && typeof key === 'string') { event.stopPropagation(); pick.select(key); } }} />}
+    {(flowerInteraction || fillerInteraction) && <mesh ref={flowerMarker} visible={false} raycast={() => {}}><torusGeometry args={[.42, .012, 6, 48]} /><meshBasicMaterial color="#b96e96" transparent opacity={.72} depthWrite={false} depthTest={false} /></mesh>}
     {effects && <primitive object={effects.group} />}
     {!!config.objects.length && <ObjectLayer objects={config.objects} ground={ground} interaction={interaction} openNote={openNote} busy={objectBusy} engineReady={objectReady} helpers={objectHelpers} />}
     <group ref={groundHelpers}>{interaction && <gridHelper name="edit-ground-grid" args={[7, 14, '#ae8b9e', '#d4bdcb']} position={[0, ground + .003, .5]} raycast={() => {}} />}</group>

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "01",
+    "start": 0,
+    "end": 5,
+    "seconds": 5,
+    "action": "An editorial birthday reminder reads “Mia's birthday · Today.” A petal drifts across it, leading into a close-up of the finished bouquet and its framed photo. Pull back just enough to show this is a digital gift. Keep the letter sealed and hold back the confetti.",
+    "voice": "It's their day. Make it personal.",
+    "copy": "**Make their day bloom.**"
+  },
+  {
+    "id": "02",
+    "start": 5,
+    "end": 9,
+    "seconds": 4,
+    "action": "Match-cut from the hero bouquet into the actual studio. Open **Start with a preset** and choose **Sweetheart**. The interface settles into a clear composition with the bouquet above and the active controls below.",
+    "voice": "Meet PetalPop 3D. Your own little bouquet studio.",
+    "copy": "**Create a digital bouquet** · small secondary line: **No account needed**"
+  },
+  {
+    "id": "03",
+    "start": 9,
+    "end": 16,
+    "seconds": 7,
+    "action": "Open **Flowers**. Tap a tulip card and show it appear. Punch in on the rose quantity stepper: **4 → 5 → 6**. Hold the control and live preview in the same shot so each tap has a visible result. End with a quick catalog glide showing the range of flowers.",
+    "voice": "Pick their favorite flowers. Add a few, or a few more.",
+    "copy": "**Pick flowers** → **Choose how many**"
+  },
+  {
+    "id": "04",
+    "start": 16,
+    "end": 21,
+    "seconds": 5,
+    "action": "Open **Fillers**, add Eucalyptus, increase its count, then select **Stepped fillers**. Briefly show the lower front and higher back from a three-quarter angle. Keep the selected control visible.",
+    "voice": "Add greenery and little finishing touches.",
+    "copy": "**Add fillers** → **Give them depth**"
+  },
+  {
+    "id": "05",
+    "start": 21,
+    "end": 27,
+    "seconds": 6,
+    "action": "Three connected beats: select **Double-Layer Cone** in **Wrap**; select **Classic Bow** in **Ribbon**; apply **Sugar blush**, then change one flower's color. Show the **Show bottom stems** toggle in a quick before/after insert. Use match cuts between finished looks; keep each tapped control readable.",
+    "voice": "Choose your wrap, tie a ribbon, and make the colors yours.",
+    "copy": "**Wrap it** → **Tie it** → **Color it**"
+  },
+  {
+    "id": "06",
+    "start": 27,
+    "end": 33,
+    "seconds": 6,
+    "action": "**Flowers → Arrange blooms → All blooms**. Show **Natural dome → Stepped bouquet**. Move **All flower height**, **All flower size**, then **Spread**, with the live canvas visible throughout. Small arrows point up, outward, and apart as the corresponding change happens.",
+    "voice": "Shape the whole bouquet: height, size, and spread.",
+    "copy": "**All blooms** · **Height → Size → Spread**"
+  },
+  {
+    "id": "07",
+    "start": 33,
+    "end": 41,
+    "seconds": 8,
+    "action": "Switch to **One bloom** and tap the front rose in the preview. Keep its selection visible. Make four deliberate edits: **Height**, **Size**, **Left / right**, **Back / front**. For depth, use a brief three-quarter view so the movement reads clearly; return with **Front view**. End on the improved bouquet.",
+    "voice": "Or tap one bloom. Lift it, resize it, and find its perfect spot.",
+    "copy": "**One bloom** → **Tap to select** → **Adjust its height, size & position**"
+  },
+  {
+    "id": "08",
+    "start": 41,
+    "end": 45,
+    "seconds": 4,
+    "action": "Tap **Shuffle**, then **Undo**, then **Redo**. Use the same camera angle so the arrangement changes are obvious. Let the selected rose remain recognizable. A small adjacent insert shows the genuine **Surprise me** button as another starting option; its alternate bouquet is labeled “Another idea.”",
+    "voice": "Shuffle, undo, redo. Keep exploring.",
+    "copy": "**Try a new arrangement** → **Undo / Redo**"
+  },
+  {
+    "id": "09",
+    "start": 45,
+    "end": 51,
+    "seconds": 6,
+    "action": "Open **Objects**. Show the catalog, including teddy, balloon, puppy, and kitten. Add **Cuddle Teddy** and **Heart Balloon**. Select the teddy, drag it beside the bouquet, then show a short **Turn** and **Size** adjustment. Finish with both objects framing the flowers.",
+    "voice": "Add a little companion. Move, turn, and resize it.",
+    "copy": "**Add a companion** → **Place it your way**"
+  },
+  {
+    "id": "10",
+    "start": 51,
+    "end": 60,
+    "seconds": 9,
+    "action": "Add **Sealed Letter**, then open it. Let the native envelope animation play in full: envelope moves forward, seal fades, flap lifts, paper rises, and the note editor appears. Type the short birthday note; show a font choice and a bold or color change. Tap **Save & seal**, then return to the sealed letter in the scene.",
+    "voice": "Write something only you would say. Style your letter, then save and seal.",
+    "copy": "**Add a letter** → **Write & style your note** → **Save & seal**"
+  },
+  {
+    "id": "11",
+    "start": 60,
+    "end": 69,
+    "seconds": 9,
+    "action": "Add **Memory Frame**. In the picture dialog, tap **Change picture**, choose the demo photo, and enter the crop preview. Show **Fill the frame**, a gentle zoom/pan, then **Apply crop**. Toggle **Portrait → Landscape** and hold the actual reframed result. Place the frame beside the letter. A short catalog insert shows all four frame designs.",
+    "voice": "Add a favorite photo. Choose the frame, crop the moment, and make it fit.",
+    "copy": "**Add your photo** → **Crop & position** → **Portrait / Landscape**"
+  },
+  {
+    "id": "12",
+    "start": 69,
+    "end": 72,
+    "seconds": 3,
+    "action": "**Effects → Confetti Pop**, then **Replay** if needed. Cut to a clear three-quarter hero view of the native burst for exactly three seconds. Confetti frames the bouquet; the letter and photo remain visible. One gentle editorial push-in lands on the music accent.",
+    "voice": "And a little celebration.",
+    "copy": "**Confetti Pop**"
+  },
+  {
+    "id": "13",
+    "start": 72,
+    "end": 79,
+    "seconds": 7,
+    "action": "Open **Gift** and show the filled **For**, **From**, **Title**, and **Body** fields. Tap **Share bouquet → Copy link**, with the ready/copied state readable. Show a **Save PNG** tap and the actual finished card in an inset. Let floating hearts continue in the bouquet footage.",
+    "voice": "Add their name and your message. Copy a gift link, or save a card.",
+    "copy": "**Make it personal** → **Copy a gift link** → **Save a PNG card**"
+  },
+  {
+    "id": "14",
+    "start": 79,
+    "end": 84,
+    "seconds": 5,
+    "action": "Open the captured gift link in a fresh browser view. Show **Tap to open**, reveal the same bouquet with its photo and objects, then tap **Open your letter**. Keep the full native envelope reveal and enough of the note to recognize the birthday message. Briefly show **Remix bouquet** as the next available action.",
+    "voice": "They tap to open. Your flowers, your photo, your words.",
+    "copy": "**A gift they can open**"
+  },
+  {
+    "id": "15",
+    "start": 84,
+    "end": 90,
+    "seconds": 6,
+    "action": "Three rhythmic, clearly separate gift variations: a sunny birthday bouquet, a romantic anniversary bouquet, and a small thank-you bouquet. Labels appear one at a time. At 01:27, settle on the original gift with the brand and final call to action. Let one petal drift into the brand's flower mark, then hold the end card.",
+    "voice": "Birthdays. Anniversaries. Thank-yous. Just because. PetalPop 3D. Little blooms. Big feelings.",
+    "copy": "**Birthdays → Anniversaries → Thank-yous**; final card: **PetalPop 3D** / **Little blooms. Big feelings.** / **Create a bouquet. Make their day.**"
+  }
+]
