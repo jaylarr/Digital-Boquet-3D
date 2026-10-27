@@ -35,7 +35,7 @@ export function writeNote(element: HTMLElement, note: NoteDocument) {
   element.replaceChildren();
   for (const run of note.runs) {
     const span = document.createElement('span'); span.textContent = run.text;
-    Object.assign(span.style, runStyle(run)); element.append(span);
+    Object.assign(span.style, runStyle(run)); element.appendChild(span);
   }
 }
 /** Normalize native rich-text editing to the same safe format used by the reader. */

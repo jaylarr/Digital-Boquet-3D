@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
-import { clone, DRAFT_KEY, starter, type BouquetConfigV1 } from '../../src/config';
+import { clone, DRAFT_KEY, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
 import { readyLink, sharedDesign } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
@@ -95,7 +95,7 @@ test('filler settings survive saved and portable gifts, remix and PNG export', a
   await page.getByRole('button', { name: 'Close dialog', exact: true }).click();
   await page.route('**/api/bouquets', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await page.getByLabel('Title', { exact: true }).fill('Fillers, arranged with love');
-  const portable = await readyLink(page); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).arrangement).toEqual(saved.arrangement);
+  await expect(page.getByRole('alert')).toContainText("We couldn't create a short link"); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeDisabled(); const portable = shareUrl(await draft(page), page.url()); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).arrangement).toEqual(saved.arrangement);
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' }); const receiver = await context.newPage();
   await receiver.goto(short); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click();
   await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();

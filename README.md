@@ -1,6 +1,6 @@
 # PetalPop 3D
 
-A mobile-first, account-free 3D bouquet studio. All artwork is original procedural geometry. Editing works as a static app; an optional same-origin Node service saves gifts behind short links. No external account, database or credentials are needed.
+A mobile-first, account-free 3D bouquet studio. All artwork is original procedural geometry. Editing works as a static app; sharing requires a same-origin saved-gift API. Local Node hosting uses disk snapshots; the Cloudflare API uses D1. Creators and recipients need no account.
 
 ## Run locally
 
@@ -33,13 +33,26 @@ Sharing prefers a tiny `#s=…` link with a random 16-character ID. The same-ori
 
 Vite development/preview include the service. For a built deployment, run `npm.cmd run build` then `npm.cmd start` with Node 24. Snapshots persist in `.data/shares/`, outside the public files and ignored by Git. Keep that directory on persistent storage when hosting or moving the service; losing it breaks its saved links. `SHARE_DATA_DIR` can select the persistent directory; `PORT` and `HOST` configure the listener (defaults: 5181 and 127.0.0.1). Storage is capped at 100 MB and creation at 120 requests/hour per IP. There is no external upload or third-party shortener.
 
-On a static host or when the service is unavailable, sharing falls back to a compact, compressed portable configuration in `#b=c.…`. It carries the entire gift, so photo links remain longer. Existing `#b=…` links and version-one drafts still open. Anyone holding either kind of link can view its content; links are not encrypted.
+New sharing links always use `#s=`. If saving fails, the dialog shows an error and **Retry**, and Copy/native sharing remain disabled. It never falls back to embedding photos or the complete gift in a huge URL. Previously created `#b=…` links and version-one drafts still open. Anyone holding a gift link can view its content; links are not encrypted.
 
 The sharing dialog and Gift tab have synchronized **Title** and **Body** fields. The title becomes the opened gift's heading, with the recipient shown separately; the body appears in the letter. Both are included in PNG cards and the device's native share payload. Empty titles retain the existing default heading. The body retains the version-one `message` property so existing links and drafts keep their notes; missing titles migrate to an empty title without changing the schema version.
 
 Opening a valid bouquet link takes precedence over local drafts and shows a gift reveal. Viewing a gift never overwrites the recipient's saved draft. Choosing **Remix** makes the gift their active local draft. Unknown versions and malformed links show an error while preserving saved work. Browser storage and clipboard denial have graceful fallbacks.
 
-Localhost links work only on the machine running the app. Cross-device short links require hosting the built app and Node service on the same HTTPS origin, with persistent snapshot storage. Uploading only `dist/` to a static host supports portable links; it cannot resolve saved short links. Hosting, a public URL, and deployment have not been created.
+Localhost links work only on the machine running the app. Cross-device sharing requires the built app and saved-gift API on the same HTTPS origin, with persistent snapshot storage. Uploading only `dist/` to a static host cannot create new gift links. The existing public site is `https://bouquetforyou.lar-ykt.com/`; its D1-backed API and updated frontend were deployed and verified on 2026-10-27. Production photo gifts use 53-character links. See [Cloudflare activation](docs/cloudflare-sharing-deployment.md) for exact boundaries and setup.
+
+### Cloudflare local verification
+
+The API-only Worker in `cloudflare/worker.ts` preserves `/api/bouquets` and stores immutable compressed gift snapshots, including photos and notes, in the `BOUQUET_SHARES` D1 binding. It does not serve the frontend or use Node filesystem storage. The local configuration has no production route or database ID.
+
+```powershell
+npm.cmd run cf:types
+npm.cmd run cf:typecheck
+npm.cmd run cf:migrate:local
+npm.cmd run cf:dev
+```
+
+The emulator listens on `http://127.0.0.1:8787`. `npm.cmd run test:cf-sharing` bundles the Worker and uses Wrangler's pinned Miniflare/workerd runtime with a unique local D1 directory to check API failures, concurrent saves, capacity/rate limits and persistence across runtime restart. It accepts no production target. `npm.cmd exec playwright -- test --config playwright.sharing.config.ts` runs the dialog and recipient tests against local Vite and the Worker; forwarding API requests in that test fixture is not a production CORS configuration.
 
 ## Catalog and controls
 

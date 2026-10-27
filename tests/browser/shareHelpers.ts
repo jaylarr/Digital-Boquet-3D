@@ -5,4 +5,9 @@ export async function sharedDesign(page: Page, url: string) {
   expect(u.hash).toMatch(/^#s=[A-Za-z0-9_-]{16}$/); const response = await page.request.get(new URL(`api/bouquets/${u.hash.slice(3)}`, new URL('.', url)).href);
   expect(response.ok()).toBe(true); return decode((await response.json()).payload);
 }
-export async function readyLink(page: Page) { await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeEnabled(); return page.locator('.share-link').inputValue(); }
+export async function readyLink(page: Page) {
+  await expect(page.locator('.link-status')).toContainText('Short link ready');
+  await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeEnabled();
+  const url = await page.locator('.share-link').inputValue();
+  expect(new URL(url).hash).toMatch(/^#s=[A-Za-z0-9_-]{16}$/); return url;
+}

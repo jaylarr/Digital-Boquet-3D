@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { clone, DRAFT_KEY, starter, type BouquetConfigV1 } from '../../src/config';
+import { clone, DRAFT_KEY, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
 import { readyLink, sharedDesign } from './shareHelpers';
 
 test('surprise preserves real photos and letters, groups history, and survives drafts, sharing and export', async ({ browser }) => {
@@ -35,7 +35,7 @@ test('surprise preserves real photos and letters, groups history, and survives d
   await page.getByRole('button', { name: 'Close dialog', exact: true }).tap();
   await page.route('**/api/bouquets', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).tap(); await page.getByLabel('Title', { exact: true }).fill('A surprise for you');
-  const portable = await readyLink(page); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).objects).toEqual(result.objects);
+  await expect(page.getByRole('alert')).toContainText("We couldn't create a short link"); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeDisabled(); const portable = shareUrl(result, page.url()); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).objects).toEqual(result.objects);
   await page.getByRole('button', { name: 'Close dialog', exact: true }).tap();
   const download = page.waitForEvent('download'); await page.getByRole('button', { name: 'Save PNG', exact: true }).tap();
   await (await download).saveAs('artifacts/pinned-studio/surprise.png');
