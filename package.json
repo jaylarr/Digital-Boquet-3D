@@ -12,7 +12,13 @@
     "lint": "eslint .",
     "test": "vitest run --configLoader native",
     "test:e2e": "playwright test",
-    "generate:catalog": "node scripts/generate-catalog.mjs"
+    "generate:catalog": "node scripts/generate-catalog.mjs",
+    "cf:types": "wrangler types cloudflare/worker-configuration.d.ts --config cloudflare/wrangler.jsonc",
+    "cf:typecheck": "tsc --project cloudflare/tsconfig.json --noEmit --incremental false",
+    "cf:migrate:local": "wrangler d1 migrations apply BOUQUET_SHARES --local --config cloudflare/wrangler.jsonc --persist-to .checks/cloudflare/state",
+    "cf:dev": "wrangler dev --local --config cloudflare/wrangler.jsonc --port 8787 --persist-to .checks/cloudflare/state",
+    "cf:check": "wrangler deploy --dry-run --config cloudflare/wrangler.jsonc --outdir ../.checks/cloudflare/build",
+    "test:cf-sharing": "node scripts/verify-cloudflare-sharing.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",
@@ -37,6 +43,7 @@
     "typescript": "~5.9.0",
     "typescript-eslint": "^8.0.0",
     "vite": "^7.0.0",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.0",
+    "wrangler": "4.152.0"
   }
 }

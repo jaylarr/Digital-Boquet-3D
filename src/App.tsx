@@ -9,7 +9,7 @@ import { ObjectsPanel } from './ObjectsPanel';
 import { giftAssets, OBJECT_LIMIT, type GiftObject } from './giftCatalog';
 import { ColorControl } from './ColorControl';
 import { useDesignHistory } from './useDesignHistory';
-import { createShareLink, openSharedBouquet } from './sharing';
+import { createShareLink, openSharedBouquet, ShareLinkError } from './sharing';
 import { EnvelopeNote, type NoteOrigin } from './EnvelopeNote';
 import { FillerArrangementPanel, FlowerArrangementPanel, StemVisibility } from './FlowerArrangementPanel';
 import { DEFAULT_ARRANGEMENT, fillerInstances, flowerInstances, pruneArrangement, type FlowerArrangement } from './flowerArrangement';
@@ -19,6 +19,7 @@ import { useMobileStudioWorkspace } from './useMobileFlowerWorkspace';
 const Viewer = lazy(() => import('./Viewer'));
 const staticThumbnails: Record<string, string> = renderedCatalog;
 type Tab = Category | 'gift' | 'objects';
+type ShareLinkState = { status: 'ready'; config: BouquetConfigV1; url: string } | { status: 'error'; config: BouquetConfigV1; message: string } | null;
 const tabs = [{ id: 'flowers', name: 'Flowers', icon: Flower2 }, { id: 'fillers', name: 'Fillers', icon: Leaf }, { id: 'wrappers', name: 'Wrap', icon: PackageOpen }, { id: 'ribbons', name: 'Ribbon', icon: Ribbon }, { id: 'effects', name: 'Effects', icon: Sparkles }, { id: 'objects', name: 'Objects', icon: Shapes }, { id: 'gift', name: 'Gift', icon: Gift }] as const;
 const titles: Record<Tab, [string, string]> = { flowers: ['Pick your petals', 'Mix up to 5 varieties. Every bloom belongs.'], fillers: ['The little extras', 'Mix up to 3 varieties for a little more texture.'], wrappers: ['Give them a hug', 'A lovely home for your little blooms.'], ribbons: ['Tie it all together', 'The cutest finishing touch.'], effects: ['A sprinkle of magic', 'Choose up to 2 effects. Tiny things, big joy.'], objects: ['Little companions', 'Add up to 6 objects. Move them, turn them, make it yours.'], gift: ['Make it personal', 'A few words can mean a whole lot.'] };
 function initialState() {
@@ -63,11 +64,13 @@ export default function App() {
   const { config, setConfig, replaceConfig, beginEdit, endEdit, undo, redo, canUndo, canRedo } = useDesignHistory(initial.config);
   const [direction, setDirection] = useState<ViewDirection>('Front');
   const [loadingShared, setLoadingShared] = useState(() => window.location.hash.startsWith('#s='));
-  const [link, setLink] = useState<{ config: BouquetConfigV1; url: string; short: boolean } | null>(null);
+  const [link, setLink] = useState<ShareLinkState>(null), [shareAttempt, setShareAttempt] = useState(0);
   const rangeEditing = useRef(false), studioScroll = useRef(0);
   const [tab, setTab] = useState<Tab>('flowers'), [error, setError] = useState(initial.error), [opened, setOpened] = useState(false);
   const [modal, setModal] = useState<'presets' | 'share' | null>(null), [notice, setNotice] = useState(''), [shareCopied, setShareCopied] = useState(false);
-  const linkPending = modal === 'share' && link?.config !== config;
+  const currentLink = link?.config === config ? link : null;
+  const canShare = currentLink?.status === 'ready';
+  const linkPending = modal === 'share' && currentLink === null;
   const [ready, setReady] = useState(false), [failed, setFailed] = useState(false), [exporting, setExporting] = useState(false), [replay, setReplay] = useState(0);
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches), [motionEnabled, setMotionEnabled] = useState(true);
   const [storageAvailable, setStorageAvailable] = useState(true), viewer = useRef<ViewerHandle | null>(null), shareInput = useRef<HTMLInputElement>(null);
@@ -116,9 +119,13 @@ export default function App() {
   useEffect(() => {
     if (modal !== 'share') return;
     const request = new AbortController();
-    const timer = setTimeout(() => { void createShareLink(config, request.signal).then(result => { if (!request.signal.aborted) { setLink({ ...result, config }); setShareCopied(false); } }).catch(() => {}); }, 350);
+    const timer = setTimeout(() => { void createShareLink(config, request.signal).then(result => {
+      if (!request.signal.aborted) { setLink({ status: 'ready', url: result.url, config }); setShareCopied(false); }
+    }).catch(error => {
+      if (!request.signal.aborted) setLink({ status: 'error', config, message: error instanceof ShareLinkError ? error.message : new ShareLinkError('unavailable').message });
+    }); }, 350);
     return () => { clearTimeout(timer); request.abort(); };
-  }, [modal, config]);
+  }, [modal, config, shareAttempt]);
   useEffect(() => {
     const finish = () => { if (rangeEditing.current) { rangeEditing.current = false; endEdit(); } };
     window.addEventListener('pointerup', finish); window.addEventListener('pointercancel', finish); window.addEventListener('blur', finish);
@@ -151,13 +158,14 @@ export default function App() {
   };
   const count = (category: 'flowers' | 'fillers', id: string, delta: number) => update(c => delta > 0 && total(c[category]) >= (category === 'flowers' ? 24 : 12) ? c : ({ ...c, [category]: c[category].map(item => item.id === id ? { ...item, count: Math.max(0, item.count + delta) } : item).filter(item => item.count > 0) }));
   const itemColor = (category: Category, id: string, color: string) => update(c => category === 'flowers' || category === 'fillers' ? { ...c, [category]: c[category].map(item => item.id === id ? { ...item, color } : item) } : category === 'wrappers' ? { ...c, wrapper: { ...c.wrapper, color } } : { ...c, ribbon: { ...c.ribbon, color } });
-  const showShare = () => { setShareCopied(false); setModal('share'); };
+  const showShare = () => { setLink(null); setShareCopied(false); setModal('share'); };
+  const retryShare = () => { setLink(null); setShareCopied(false); setShareAttempt(attempt => attempt + 1); };
   const copyLink = async () => {
-    if (linkPending || !link) return;
-    try { await navigator.clipboard.writeText(link.url); setShareCopied(true); }
+    if (!canShare || currentLink?.status !== 'ready') return;
+    try { await navigator.clipboard.writeText(currentLink.url); setShareCopied(true); }
     catch { shareInput.current?.focus(); shareInput.current?.select(); setNotice('Select and copy the link below.'); }
   };
-  const nativeShare = async () => { if (linkPending || !link) return; try { await navigator.share({ title: config.gift.title.trim() || 'A little bouquet for you 🌷', text: config.gift.message.trim() || (config.gift.to ? `For ${config.gift.to}, with love.` : 'I made you a little bouquet.'), url: link.url }); } catch (e) { if ((e as Error).name !== 'AbortError') { setNotice('Sharing isn’t available here. Copy the link instead.'); } } };
+  const nativeShare = async () => { if (!canShare || currentLink?.status !== 'ready') return; try { await navigator.share({ title: config.gift.title.trim() || 'A little bouquet for you', text: config.gift.message.trim() || (config.gift.to ? `For ${config.gift.to}, with love.` : 'I made you a little bouquet.'), url: currentLink.url }); } catch (e) { if ((e as Error).name !== 'AbortError') { setNotice('Sharing isn’t available here. Copy the link instead.'); } } };
   const exportCard = async () => { if (!viewer.current) return; setExporting(true); try { await giftCard(await viewer.current.capture(), config); setNotice('Your bouquet is ready to keep.'); } catch (e) { setNotice((e as Error).message || 'The image couldn’t be created. Please try again.'); } finally { setExporting(false); } };
   const goEditor = () => { setMode('editor'); setOpened(false); if (initial.mode === 'gift' || window.location.hash) history.replaceState(null, '', `${window.location.pathname}${window.location.search}`); setNotice('Make this little bouquet your own.'); requestAnimationFrame(() => window.scrollTo({ top: studioScroll.current, behavior: 'instant' })); };
   const palette = palettes.find(p => p.id === config.palette)!;
@@ -241,6 +249,13 @@ export default function App() {
     <footer className="site-footer"><span>Little blooms. Big feelings.</span><span>Made for sharing <Heart size={12} /></span></footer>
     {notice && <div className="toast" role="status"><Check size={16} />{notice}</div>}
     {modal === 'presets' && <Modal title="A little inspiration" onClose={() => setModal(null)} className="presets-modal"><p className="modal-description">Pick a starting point. Make it your own.</p><div className="preset-grid">{presets.map(p => <button key={p.name} className="preset-card" onClick={() => { setConfig({ ...clone(p.config), objects: config.objects, gift: config.gift }); setReplay(v => v + 1); setModal(null); }}><div className="preset-art" style={{ background: palettes.find(pal => pal.id === p.config.palette)!.background }}>{p.config.flowers.slice(0, 3).map((f, i) => <span key={f.id} style={{ transform: `rotate(${(i - 1) * 17}deg)` }}><Thumb category="flowers" item={findItem('flowers', f.id)} color={f.color} /></span>)}</div><strong>{p.name}</strong><span>{p.note}</span></button>)}</div></Modal>}
-    {modal === 'share' && <Modal title="Send a little joy" onClose={() => setModal(null)} className="share-modal"><div className="share-ornament"><Send size={26} strokeWidth={1.2} /></div><p className="modal-description">Give your bouquet a title and a personal message.</p><GiftCopyFields gift={config.gift} onChange={updateGiftCopy} /><label className="share-link-label">Your bouquet link<input ref={shareInput} className="share-link" value={linkPending ? '' : link?.url ?? ''} placeholder="Preparing your link…" readOnly onFocus={e => e.target.select()} /></label><p className={`link-status ${!linkPending && link && !link.short ? 'portable' : ''}`} role="status">{linkPending ? 'Saving your gift and preparing a short link…' : link?.short ? `Short link ready · ${link.url.length} characters, pictures included` : 'Portable link ready. Short links are unavailable here, so the gift is included in the URL.'}</p><div className="share-actions"><button className="primary-button" disabled={linkPending || !link} onClick={copyLink}>{shareCopied ? <Check size={17} /> : <Copy size={17} />}{shareCopied ? 'Link copied!' : 'Copy link'}</button>{typeof navigator.share === 'function' && <button className="secondary-button" disabled={linkPending || !link} onClick={nativeShare}><Share2 size={17} /> Share via…</button>}</div><p className="share-note">They’ll open your gift and can remix their own. Anyone with the link can see the bouquet, names, title, body{config.objects.some(o => o.note) ? ', envelope notes' : ''}{config.objects.some(o => o.photo) ? ' and frame pictures' : ''}.{!linkPending && link?.short && ' This link keeps a saved copy; later edits won’t change their gift.'}{!linkPending && link && !link.short && config.objects.some(o => o.photo) && ' Photos make portable links longer.'}</p></Modal>}
+    {modal === 'share' && <Modal title="Send a little joy" onClose={() => setModal(null)} className="share-modal">
+      <div className="share-ornament"><Send size={26} strokeWidth={1.2} /></div><p className="modal-description">Give your bouquet a title and a personal message.</p>
+      <GiftCopyFields gift={config.gift} onChange={updateGiftCopy} />
+      <label className="share-link-label">Your bouquet link<input ref={shareInput} className="share-link" value={currentLink?.status === 'ready' ? currentLink.url : ''} placeholder={currentLink?.status === 'error' ? 'Short link unavailable' : 'Preparing your link…'} readOnly onFocus={e => e.target.select()} /></label>
+      {currentLink?.status === 'error' ? <p className="link-status" role="alert">{currentLink.message}</p> : <p className="link-status" role="status">{linkPending ? 'Saving your gift and preparing a short link…' : currentLink?.status === 'ready' ? 'Short link ready · ' + currentLink.url.length + ' characters, pictures included' : ''}</p>}
+      <div className="share-actions">{currentLink?.status === 'error' && <button className="secondary-button" onClick={retryShare}><RefreshCw size={17} /> Retry</button>}<button className="primary-button" disabled={!canShare} onClick={copyLink}>{shareCopied && canShare ? <Check size={17} /> : <Copy size={17} />}{shareCopied && canShare ? 'Link copied!' : 'Copy link'}</button>{typeof navigator.share === 'function' && <button className="secondary-button" disabled={!canShare} onClick={nativeShare}><Share2 size={17} /> Share via…</button>}</div>
+      <p className="share-note">They’ll open your gift and can remix their own. Anyone with the link can see the bouquet, names, title, body{config.objects.some(o => o.note) ? ', envelope notes' : ''}{config.objects.some(o => o.photo) ? ' and frame pictures' : ''}.{canShare && ' This link keeps a saved copy; later edits won’t change their gift.'}</p>
+    </Modal>}
   </div>;
 }

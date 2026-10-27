@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "account_id": "08632a6b9dd841753311d078d691f1fd",
+  "name": "digital-boquet-3d",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "preview_urls": true,
+  "keep_vars": true,
+  "assets": {
+    "directory": "../dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [{ "pattern": "bouquetforyou.lar-ykt.com", "custom_domain": true }]
+}

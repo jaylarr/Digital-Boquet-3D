@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { DRAFT_KEY, type BouquetConfigV1 } from '../../src/config';
+import { DRAFT_KEY, type BouquetConfigV1, shareUrl } from '../../src/config';
 import { readyLink, sharedDesign } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
@@ -73,7 +73,7 @@ test('bulk height survives reload, saved and portable gifts and mobile remix, an
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); const short = await readyLink(page); expect((await sharedDesign(page, short)).arrangement?.height).toBe(.7);
   await page.getByRole('button', { name: 'Close dialog', exact: true }).click();
   await page.route('**/api/bouquets', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
-  await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await page.getByLabel('Title', { exact: true }).fill('All blooms, lifted'); const portable = await readyLink(page); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).arrangement?.height).toBe(.7);
+  await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await page.getByLabel('Title', { exact: true }).fill('All blooms, lifted'); await expect(page.getByRole('alert')).toContainText("We couldn't create a short link"); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeDisabled(); const portable = shareUrl(await draft(page), page.url()); expect(new URL(portable).hash).toMatch(/^#b=c\./); expect((await sharedDesign(page, portable)).arrangement?.height).toBe(.7);
   await page.getByRole('button', { name: 'Close dialog', exact: true }).click(); await page.reload(); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true'); expect((await draft(page)).arrangement?.height).toBe(.7);
   const receiverContext = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' }), receiver = await receiverContext.newPage();
   await receiver.goto(short); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();

@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { Buffer } from 'node:buffer';
-import { DRAFT_KEY, clone, starter, type BouquetConfigV1 } from '../../src/config';
+import { DRAFT_KEY, clone, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
 import { readyLink, sharedDesign } from './shareHelpers';
 async function draft(page: Page) { return page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY); }
 async function setRange(page: Page, label: string, value: string) {
@@ -57,11 +57,11 @@ test('cropping keeps a framed preview and source, persists the crop, and shares 
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull(); await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.objects[0]).toEqual(saved); expect((await draft(receiver)).gift.title).toBe('');
   await writeFile('artifacts/studio/features.json', JSON.stringify({ shortUrlLength: url.length, sourcePhotoLength: saved.photo?.length, crop: saved.crop, errors }, null, 2)); expect(errors).toEqual([]); await context.close();
 });
-test('the direction guide follows camera rotation and aligns the front; failed services keep portable sharing', async ({ page }) => {
+test('the direction guide follows camera rotation and aligns the front; failed services show retry without portable sharing', async ({ page }) => {
   await page.goto('/'); await expect(page.getByTestId('scene')).toHaveAttribute('data-ready', 'true');
   await page.getByRole('button', { name: 'Show front view', exact: true }).click(); await expect(page.locator('.front-guide')).toContainText('Viewing: Front');
   const box = (await page.getByTestId('scene').boundingBox())!; await page.mouse.move(box.x + box.width * .6, box.y + box.height * .65); await page.mouse.down(); await page.mouse.move(box.x + box.width * .9, box.y + box.height * .65, { steps: 12 }); await page.mouse.up();
   await expect(page.locator('.front-guide strong')).not.toHaveText('Front'); await page.getByRole('button', { name: 'Show front view', exact: true }).click(); await expect(page.locator('.front-guide strong')).toHaveText('Front');
-  await page.route('**/api/bouquets', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' })); await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); const url = await readyLink(page); expect(new URL(url).hash).toMatch(/^#b=c\./); expect(await sharedDesign(page, url)).toEqual(clone(starter)); await expect(page.locator('.link-status')).toContainText('Portable link ready');
+  await page.route('**/api/bouquets', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' })); await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); await expect(page.getByRole('alert')).toContainText("We couldn't create a short link"); await expect(page.getByRole('button', { name: 'Copy link', exact: true })).toBeDisabled(); const url = shareUrl(clone(starter), page.url()); expect(await sharedDesign(page, url)).toEqual(clone(starter));
   await page.getByRole('button', { name: 'Close dialog', exact: true }).click(); await page.goto('/#s=0000000000000000'); await expect(page.getByRole('alert')).toContainText('could not be found'); await expect(page.getByRole('button', { name: 'Share bouquet', exact: true })).toBeEnabled();
 });
