@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { clone, DRAFT_KEY, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
 const metrics = (page: Page) => page.evaluate(() => (window as unknown as { __petalpopMetrics: () => { modelBuilds: number } }).__petalpopMetrics());
@@ -102,7 +102,7 @@ test('filler settings survive saved and portable gifts, remix and PNG export', a
   const download = receiver.waitForEvent('download'); await receiver.getByRole('button', { name: 'Keep this bouquet', exact: true }).click();
   await (await download).saveAs('artifacts/filler-editor/filler-card.png');
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click();
+  await confirmRemix(receiver);
   await expect.poll(async () => (await draft(receiver)).arrangement).toEqual(saved.arrangement); await arrange(receiver);
   await expect(receiver.getByRole('slider', { name: 'All filler height', exact: true })).toHaveValue('0.7');
   await expect(receiver.getByRole('button', { name: 'Natural filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true');

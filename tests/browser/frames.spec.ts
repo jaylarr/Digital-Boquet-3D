@@ -3,7 +3,7 @@ import { Buffer } from 'node:buffer';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { DRAFT_KEY, type BouquetConfigV1 } from '../../src/config';
 import { createGiftObject, giftAssets, isFrame } from '../../src/giftCatalog';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1 | null, DRAFT_KEY);
 async function picture(page: Page) {
@@ -55,7 +55,7 @@ test('four frame designs change orientation, retain recroppable pictures, duplic
   const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 } }), recipient = await context.newPage(); recipient.on('pageerror', e => errors.push(e.message));
   await recipient.goto(url); await recipient.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(recipient.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();
   expect(await draft(recipient)).toBeNull(); const pending = recipient.waitForEvent('download'); await recipient.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); await (await pending).saveAs(`artifacts/frames/${prefix}frame-card.png`);
-  await recipient.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(recipient))?.objects).toEqual(design.objects);
+  await confirmRemix(recipient); await expect.poll(async () => (await draft(recipient))?.objects).toEqual(design.objects);
   await recipient.getByRole('tab', { name: 'Objects', exact: true }).click(); await recipient.getByRole('button', { name: 'Edit Landscape Frame 2', exact: true }).click();
   for (const width of [320, 390, 768]) {
     await recipient.setViewportSize({ width, height: 844 }); expect(await recipient.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

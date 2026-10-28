@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { Buffer } from 'node:buffer';
 import { clone, DRAFT_KEY, starter, type BouquetConfigV1 } from '../../src/config';
 import { createGiftObject } from '../../src/giftCatalog';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 type Metrics = { modelBuilds: number; objectBuilds: number; objects: number; calls: number; triangles: number };
 async function draft(page: import('@playwright/test').Page) { return page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY); }
@@ -48,7 +48,7 @@ test('objects add, drag, place, transform, persist, share and export with a cust
   await expect.poll(async () => (await metrics(receiver)).objects).toBe(5); expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
   await receiver.screenshot({ path: 'artifacts/objects/shared-gift.png', fullPage: true });
   const pending = receiver.waitForEvent('download'); await receiver.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); const download = await pending; await download.saveAs('artifacts/objects/gift-card.png'); const png = await readFile('artifacts/objects/gift-card.png'); expect(png.readUInt32BE(16)).toBe(1080); expect(png.readUInt32BE(20)).toBe(1080);
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.objects).toEqual(design.objects);
+  await confirmRemix(receiver); await expect.poll(async () => (await draft(receiver))?.objects).toEqual(design.objects);
   await receiver.getByRole('tab', { name: 'Objects', exact: true }).click(); await receiver.getByRole('button', { name: 'Edit Memory Frame 5', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Use sample picture', exact: true })).toBeVisible();
   await receiver.getByRole('button', { name: 'Duplicate selected object', exact: true }).click(); await expect.poll(async () => (await metrics(receiver)).objects).toBe(6); await expect(receiver.getByRole('button', { name: 'Add Cuddle Teddy', exact: true })).toBeDisabled();
   await receiver.getByRole('button', { name: 'Remove Memory Frame 6', exact: true }).click(); await expect.poll(async () => (await metrics(receiver)).objects).toBe(5);

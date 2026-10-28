@@ -20,7 +20,7 @@ export type ViewDirection = 'Front' | 'Right side' | 'Back' | 'Left side';
 interface Props { config: BouquetConfigV1; motion: boolean; replay: number; onReady: (handle: ViewerHandle | null) => void; onFailure: () => void; onDirection?: (direction: ViewDirection) => void; interaction?: ObjectInteraction; openNote?: (uid: string, origin?: NoteOrigin) => void; flowerInteraction?: { selected: string | null; select: (key: string) => void }; fillerInteraction?: { selected: string | null; select: (key: string) => void }; }
 
 function Scene({ config, motion, replay, onReady, onFailure, onDirection, interaction, openNote, flowerInteraction, fillerInteraction }: Props) {
-  const { gl, scene, camera, size, invalidate, setDpr } = useThree();
+  const { gl, scene, camera, size, invalidate } = useThree();
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const [design, setDesign] = useState<AnimatedBouquet | null>(null), [effects, setEffects] = useState<Effects | null>(null);
   const [objectEngine, setObjectEngine] = useState<ObjectScene | null>(null), [dragging, setDragging] = useState(false);
@@ -131,7 +131,8 @@ function Scene({ config, motion, replay, onReady, onFailure, onDirection, intera
       if (fps.current.seconds > 2) {
         fps.current.value = fps.current.samples / fps.current.seconds;
         const target = fps.current.value < 20 ? 2 : fps.current.value < 32 ? 1 : 0;
-        if (target > fps.current.quality) { fps.current.quality = target; design?.lowerQuality(); effects?.lowerQuality(); setDpr(target === 2 ? (low ? .6 : .75) : low ? .8 : 1); }
+        // Keep resolution owned by Canvas; economy mode changes materials and cadence.
+        if (target > fps.current.quality) { fps.current.quality = target; design?.lowerQuality(); effects?.lowerQuality(); }
         fps.current.samples = 0; fps.current.seconds = 0;
       }
     }

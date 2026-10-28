@@ -1,7 +1,7 @@
 import { test, expect, type BrowserContext } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { clone, DRAFT_KEY, starter, decode, shareUrl } from '../../src/config';
-import { readyLink } from './shareHelpers';
+import { readyLink, confirmRemix } from './shareHelpers';
 
 const code = 'Abcdef012345_-XY';
 test('save errors show Retry, preserve edits and never expose a portable URL', async ({ page }) => {
@@ -113,7 +113,7 @@ test('real Worker stores photos and notes; fresh recipients and legacy gifts ret
     await receiver.getByRole('button', { name: 'Close letter', exact: true }).click();
     await receiver.goto(shareUrl(config, url)); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click();
     await expect(receiver.getByRole('heading', { name: config.gift.title, exact: true })).toBeVisible();
-    await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click();
+    await confirmRemix(receiver);
     await expect.poll(() => receiver.evaluate(key => JSON.parse(localStorage.getItem(key) ?? 'null')?.objects, DRAFT_KEY)).toEqual(config.objects);
   } finally { await receiverContext.close(); }
 });

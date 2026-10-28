@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { clone, DRAFT_KEY, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
 import { layout } from '../../src/layout';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
 async function setRange(page: Page, label: string, value: string) {
@@ -65,7 +65,7 @@ test('stem visibility excludes bags and exact arrangements survive short links, 
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
   await receiver.screenshot({ path: 'artifacts/arrangement/gift-mobile.png', fullPage: true });
   const pending = receiver.waitForEvent('download'); await receiver.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); await (await pending).saveAs('artifacts/arrangement/stepped-card.png');
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.arrangement).toEqual(saved.arrangement);
+  await confirmRemix(receiver); await expect.poll(async () => (await draft(receiver))?.arrangement).toEqual(saved.arrangement);
   await writeFile('artifacts/arrangement/sharing.json', JSON.stringify({ shortUrlLength: url.length, arrangement: saved.arrangement, errors }, null, 2)); expect(errors).toEqual([]); await context.close();
 });
 
@@ -109,7 +109,7 @@ test('fillers have independent stepped heights with undo, shuffle, reload, shari
   const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 390, height: 844 }, hasTouch: true }), receiver = await context.newPage(); receiver.on('pageerror', e => errors.push(e.message));
   await receiver.goto(url); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled(); expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
   const pending = receiver.waitForEvent('download'); await receiver.getByRole('button', { name: 'Keep this bouquet', exact: true }).click(); await (await pending).saveAs('artifacts/arrangement/fillers-card.png');
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.arrangement).toEqual(saved.arrangement);
+  await confirmRemix(receiver); await expect.poll(async () => (await draft(receiver))?.arrangement).toEqual(saved.arrangement);
   await receiver.getByRole('tab', { name: 'Fillers', exact: true }).click(); await receiver.getByRole('button', { name: 'Arrange fillers', exact: true }).click(); for (const width of [320, 390]) { await receiver.setViewportSize({ width, height: 844 }); await expect(receiver.getByRole('button', { name: 'Stepped filler arrangement', exact: true })).toHaveAttribute('aria-pressed', 'true'); expect(await receiver.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
   await receiver.screenshot({ path: 'artifacts/arrangement/fillers-mobile.png', fullPage: true }); expect(errors).toEqual([]); await context.close();
 });

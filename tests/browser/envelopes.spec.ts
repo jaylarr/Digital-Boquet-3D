@@ -3,7 +3,7 @@ import { mkdir } from 'node:fs/promises';
 import { clone, DRAFT_KEY, starter, type BouquetConfigV1 } from '../../src/config';
 import { createGiftObject } from '../../src/giftCatalog';
 import { NOTE_LIMIT, noteText } from '../../src/notes';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
 async function selectText(page: Page, start = 0, end?: number) {
@@ -54,7 +54,7 @@ test('sealed scene object opens rich editor; formatting, save, undo, sharing and
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull(); expect(await letter.evaluate(n => n.scrollWidth <= n.clientWidth)).toBe(true);
   await letter.screenshot({ path: 'artifacts/envelopes/letter-mobile.png' }); await receiver.keyboard.press('Escape'); await expect(letter).toHaveCount(0);
   await receiver.getByRole('button', { name: 'Open your letter', exact: true }).click(); await expect(letter).toBeVisible(); await letter.getByRole('button', { name: 'Close letter', exact: true }).click();
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click();
+  await confirmRemix(receiver);
   await receiver.getByRole('tab', { name: 'Objects', exact: true }).click(); await receiver.getByRole('button', { name: 'Edit Sealed Letter 1', exact: true }).click();
   await receiver.getByRole('button', { name: 'Duplicate selected object', exact: true }).click(); await expect.poll(async () => (await draft(receiver)).objects.length).toBe(2); expect((await draft(receiver)).objects[1].note).toEqual(saved.note);
   expect(errors).toEqual([]); await context.close();

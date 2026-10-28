@@ -2,7 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { Buffer } from 'node:buffer';
 import { DRAFT_KEY, clone, starter, type BouquetConfigV1, shareUrl } from '../../src/config';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 async function draft(page: Page) { return page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY); }
 async function setRange(page: Page, label: string, value: string) {
   await page.getByRole('slider', { name: label, exact: true }).evaluate((input, v) => { Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!.call(input, v); input.dispatchEvent(new Event('input', { bubbles: true })); input.dispatchEvent(new Event('change', { bubbles: true })); }, value);
@@ -54,7 +54,7 @@ test('cropping keeps a framed preview and source, persists the crop, and shares 
   await page.getByRole('button', { name: 'Share bouquet', exact: true }).click(); const url = await readyLink(page); expect(url.length).toBeLessThan(60); expect((await sharedDesign(page, url)).objects[0]).toEqual(saved); await page.getByRole('dialog').screenshot({ path: 'artifacts/studio/short-link-mobile.png' });
   await page.getByRole('button', { name: 'Close dialog', exact: true }).click(); await page.getByRole('tab', { name: 'Gift', exact: true }).click(); await page.getByLabel('Title', { exact: true }).fill('A later change');
   const context = await browser.newContext({ reducedMotion: 'reduce' }), receiver = await context.newPage(); await receiver.goto(url); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();
-  expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull(); await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await expect.poll(async () => (await draft(receiver))?.objects[0]).toEqual(saved); expect((await draft(receiver)).gift.title).toBe('');
+  expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull(); await confirmRemix(receiver); await expect.poll(async () => (await draft(receiver))?.objects[0]).toEqual(saved); expect((await draft(receiver)).gift.title).toBe('');
   await writeFile('artifacts/studio/features.json', JSON.stringify({ shortUrlLength: url.length, sourcePhotoLength: saved.photo?.length, crop: saved.crop, errors }, null, 2)); expect(errors).toEqual([]); await context.close();
 });
 test('the direction guide follows camera rotation and aligns the front; failed services show retry without portable sharing', async ({ page }) => {

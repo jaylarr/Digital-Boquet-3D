@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { DRAFT_KEY, type BouquetConfigV1, shareUrl } from '../../src/config';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 const draft = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key)!) as BouquetConfigV1, DRAFT_KEY);
 async function arrange(page: Page) {
@@ -78,7 +78,7 @@ test('bulk height survives reload, saved and portable gifts and mobile remix, an
   const receiverContext = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' }), receiver = await receiverContext.newPage();
   await receiver.goto(short); await receiver.getByRole('button', { name: 'Tap to open', exact: true }).click(); await expect(receiver.getByRole('button', { name: 'Keep this bouquet', exact: true })).toBeEnabled();
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click(); await arrange(receiver); await expect(receiver.getByRole('slider', { name: 'All flower height', exact: true })).toHaveValue('0.7');
+  await confirmRemix(receiver); await arrange(receiver); await expect(receiver.getByRole('slider', { name: 'All flower height', exact: true })).toHaveValue('0.7');
   await receiver.getByRole('button', { name: 'Reset overall height', exact: true }).click(); await expect(receiver.getByRole('slider', { name: 'All flower height', exact: true })).toHaveValue('0');
   await receiverContext.close(); await context.close();
 });

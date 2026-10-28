@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import LZString from 'lz-string';
 import { clone, encode, starter, DRAFT_KEY } from '../../src/config';
-import { readyLink, sharedDesign } from './shareHelpers';
+import { readyLink, sharedDesign, confirmRemix } from './shareHelpers';
 
 test('all 50 original variants render, and the editor fits phone through desktop', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -57,7 +57,7 @@ test('shared URLs reconstruct gifts in a fresh context and preserve the recipien
   expect(await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY)).toBeNull();
   await receiver.evaluate(({ key, draft }) => localStorage.setItem(key, JSON.stringify(draft)), { key: DRAFT_KEY, draft: starter }); await receiver.reload(); await receiver.getByRole('button', { name: 'Tap to open' }).click();
   expect(JSON.parse((await receiver.evaluate(key => localStorage.getItem(key), DRAFT_KEY))!)).toEqual(starter);
-  await receiver.getByRole('button', { name: 'Remix bouquet', exact: true }).last().click();
+  await confirmRemix(receiver);
   await expect.poll(() => receiver.evaluate(key => JSON.parse(localStorage.getItem(key)!).gift.to, DRAFT_KEY)).toBe('小花 🌷');
   expect(new URL(receiver.url()).hash).toBe(''); await receiver.reload(); await receiver.getByRole('tab', { name: 'Gift', exact: true }).click(); await expect(receiver.getByLabel('For', { exact: true })).toHaveValue('小花 🌷'); await expect(receiver.getByLabel('Title', { exact: true })).toHaveValue(source.gift.title); await expect(receiver.getByLabel('Body', { exact: true })).toHaveValue(source.gift.message); await context.close();
 });

@@ -1,4 +1,4 @@
-import { lazy, memo, Suspense, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { lazy, memo, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { Flower2, Leaf, PackageOpen, Ribbon, Sparkles, Gift, Shuffle, RotateCcw, Download, Share2, Check, Plus, Minus, X, Copy, ArrowLeft, Heart, Pause, Play, MousePointer2, WandSparkles, ChevronDown, Send, RefreshCw, Shapes, Undo2, Redo2, Compass, Mail } from 'lucide-react';
 import { catalog, findItem, palettes, type Category, type CatalogItem } from './catalog';
 import { applyPalette, clone, decode, GIFT_BODY_LIMIT, GIFT_TITLE_LIMIT, loadDraft, presets, saveDraft, seed, starter, surprise, total, type BouquetConfigV1 } from './config';
@@ -44,7 +44,7 @@ const Thumb = memo(function Thumb({ category, item, color }: { category: Categor
 });
 function Modal({ title, children, onClose, className = '' }: { title: string; children: React.ReactNode; onClose: () => void; className?: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  useEffect(() => { dialog.current?.showModal(); const node = dialog.current; return () => { node?.close(); }; }, []);
+  useLayoutEffect(() => { const opener = document.activeElement, node = dialog.current; node?.showModal(); return () => { node?.close(); if (opener instanceof HTMLElement && opener.isConnected) opener.focus({ preventScroll: true }); }; }, []);
   return <dialog ref={dialog} className={`modal ${className}`} aria-label={title} onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) { const r = e.currentTarget.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) onClose(); } }}>
     <div className="modal-top"><h2>{title}</h2><button className="icon-button" aria-label="Close dialog" onClick={onClose}><X size={20} /></button></div>{children}
   </dialog>;
@@ -67,7 +67,7 @@ export default function App() {
   const [link, setLink] = useState<ShareLinkState>(null), [shareAttempt, setShareAttempt] = useState(0);
   const rangeEditing = useRef(false), studioScroll = useRef(0);
   const [tab, setTab] = useState<Tab>('flowers'), [error, setError] = useState(initial.error), [opened, setOpened] = useState(false);
-  const [modal, setModal] = useState<'presets' | 'share' | null>(null), [notice, setNotice] = useState(''), [shareCopied, setShareCopied] = useState(false);
+  const [modal, setModal] = useState<'presets' | 'share' | 'remix' | null>(null), [notice, setNotice] = useState(''), [shareCopied, setShareCopied] = useState(false);
   const currentLink = link?.config === config ? link : null;
   const canShare = currentLink?.status === 'ready';
   const linkPending = modal === 'share' && currentLink === null;
@@ -182,11 +182,12 @@ export default function App() {
       setReplay(v => v + 1); setNotice('A little surprise, just for you.');
     } catch (error) { setNotice((error as Error).message); }
   };
+  const sharedGift = mode === 'gift' && (window.location.hash.startsWith('#s=') || window.location.hash.startsWith('#b='));
   const frontGuide = <div className="front-guide"><span>Viewing: <strong>{direction}</strong></span><button aria-label="Show front view" title="Face the front of the bouquet and objects" disabled={!ready} onClick={() => viewer.current?.front()}><Compass size={15} /> Front view</button></div>;
   return <div className={`app ${mode === 'gift' ? 'gift-mode' : ''} ${mobileStudio ? 'mobile-workspace' : ''} ${flowerFocused ? 'flower-workspace' : ''}`} onFocusCapture={e => { const node = e.target; if (node instanceof HTMLInputElement && node.type !== 'file' && !node.readOnly || node instanceof HTMLTextAreaElement) { if (!node.closest('.crop-modal, .note-dialog')) beginEdit(); } }} onBlurCapture={e => { if ((e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) && !e.target.closest('.crop-modal, .note-dialog')) endEdit(); }} onPointerDownCapture={e => { if (e.target instanceof HTMLInputElement && e.target.type === 'range' && !e.target.closest('.crop-modal, .note-dialog')) { rangeEditing.current = true; beginEdit(); } }} onKeyDownCapture={e => { if (e.target instanceof HTMLInputElement && e.target.type === 'range' && !e.target.closest('.crop-modal, .note-dialog') && ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown'].includes(e.key)) beginEdit(); }} onKeyUpCapture={e => { if (e.target instanceof HTMLInputElement && e.target.type === 'range') endEdit(); }}>
     <header className="site-header">
-      <a className="brand" href={window.location.pathname} aria-label="PetalPop home"><span className="brand-mark"><Flower2 size={30} strokeWidth={1.6} /></span><span>petalpop<span className="brand-3d">3D</span><small>a little joy, in bloom</small></span></a>
-      <div className="header-actions">{mode === 'editor' ? <><button className="quiet-button preview-button" onClick={giftPreview} disabled={!hasDesign}><Gift size={17} /> Preview gift</button><button className="primary-button share-header" aria-label="Share bouquet" onClick={showShare} disabled={!hasDesign}><Share2 size={17} /><span>Share bouquet</span></button></> : <button className="quiet-button" disabled={loadingShared} onClick={goEditor}><ArrowLeft size={17} /> {initial.mode === 'gift' ? 'Remix bouquet' : 'Back to studio'}</button>}</div>
+      <a className="brand" href={window.location.pathname} aria-label="PetalPop home" aria-haspopup={sharedGift ? 'dialog' : undefined} aria-disabled={sharedGift && loadingShared ? true : undefined} onClick={e => { if (sharedGift) { e.preventDefault(); if (!loadingShared) setModal('remix'); } }}><span className="brand-mark"><Flower2 size={30} strokeWidth={1.6} /></span><span>petalpop<span className="brand-3d">3D</span><small>a little joy, in bloom</small></span></a>
+      {!sharedGift && <div className="header-actions">{mode === 'editor' ? <><button className="quiet-button preview-button" onClick={giftPreview} disabled={!hasDesign}><Gift size={17} /> Preview gift</button><button className="primary-button share-header" aria-label="Share bouquet" onClick={showShare} disabled={!hasDesign}><Share2 size={17} /><span>Share bouquet</span></button></> : <button className="quiet-button" onClick={goEditor}><ArrowLeft size={17} /> Back to studio</button>}</div>}
     </header>
     {error && <div className="error-banner" role="alert"><span>{error} Your saved draft is still here.</span><button className="quiet-button" onClick={() => { history.replaceState(null, '', window.location.pathname); setError(''); replaceConfig(loadDraft()); setMode('editor'); }}>Open studio</button></div>}
     {loadingShared ? <main className="gift-page"><div className="scene-loading" role="status"><Flower2 size={32} /><span>Opening your little bouquet…</span></div></main> : mode === 'editor' ? <main className="workspace">
@@ -241,7 +242,7 @@ export default function App() {
         <div className="gift-scene" style={{ '--scene-color': palette.background } as React.CSSProperties}>{failed ? <PreviewUnavailable config={config} retry={() => setFailed(false)} /> : <Suspense fallback={<div className="scene-loading">Growing something lovely…</div>}><Viewer config={config} motion={motion} replay={replay} onReady={onReady} onFailure={onFailure} onDirection={setDirection} openNote={openNote} /></Suspense>}{frontGuide}<div className="gift-scene-tools"><button className="icon-button" aria-label="Reset view" onClick={() => viewer.current?.reset()}><RotateCcw size={18} /></button><button className="icon-button" aria-label={motionEnabled ? 'Pause motion' : 'Enable motion'} disabled={reduced} onClick={() => setMotionEnabled(value => !value)}>{motion ? <Pause size={18} /> : <Play size={18} />}</button><button className="icon-button" aria-label="Replay effects" onClick={() => setReplay(v => v + 1)}><RefreshCw size={18} /></button></div></div>
         {config.objects.some(o => o.id === 'sealed-envelope') && <div className="gift-envelope-actions" aria-label="Letters in this bouquet">{config.objects.filter(o => o.id === 'sealed-envelope').map((o, i) => <button key={o.uid} className="secondary-button" onClick={e => { const r = e.currentTarget.getBoundingClientRect(); openNote(o.uid, { x: r.x + r.width / 2, y: r.y + r.height / 2 }); }}><Mail size={16} />{config.objects.filter(o => o.id === 'sealed-envelope').length > 1 ? `Open letter ${i + 1}` : 'Open your letter'}</button>)}</div>}
         {(config.gift.message || config.gift.from) && <div className="gift-letter">{config.gift.message && <p>{config.gift.message}</p>}{config.gift.from && <span>With love, <strong>{config.gift.from}</strong><Heart size={14} /></span>}</div>}
-        <div className="gift-bottom-actions"><button className="quiet-button" onClick={exportCard} disabled={!canExport || exporting}><Download size={17} /> {exporting ? 'Saving…' : 'Keep this bouquet'}</button><button className="primary-button" onClick={goEditor}><WandSparkles size={17} /> Remix bouquet</button></div>
+        <div className="gift-bottom-actions"><button className="quiet-button" onClick={exportCard} disabled={!canExport || exporting}><Download size={17} /> {exporting ? 'Saving…' : 'Keep this bouquet'}</button>{!sharedGift && <button className="primary-button" onClick={goEditor}><WandSparkles size={17} /> Remix bouquet</button>}</div>
       </>}
     </main>}
     {mode === 'editor' && !loadingShared && <MobileStudioNav hasDesign={hasDesign} previewGift={giftPreview} flowerFocused={flowerFocused} showBouquet={() => { setFlowerFocus(false); requestAnimationFrame(() => scrollStudioTo('bouquet-preview')); }} customize={() => { setFlowerFocus(true); requestAnimationFrame(() => scrollStudioTo('builder-navigation')); }} />}
@@ -249,6 +250,10 @@ export default function App() {
     <footer className="site-footer"><span>Little blooms. Big feelings.</span><span>Made for sharing <Heart size={12} /></span></footer>
     {notice && <div className="toast" role="status"><Check size={16} />{notice}</div>}
     {modal === 'presets' && <Modal title="A little inspiration" onClose={() => setModal(null)} className="presets-modal"><p className="modal-description">Pick a starting point. Make it your own.</p><div className="preset-grid">{presets.map(p => <button key={p.name} className="preset-card" onClick={() => { setConfig({ ...clone(p.config), objects: config.objects, gift: config.gift }); setReplay(v => v + 1); setModal(null); }}><div className="preset-art" style={{ background: palettes.find(pal => pal.id === p.config.palette)!.background }}>{p.config.flowers.slice(0, 3).map((f, i) => <span key={f.id} style={{ transform: `rotate(${(i - 1) * 17}deg)` }}><Thumb category="flowers" item={findItem('flowers', f.id)} color={f.color} /></span>)}</div><strong>{p.name}</strong><span>{p.note}</span></button>)}</div></Modal>}
+    {modal === 'remix' && <Modal title="Make this bouquet your own?" onClose={() => setModal(null)}>
+      <p className="modal-description">Open this bouquet in the studio to customize it. This will replace any bouquet saved on this device.</p>
+      <div className="share-actions"><button className="quiet-button" onClick={() => setModal(null)}>Stay with gift</button><button className="primary-button" onClick={() => { setModal(null); goEditor(); }}>Open studio</button></div>
+    </Modal>}
     {modal === 'share' && <Modal title="Send a little joy" onClose={() => setModal(null)} className="share-modal">
       <div className="share-ornament"><Send size={26} strokeWidth={1.2} /></div><p className="modal-description">Give your bouquet a title and a personal message.</p>
       <GiftCopyFields gift={config.gift} onChange={updateGiftCopy} />
